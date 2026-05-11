@@ -106,21 +106,29 @@
         </div>
         <div>
           <h2 class="text-4xl font-black text-lumina-espresso mb-8 tracking-tighter">Send a <span class="italic text-lumina-mint-dark">Spark</span></h2>
-          <form class="glass rounded-[3rem] p-10 space-y-8">
+          <% if (locals.success) { %>
+            <div class="glass rounded-[3rem] p-10 text-center">
+              <div class="text-5xl mb-4">&#10024;</div>
+              <h3 class="text-2xl font-black text-lumina-mint-dark mb-4">Message Sent!</h3>
+              <p class="text-lumina-espresso-light"><%= success %></p>
+            </div>
+          <% } else { %>
+          <form action="/contact" method="POST" class="glass rounded-[3rem] p-10 space-y-8">
             <div class="space-y-2">
               <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Full Name</label>
-              <input type="text" class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="Your name"/>
+              <input type="text" name="name" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="Your name"/>
             </div>
             <div class="space-y-2">
               <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Email Address</label>
-              <input type="email" class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="your@email.com"/>
+              <input type="email" name="email" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="your@email.com"/>
             </div>
             <div class="space-y-2">
               <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Message</label>
-              <textarea rows="4" class="w-full glass border-none rounded-[2rem] px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="What's on your mind?"></textarea>
+              <textarea rows="4" name="message" required class="w-full glass border-none rounded-[2rem] px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="What's on your mind?"></textarea>
             </div>
             <button type="submit" class="w-full bg-lumina-espresso text-white py-5 rounded-full font-black uppercase tracking-widest text-sm hover:bg-lumina-mint hover:text-lumina-espresso transition-all transform hover:scale-[1.02] shadow-2xl shadow-lumina-espresso/20">Send Spark</button>
           </form>
+          <% } %>
         </div>
       </div>
     </section>

@@ -52,6 +52,12 @@ app.get('/contact', (req, res) => {
   res.render('contact');
 });
 
+app.post('/contact', (req, res) => {
+  const { name, email, message } = req.body;
+  console.log(`Contact form: ${name} (${email}): ${message}`);
+  res.render('contact', { success: `Thanks for reaching out, ${name}! We'll get back to you within 24 hours.` });
+});
+
 app.get('/reservations', (req, res) => {
   res.render('reservations');
 });
