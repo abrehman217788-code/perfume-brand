@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Cafe — Light. Flavor. Community.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">LUMINA</a>
+    <div class="nav-links">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/menu" class="nav-link">Menu</a>
+      <a href="/reservations" class="nav-link">Reservations</a>
+      <a href="/experience" class="nav-link">Experience</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-subtitle">Welcome to</p>
+    <h1 class="hero-title">Lumina Cafe</h1>
+    <p class="hero-desc">Where light meets flavor. Handcrafted coffee, seasonal brunch, and artisan desserts in the heart of the city.</p>
+    <div class="hero-actions">
+      <a href="/menu" class="btn btn-primary">Explore Menu</a>
+      <a href="/reservations" class="btn btn-outline">Reserve a Table</a>
+    </div>
+  </div>
+</section>
+
+<section class="section featured-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">From Our Kitchen</span>
+      <h2 class="section-title">Featured <span class="italic">Selections</span></h2>
+      <p class="section-desc">Our chefs' handpicked favorites, crafted with seasonal ingredients and passion.</p>
+    </div>
+    <div class="featured-grid">
+      <% if (typeof menuItems !== 'undefined') { %>
+        <% menuItems.filter(item => item.featured).slice(0, 3).forEach(item => { %>
+          <div class="featured-card">
+            <div class="featured-card-img">
+              <img src="<%= item.image %>" alt="<%= item.name %>" loading="lazy"/>
+            </div>
+            <div class="featured-card-body">
+              <span class="featured-category"><%= item.category %></span>
+              <h3 class="featured-name"><%= item.name %></h3>
+              <p class="featured-desc"><%= item.description %></p>
+              <span class="featured-price">$<%= item.price.toFixed(2) %></span>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="section ambiance-section">
+  <div class="container">
+    <div class="ambiance-grid">
+      <div class="ambiance-content">
+        <span class="section-tag">Our Space</span>
+        <h2 class="section-title">More Than <span class="italic">Coffee</span></h2>
+        <p>Step into a space designed for connection. Warm woods, natural light, and the gentle hum of conversation create the perfect backdrop for your morning ritual or afternoon escape.</p>
+        <p>Every corner of Lumina tells a story — from the hand-thrown ceramic mugs to the local art adorning our walls.</p>
+        <a href="/experience" class="btn btn-primary">Discover More</a>
+      </div>
+      <div class="ambiance-image">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800" alt="Cafe interior" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>LUMINA</h3>
+        <p>Light. Flavor. Community.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/reservations">Reservations</a>
+        <a href="/experience">Experience</a>
+      </div>
+      <div class="footer-hours">
+        <h4>Hours</h4>
+        <p>Mon–Fri: 7am – 9pm</p>
+        <p>Sat–Sun: 8am – 10pm</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Visit</h4>
+        <p>42 Elm Street, Downtown</p>
+        <p>hello@luminacafe.com</p>
+        <p>(555) 123-4567</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumina Cafe. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

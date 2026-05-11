@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates | CV Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <a href="index.html" class="logo">CV Studio</a>
+            <div class="nav-links">
+                <a href="gallery.html" style="color: var(--primary);">Templates</a>
+                <a href="dashboard.html">My CVs</a>
+                <a href="editor.html" class="btn btn-primary">Create Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 64px 24px;">
+        <header style="margin-bottom: 48px;">
+            <h1 style="font-size: 48px; margin-bottom: 16px;">Choose your <span style="font-style: italic;">canvas.</span></h1>
+            <p style="color: var(--on-surface-variant); font-size: 18px;">Discover our collection of curated CV templates.</p>
+        </header>
+
+        <div class="masonry" id="templates-grid">
+            <!-- Templates will be injected here -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        const templates = [
+            { id: 'modern', name: 'Modern Professional', image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=400&q=80' },
+            { id: 'creative', name: 'Creative Portfolio', image: 'https://images.unsplash.com/photo-1626197031507-c17099753214?auto=format&fit=crop&w=400&q=80' },
+            { id: 'academic', name: 'Academic Scholar', image: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=400&q=80' },
+            { id: 'minimal', name: 'Sleek Minimal', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80' },
+            { id: 'executive', name: 'Executive Suite', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80' },
+            { id: 'designer', name: 'Designer Choice', image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80' }
+        ];
+
+        function renderTemplates() {
+            const grid = document.getElementById('templates-grid');
+            grid.innerHTML = templates.map(t => `
+                <div class="masonry-item">
+                    <img src="${t.image}" alt="${t.name}">
+                    <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 18px;">${t.name}</h3>
+                        <a href="editor.html?template=${t.id}" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Use</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', renderTemplates);
+    </script>
+</body>
+</html>

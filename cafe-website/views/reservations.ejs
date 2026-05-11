@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservations - Lumina Cafe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lumina: {
+              cream: '#fff8f5',
+              mint: '#4ade80',
+              'mint-dark': '#006d36',
+              peach: '#fb923c',
+              espresso: '#221a14',
+              'espresso-light': '#3d4a3e'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+    .glass {
+      background: rgba(255, 248, 245, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(109, 123, 109, 0.1);
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.5);
+    }
+  </style>
+</head>
+<body class="bg-lumina-cream text-lumina-espresso">
+  <nav class="fixed top-0 left-0 w-full z-50 glass border-b border-lumina-mint/10">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold font-serif text-lumina-mint-dark tracking-tighter">LUMINA</a>
+      <div class="hidden md:flex items-center gap-8 font-semibold text-sm uppercase tracking-wider text-lumina-espresso-light">
+        <a href="/" class="hover:text-lumina-mint transition-colors">Home</a>
+        <a href="/menu" class="hover:text-lumina-mint transition-colors">Menu</a>
+        <a href="/reservations" class="text-lumina-mint-dark border-b-2 border-lumina-mint pb-1">Reservations</a>
+        <a href="/about" class="hover:text-lumina-mint transition-colors">Experience</a>
+        <a href="/contact" class="hover:text-lumina-mint transition-colors">Contact</a>
+      </div>
+      <a href="/cart" class="relative text-lumina-espresso-light hover:text-lumina-mint transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+        <% if (cartCount > 0) { %>
+          <span class="absolute -top-2 -right-2 bg-lumina-peach text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold shadow-lg shadow-lumina-peach/40"><%= cartCount %></span>
+        <% } %>
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-20">
+    <section class="bg-lumina-espresso py-24 px-6 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-lumina-mint/10 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3"></div>
+      <div class="max-w-6xl mx-auto text-center relative z-10">
+        <p class="text-lumina-mint uppercase tracking-[0.4em] text-xs font-bold mb-6">Secure Your Spot</p>
+        <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight">Book the <span class="italic text-lumina-mint">Sanctuary</span></h1>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div>
+          <span class="text-lumina-peach font-bold uppercase tracking-widest text-xs mb-6 block">Join Us</span>
+          <h2 class="text-5xl font-black text-lumina-espresso mb-8 leading-tight tracking-tighter">Reserve a <span class="italic text-lumina-mint-dark">Table</span></h2>
+          <p class="text-lg text-lumina-espresso-light leading-relaxed mb-12">Whether it's a quiet morning coffee, a focused deep-work session, or a vibrant weekend gathering—we'd love to hold a space for you in our sanctuary.</p>
+          
+          <div class="space-y-10">
+            <div class="flex items-start gap-6">
+              <div class="w-14 h-14 bg-lumina-mint/20 rounded-[1.25rem] flex items-center justify-center text-2xl shadow-lg">🕒</div>
+              <div>
+                <h3 class="font-black text-xl text-lumina-espresso mb-2">Hours</h3>
+                <p class="text-lumina-espresso-light">Mon–Fri: 7am – 9pm</p>
+                <p class="text-lumina-espresso-light">Sat–Sun: 8am – 10pm</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-6">
+              <div class="w-14 h-14 bg-lumina-peach/20 rounded-[1.25rem] flex items-center justify-center text-2xl shadow-lg">📍</div>
+              <div>
+                <h3 class="font-black text-xl text-lumina-espresso mb-2">Visit</h3>
+                <p class="text-lumina-espresso-light">42 Elm Street, Downtown</p>
+                <p class="text-lumina-espresso-light">(555) 123-4567</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form class="glass rounded-[3rem] p-10 space-y-8 shadow-2xl relative" action="/reservations" method="POST">
+            <% if (typeof success !== 'undefined' && success) { %>
+              <div class="absolute inset-0 bg-lumina-cream/95 backdrop-blur-md rounded-[3rem] z-20 flex flex-col items-center justify-center p-10 text-center animate-in fade-in duration-500">
+                <div class="w-20 h-20 bg-lumina-mint/20 rounded-full flex items-center justify-center text-4xl mb-6">✨</div>
+                <h3 class="text-3xl font-black text-lumina-espresso mb-4">Confirmed!</h3>
+                <p class="text-lumina-espresso-light mb-8"><%= success %></p>
+                <a href="/" class="bg-lumina-espresso text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-lumina-mint hover:text-lumina-espresso transition-all shadow-xl">Back Home</a>
+              </div>
+            <% } %>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-2">
+                <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Full Name</label>
+                <input type="text" name="name" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="Your name"/>
+              </div>
+              <div class="space-y-2">
+                <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Email</label>
+                <input type="email" name="email" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="your@email.com"/>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-2">
+                <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Date</label>
+                <input type="date" name="date" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso"/>
+              </div>
+              <div class="space-y-2">
+                <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Time</label>
+                <input type="time" name="time" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso"/>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Guests</label>
+              <select name="guests" required class="w-full glass border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso appearance-none">
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="8">8 Guests</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-[10px] font-black text-lumina-espresso-light uppercase tracking-widest ml-4">Special Requests</label>
+              <textarea name="notes" rows="3" class="w-full glass border-none rounded-[2rem] px-6 py-4 focus:ring-2 focus:ring-lumina-mint transition-all font-medium text-lumina-espresso" placeholder="Allergies, celebrations, or seating preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-lumina-espresso text-white py-5 rounded-full font-black uppercase tracking-widest text-sm hover:bg-lumina-mint hover:text-lumina-espresso transition-all transform hover:scale-[1.02] shadow-2xl shadow-lumina-espresso/20">Confirm Sanctuary Spot</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-lumina-espresso text-lumina-cream py-20 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="col-span-1 md:col-span-1">
+        <h4 class="text-white font-black font-serif text-3xl mb-6 tracking-tighter">LUMINA</h4>
+        <p class="text-sm leading-relaxed text-white/50 max-w-xs">A vibrant sanctuary designed for digital nomads and aesthetic seekers. Sip the sunshine in every cup.</p>
+      </div>
+      <div>
+        <h4 class="text-lumina-mint font-bold uppercase tracking-widest text-xs mb-8">Navigate</h4>
+        <div class="flex flex-col gap-4 text-sm font-medium">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a href="/menu" class="hover:text-white transition-colors">Menu</a>
+          <a href="/reservations" class="hover:text-white transition-colors">Reservations</a>
+          <a href="/about" class="hover:text-white transition-colors">Experience</a>
+          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lumina-peach font-bold uppercase tracking-widest text-xs mb-8">Hours</h4>
+        <div class="flex flex-col gap-2 text-sm text-white/70">
+          <p>Mon–Fri: 7am – 9pm</p>
+          <p>Sat–Sun: 8am – 10pm</p>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lumina-mint font-bold uppercase tracking-widest text-xs mb-8">Visit</h4>
+        <div class="flex flex-col gap-2 text-sm text-white/70">
+          <p>42 Elm Street, Downtown</p>
+          <p>hello@luminacafe.com</p>
+          <p>(555) 123-4567</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 mt-16 pt-10 text-center text-[10px] uppercase tracking-[0.2em] text-white/30">
+      &copy; 2026 Lumina Cafe. Crafted for the vibrant sanctuary.
+    </div>
+  </footer>
+</body>
+</html>

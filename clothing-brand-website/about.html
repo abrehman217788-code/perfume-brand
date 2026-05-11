@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STREET_ARCHIVE // LAB</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config" type="text/javascript">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#454747",
+                    "on-primary": "#303030",
+                    "on-primary-fixed": "#1b1b1b",
+                    "on-secondary": "#2f3131",
+                    "on-tertiary-container": "#647f00",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "secondary-fixed": "#e2e2e2",
+                    "tertiary-fixed-dim": "#abd600",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-tertiary-fixed-variant": "#3c4d00",
+                    "surface": "#131313",
+                    "primary-fixed": "#e2e2e2",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "outline-variant": "#4c4546",
+                    "tertiary": "#abd600",
+                    "background": "#131313",
+                    "on-secondary-container": "#b4b5b5",
+                    "tertiary-fixed": "#c3f400",
+                    "surface-dim": "#131313",
+                    "inverse-on-surface": "#313030",
+                    "primary-container": "#000000",
+                    "surface-container-highest": "#353535",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed": "#161e00",
+                    "outline": "#988e90",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container": "#20201f",
+                    "secondary": "#c6c6c7",
+                    "inverse-primary": "#5e5e5e",
+                    "on-surface-variant": "#cfc4c5",
+                    "surface-tint": "#c6c6c6",
+                    "on-error": "#690005",
+                    "tertiary-container": "#000000",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#757575",
+                    "inverse-surface": "#e5e2e1",
+                    "on-tertiary": "#283500",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-variant": "#353535",
+                    "on-background": "#e5e2e1",
+                    "primary": "#c6c6c6",
+                    "surface-container-lowest": "#0e0e0e",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "border-thin": "1px",
+                    "border-thick": "3px",
+                    "margin": "40px",
+                    "gutter": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "headline-2xl": ["Inter"],
+                    "label-mono": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-2xl": ["120px", { "lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "900" }],
+                    "label-mono": ["12px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                    "headline-lg": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                    "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+                    "headline-xl": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        /* Base Brutalist resets */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Hide scrollbar for a cleaner canvas look, optional but fits the aesthetic */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: theme('colors.background'); border-left: 3px solid theme('colors.on-surface'); }
+        ::-webkit-scrollbar-thumb { background: theme('colors.on-surface'); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pt-20"> <!-- pt-20 accounts for fixed nav -->
+<!-- TopAppBar -->
+<!-- Applying exact styles from JSON: style_shell_layout, style_bg_color, style_primary_color, style_component_shape, style_separation_logic -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-white dark:bg-black text-black dark:text-white border-b-3 border-black dark:border-white">
+<!-- Brand Logo -->
+<div class="text-3xl font-black tracking-tighter text-black dark:text-white">
+            <a href="index.html">STREET_ARCHIVE</a>
+        </div>
+<!-- Navigation Links (Center) - Hidden on mobile -->
+<ul class="hidden md:flex space-x-8 font-inter uppercase tracking-tighter font-black text-sm">
+<li>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 flex h-full items-center px-2" href="shop.html">SHOP</a>
+</li>
+<li>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 flex h-full items-center px-2" href="product.html">DROPS</a>
+</li>
+<li>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 flex h-full items-center px-2" href="index.html">COLLECTIONS</a>
+</li>
+<!-- Active State -->
+<li>
+<a class="text-black dark:text-white border-b-3 border-black dark:border-white pb-1 flex h-full items-center px-2 translate-y-0.5" href="about.html">LAB</a>
+</li>
+</ul>
+<!-- Trailing Icons -->
+<div class="flex space-x-6 items-center">
+<button class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="border-b-[3px] border-on-surface bg-surface-dim">
+<div class="max-w-container-max mx-auto px-6 py-32 grid grid-cols-12 gap-gutter">
+<div class="col-span-12">
+<p class="font-label-mono text-label-mono text-tertiary uppercase mb-4 tracking-widest">&gt;&gt; Internal_Manifesto_v2.4</p>
+<h1 class="font-headline-2xl text-headline-2xl uppercase text-on-surface break-words leading-none">
+                        Structure <br/>
+                        Over <br/>
+                        Surface.
+                    </h1>
+</div>
+</div>
+</section>
+<!-- Philosophy Text Block -->
+<section class="border-b-[3px] border-surface-bright py-margin">
+<div class="max-w-container-max mx-auto px-6 grid grid-cols-12 gap-gutter">
+<!-- Technical Column -->
+<div class="col-span-12 md:col-span-4 flex flex-col justify-between border-r-0 md:border-r-[3px] border-surface-bright pr-6 mb-8 md:mb-0">
+<div>
+<h3 class="font-headline-lg text-headline-lg uppercase text-on-surface mb-6">Ethos</h3>
+<div class="bg-on-surface text-surface inline-block px-3 py-1 font-label-bold text-label-bold uppercase border-[3px] border-on-surface">
+                            Directive 01
+                        </div>
+</div>
+<div class="mt-12 md:mt-0">
+<p class="font-label-mono text-label-mono text-outline uppercase mb-2">Location_</p>
+<p class="font-label-bold text-label-bold text-on-surface uppercase" data-location="Tokyo, Japan">Tokyo / Underground</p>
+</div>
+</div>
+<!-- Text Content -->
+<div class="col-span-12 md:col-span-8 md:pl-6">
+<p class="font-body-lg text-body-lg text-on-surface mb-8 max-w-2xl">
+                        We view garments not as fashion, but as mobile architecture. Every seam, every textile choice, and every silhouette is engineered for the modern urban environment. Our process rejects traditional softness in favor of unapologetic utility.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                        The streets demand resilience. We construct gear that acts as a barrier and an amplifier. Heavyweight canvases, rigid hardware, and high-contrast visuals define our visual language. We don't follow seasons; we issue drops when the prototypes pass our brutal testing protocols.
+                    </p>
+</div>
+</div>
+</section>
+<!-- The LAB Collage Section -->
+<section class="py-margin bg-background">
+<div class="max-w-container-max mx-auto px-6 mb-12 flex justify-between items-end border-b-[3px] border-on-surface pb-4">
+<h2 class="font-headline-xl text-headline-xl uppercase text-on-surface">The Lab</h2>
+<p class="font-label-mono text-label-mono text-tertiary hidden md:block">&gt;&gt; Authorized_Personnel_Only</p>
+</div>
+<div class="max-w-container-max mx-auto px-6">
+<!-- Asymmetric CSS Grid -->
+<div class="grid grid-cols-12 gap-gutter auto-rows-[250px]">
+<!-- Large Feature Image -->
+<div class="col-span-12 md:col-span-8 row-span-2 border-[3px] border-on-surface relative overflow-hidden group">
+<div class="absolute inset-0 bg-surface-container-highest z-0"></div>
+<img alt="Lab Workspace" class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-80 group-hover:scale-105 transition-transform duration-500 grayscale" data-alt="A stark, brutalist fashion design studio workspace shot in high-contrast black and white. Thick paper patterns and architectural fabric sketches are pinned to a raw concrete wall. A heavy industrial sewing machine sits on a solid steel table. The lighting is harsh and directional, creating deep black shadows and blinding white highlights. The scene feels gritty, utilitarian, and heavily focused on raw structural garment engineering without any softness or decoration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf4rU8NdOGAczo3SzhefS4L16Sp9BFtxY_BMfsA4VyAJ5DBVH2BIDIEEHENPSTbo1c_3fhDP3_Pk8LibbImWxYJA4Tgkb76n4GbJnyPtGTjrPVfBNLwysaPQA8yHR_Z4rGCSp-Scn7r_DeNxqTLIuA09NlO9eSZkvfcDUmxK_oxZ2JIgGTi_FFwd2PTrFfZtFPgMH5EPn9TelLpwTsMEDqBbBbNOPrbmIe36OAMVIz-DQvQwDe2QCXqMP2bG_2D9Rzb08Bnxk0yl4"/>
+<div class="absolute bottom-0 left-0 bg-on-surface text-surface p-4 border-t-[3px] border-r-[3px] border-on-surface">
+<p class="font-label-mono text-label-mono uppercase">Fig. 1 // Pattern_Cutting</p>
+</div>
+</div>
+<!-- Small Accent Image -->
+<div class="col-span-12 md:col-span-4 row-span-1 border-[3px] border-on-surface relative overflow-hidden bg-surface">
+<img alt="Fabric Detail" class="absolute inset-0 w-full h-full object-cover grayscale contrast-150" data-alt="Extreme macro photography of a heavily textured, ballistic nylon fabric weave. Shot in severe monochrome with aggressive contrast, emphasizing the rigid, industrial nature of the material. A single, thick neon volt-green thread cuts aggressively through the black and white canvas, demonstrating a jarring disruption of the neutral palette. The overall mood is cold, technical, and highly resilient." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANdQ1rYsJ_LevnsUo3FFGuRdy5AWjP8IozdUjdGDQoZ7kFjIuTC7AcfHM9n4FNpK-gKsC_adS0zB1SKAGbMi8KdQ_dozhqYJpOeLFACnI1C2cuYK8coMIUEUfFoqk_qCUb2DoadwcufiYAFdWRuegWWIuvx8xeZaezspbT-DP3P2_Y6G6pJ-4CHyHLYCUeBUoni9kJQ_qlPtB9yBM5ht54127DBWjZOXmRU9gZgB3QAcNfQq91hh0TgkNS4f68ZtryP59Nj5NfrBE"/>
+<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary px-2 py-1 border-[3px] border-on-tertiary font-label-bold text-label-bold uppercase">
+                            Kevlar_Thread
+                        </div>
+</div>
+<!-- Text Card in Grid -->
+<div class="col-span-12 md:col-span-4 row-span-1 border-[3px] border-on-surface bg-surface-container-high p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl text-on-surface" data-icon="architecture">architecture</span>
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-surface leading-none mb-2">PROTOTYPE</h4>
+<p class="font-label-mono text-label-mono text-outline-variant uppercase">Iterations: 42</p>
+</div>
+</div>
+<!-- Medium Process Image -->
+<div class="col-span-12 md:col-span-6 row-span-1 border-[3px] border-on-surface relative overflow-hidden">
+<img alt="Hardware Sketch" class="absolute inset-0 w-full h-full object-cover grayscale" data-alt="A chaotic scatter of industrial hardware, heavy metal zippers, and thick matte black buckles resting on drafting paper covered in frantic, architectural sketches. The scene is shot from a top-down perspective with harsh overhead lighting that creates absolute black drop shadows. The aesthetic is purely brutalist and functional, entirely devoid of organic shapes, focusing solely on mechanical fastening systems for garments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY2rEGqYLZ7woga3KWkaBqm6gG7OgwiwaKZNa3TgzMKLWc6foHfFGmEg8o_y1Qrh80KL1nZHL-ndaIVEHyjPaZ6UEJPSE3lRrx5DGo-vQOKDwQXt_WGzrfrRlOTWYCmTeKNXxGQZjUlgo1qBEH3FwzqOIu8i6bCXA4lhh2BHq-cqJSAMAFuvN82VYqdkc1wAVues6eOvOYZTVDLQIRzY5YWUFbOinQbpXtUPk6QYHIER0HsE1yCQ5I5K4e-zKgE2Wci9GzdZxKn60"/>
+<div class="absolute inset-0 border-[3px] border-transparent hover:border-tertiary transition-colors duration-100 pointer-events-none"></div>
+</div>
+<!-- Tech Spec Block -->
+<div class="col-span-12 md:col-span-6 row-span-1 flex flex-col justify-center px-8 border-t-[3px] md:border-t-0 md:border-l-[3px] border-surface-bright">
+<p class="font-label-mono text-label-mono text-tertiary uppercase mb-4">&gt;&gt; Material_Science</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">No Compromise.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            We source industrial-grade textiles originally designed for military and aerospace applications. If it cannot withstand extreme abrasion, it does not enter our supply chain.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Table / Specs Section (Brutalist Data Grid) -->
+<section class="py-margin border-t-[3px] border-on-surface bg-background">
+<div class="max-w-container-max mx-auto px-6">
+<h2 class="font-headline-xl text-headline-xl uppercase text-on-surface mb-8">Supply Chain</h2>
+<div class="border-[3px] border-on-surface flex flex-col">
+<!-- Table Header -->
+<div class="grid grid-cols-12 border-b-[3px] border-on-surface bg-surface-container-highest">
+<div class="col-span-4 p-4 font-label-bold text-label-bold text-on-surface uppercase tracking-widest border-r-[1px] border-outline-variant">Component</div>
+<div class="col-span-4 p-4 font-label-bold text-label-bold text-on-surface uppercase tracking-widest border-r-[1px] border-outline-variant">Origin</div>
+<div class="col-span-4 p-4 font-label-bold text-label-bold text-on-surface uppercase tracking-widest">Spec</div>
+</div>
+<!-- Rows -->
+<div class="grid grid-cols-12 border-b-[1px] border-outline-variant bg-surface hover:bg-surface-bright transition-colors">
+<div class="col-span-4 p-4 font-label-mono text-label-mono text-on-surface-variant uppercase border-r-[1px] border-outline-variant flex items-center">Textile_Alpha</div>
+<div class="col-span-4 p-4 font-body-md text-body-md text-on-surface border-r-[1px] border-outline-variant flex items-center">Osaka, JP</div>
+<div class="col-span-4 p-4 font-body-md text-body-md text-on-surface flex items-center">800D Ballistic Nylon</div>
+</div>
+<div class="grid grid-cols-12 border-b-[1px] border-outline-variant bg-surface hover:bg-surface-bright transition-colors">
+<div class="col-span-4 p-4 font-label-mono text-label-mono text-on-surface-variant uppercase border-r-[1px] border-outline-variant flex items-center">Hardware_X</div>
+<div class="col-span-4 p-4 font-body-md text-body-md text-on-surface border-r-[1px] border-outline-variant flex items-center">Munich, DE</div>
+<div class="col-span-4 p-4 font-body-md text-body-md text-on-surface flex items-center">Matte Anodized Aluminum</div>
+</div>
+<div class="grid grid-cols-12 bg-surface hover:bg-surface-bright transition-colors">
+<div class="col-span-4 p-4 font-label-mono text-label-mono text-on-surface-variant uppercase border-r-[1px] border-outline-variant flex items-center">Dye_Process</div>
+<div class="col-span-4 p-4 font-body-md text-body-md text-on-surface border-r-[1px] border-outline-variant flex items-center">Los Angeles, US</div>
+<div class="col-span-4 p-4 font-label-bold text-label-bold text-tertiary flex items-center uppercase">ZERO WASTE H20</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Applying exact styles from JSON -->
+<footer class="bg-white dark:bg-black text-black dark:text-white docked full-width border-t-3 border-black dark:border-white">
+<div class="w-full py-12 px-10 grid grid-cols-12 gap-6 items-end">
+<!-- Brand & Copyright -->
+<div class="col-span-12 md:col-span-6 flex flex-col justify-end space-y-4">
+<div class="text-xl font-black text-black dark:text-white">
+                    STREET_ARCHIVE
+                </div>
+<div class="font-inter font-bold uppercase text-xs tracking-widest">
+                    ©2024 STREET_ARCHIVE. ALL RIGHTS RESERVED.
+                </div>
+</div>
+<!-- Links -->
+<div class="col-span-12 md:col-span-6 flex justify-start md:justify-end">
+<ul class="flex flex-wrap gap-x-8 gap-y-4 font-inter font-bold uppercase text-xs tracking-widest">
+<li><a class="text-black dark:text-white hover:invert transition-all duration-75 block" href="#">PRIVACY</a></li>
+<li><a class="text-black dark:text-white hover:invert transition-all duration-75 block" href="#">TERMS</a></li>
+<li><a class="text-black dark:text-white hover:invert transition-all duration-75 block" href="#">SHIPPING</a></li>
+<li><a class="text-black dark:text-white hover:invert transition-all duration-75 block" href="#">CONTACT</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

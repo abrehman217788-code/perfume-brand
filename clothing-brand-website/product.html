@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heavyweight Graphic Hoodie - STREET_ARCHIVE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#454747",
+                        "on-primary": "#303030",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-secondary": "#2f3131",
+                        "on-tertiary-container": "#647f00",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed": "#e2e2e2",
+                        "tertiary-fixed-dim": "#abd600",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-tertiary-fixed-variant": "#3c4d00",
+                        "surface": "#131313",
+                        "primary-fixed": "#e2e2e2",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface-bright": "#393939",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "outline-variant": "#4c4546",
+                        "tertiary": "#abd600",
+                        "background": "#131313",
+                        "on-secondary-container": "#b4b5b5",
+                        "tertiary-fixed": "#c3f400",
+                        "surface-dim": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "primary-container": "#000000",
+                        "surface-container-highest": "#353535",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#161e00",
+                        "outline": "#988e90",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container": "#20201f",
+                        "secondary": "#c6c6c7",
+                        "inverse-primary": "#5e5e5e",
+                        "on-surface-variant": "#cfc4c5",
+                        "surface-tint": "#c6c6c6",
+                        "on-error": "#690005",
+                        "tertiary-container": "#000000",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#757575",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary": "#283500",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-variant": "#353535",
+                        "on-background": "#e5e2e1",
+                        "primary": "#c6c6c6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "border-thin": "1px",
+                        "border-thick": "3px",
+                        "margin": "40px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-2xl": ["Inter"],
+                        "label-mono": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-2xl": ["120px", { "lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "900" }],
+                        "label-mono": ["12px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "headline-xl": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pt-20 flex flex-col font-body-md">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-white dark:bg-black border-b-3 border-black dark:border-white">
+<div class="flex items-center gap-6">
+<a class="text-3xl font-black tracking-tighter text-black dark:text-white" href="index.html">STREET_ARCHIVE</a>
+</div>
+<div class="hidden md:flex items-center gap-6 font-inter uppercase tracking-tighter font-black text-sm">
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="shop.html">SHOP</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="product.html">DROPS</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="index.html">COLLECTIONS</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="about.html">LAB</a>
+</div>
+<div class="flex items-center gap-4 text-black dark:text-white">
+<button class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Grid -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Image Gallery (Left/Center) -->
+<div class="md:col-span-8 flex flex-col gap-6">
+<div class="border-border-thick border-on-background bg-surface-container aspect-[3/4] md:aspect-square relative overflow-hidden group">
+<img alt="Heavyweight Graphic Hoodie Front" class="w-full h-full object-cover grayscale contrast-125" data-alt="A gritty, high-contrast black and white photograph of a heavy black graphic hoodie laid flat against an industrial concrete floor. The texture of the thick 450GSM organic cotton is prominent, with sharp lighting casting hard shadows. The stark brutalist setting emphasizes the raw, unapologetic street culture aesthetic of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1bpu0OK_R6yTsfxzZMIC1nPbaTGeO0cX7lnoyjp_TiB_-F5hMCC91Da02CVDsiKzS3iN_iB8BdEVC7IbO0UEYat5UDxONZDuHQ2FzRQOHyUL_zPNMAZSNYeYXroSmvhqbu1eySMtFi6zVd3CRQlqQBTMkbl6GFJkmagpGmgH0plM6B9MIoaJRg4LDXtp50aeoE3Smde0msts27lppsZdi4ljc7yuBwInnl5PXPOULF3IaUSU0_F_yEo_zmSpSm6l-9yM3CmJfxt0"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="border-border-thick border-on-background bg-surface-container aspect-[3/4] relative overflow-hidden">
+<img alt="Heavyweight Graphic Hoodie Back" class="w-full h-full object-cover grayscale contrast-125" data-alt="A close-up, high-contrast monochrome shot of the back of a black heavyweight hoodie, showcasing a bold, raw graphic print. The lighting is harsh, mimicking a streetlamp at night, creating deep shadows that highlight the garment's structure. The heavy film grain adds a vintage, underground feel to the image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdokkvgDEEWngqaKFIWBtugK45F2l2trnX2e3jLDUVrMHmHrRBkb058iGpzBQ-TA16UJyHllPyeh3fixGbluGDsefuTZpuj5tUglBeL52DSRz_XhATCwtyJPCeXOXgnhMgBxN088Fkyr7BeKEAK8xWim2fnsTSvdRaNdqpCmP6v1t_9THsCBB0Ij6a6bvrUZa1hEcMwOMy07Dit5AVy1IFC49bcg5I984f1pNnv9eXqiw9GcMDKhj3j9IohjTEcNzsqimudP4R3dg"/>
+</div>
+<div class="border-border-thick border-on-background bg-surface-container aspect-[3/4] relative overflow-hidden">
+<img alt="Heavyweight Graphic Hoodie Detail" class="w-full h-full object-cover grayscale contrast-125" data-alt="A tight macro shot of the hood and thick drawstrings of a black heavy cotton hoodie. The heavy texture of the fabric and the brutalist 3px solid borders of the UI are mirrored in the sharp, unyielding shadows of the photograph. The high-fashion exclusivity is felt through the minimalist, raw presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA93159VzJ18BUEAUmCaLBMcqDuBAx69u-bo8J37_gK5a1GdEeRsHNt-sbKnDZxfvDsq9WXBJtjXM6rOvkw2ANZAGpPtKOx7YuP3eAPlzMiGVLtlJkXlXjnXcEpS7m4O2z3bUZUBbxubc9pemauFSVAyCWEysfuQrLlL3yDv2A3QvPzGb9W5flVa9LgbfJ1vV_bV4dNq7rEansYNAaDWDrkZHalR23jAyZPy_8ysqOygsKjFz_DBeXjCiDKm7zeMf--I8CfOcFhXPE"/>
+</div>
+</div>
+</div>
+<!-- Sticky Product Info (Right) -->
+<div class="md:col-span-4 flex flex-col gap-8 md:sticky md:top-28 self-start pt-6 md:pt-0">
+<div>
+<span class="inline-block border-border-thick border-on-background px-3 py-1 bg-surface-container text-on-surface font-label-mono uppercase mb-4 tracking-widest">
+                    NEW DROP
+                </span>
+<h1 class="font-headline-lg text-on-background uppercase break-words leading-none mb-2">
+                    HVY-WGHT<br/>GRAPHIC<br/>HOODIE
+                </h1>
+<p class="font-headline-xl text-on-background mt-4">$185</p>
+</div>
+<div class="border-t-border-thick border-b-border-thick border-on-background py-6 flex flex-col gap-4">
+<p class="font-body-md text-on-surface-variant">
+                    Raw structure meets industrial comfort. Constructed from 450GSM organic cotton. Unapologetic drop shoulders and a rigid, boxy fit designed for layering in concrete environments.
+                </p>
+<ul class="font-label-mono text-on-surface-variant flex flex-col gap-2 mt-2">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-on-background"></span> 450GSM ORGANIC COTTON</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-on-background"></span> BOXY, OVERSIZED FIT</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-on-background"></span> DOUBLE-LINED HOOD</li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-on-background uppercase">SELECT SIZE</span>
+<a class="font-label-mono text-on-surface-variant underline decoration-1 hover:text-on-background" href="#">SIZE GUIDE</a>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="border-border-thick border-on-background py-3 font-label-bold text-center hover:bg-on-background hover:text-background transition-colors bg-background text-on-background">S</button>
+<button class="border-border-thick border-on-background py-3 font-label-bold text-center bg-on-background text-background">M</button>
+<button class="border-border-thick border-on-background py-3 font-label-bold text-center hover:bg-on-background hover:text-background transition-colors bg-background text-on-background">L</button>
+<button class="border-border-thick border-surface-container-highest py-3 font-label-bold text-center text-surface-container-highest cursor-not-allowed line-through">XL</button>
+</div>
+</div>
+<button class="w-full border-border-thick border-on-background py-6 bg-on-background text-background font-label-bold text-lg uppercase tracking-widest hover:bg-background hover:text-on-background transition-colors group relative overflow-hidden">
+<span class="relative z-10 flex items-center justify-center gap-2">
+                    ADD TO BAG
+                    <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</span>
+</button>
+</div>
+</main>
+<!-- Cross-Sell Section -->
+<section class="w-full max-w-[1440px] mx-auto px-6 py-24 border-t-border-thick border-on-background">
+<h2 class="font-headline-lg uppercase mb-12">COMPLETE THE LOOK</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<a class="group border-border-thick border-on-background flex flex-col bg-surface hover:bg-surface-container transition-colors" href="#">
+<div class="aspect-square relative overflow-hidden border-b-border-thick border-on-background">
+<img alt="Raw Denim Cargo" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500" data-alt="A pair of distressed, wide-leg raw denim jeans shot against a harsh, concrete wall. The stark black and white edit emphasizes the rugged texture of the denim and the severe, industrial aesthetic of modern brutalist street fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwtZOxFX3Hd1c9VUkPU1cklM4p-tDvOnE46hQPOC4VsgIDyt2NgkMnmv5ddkOf_z3kwMJAgeCH14xYkbY5CohdIaRr6dpc64nvncRPqRrjFV4cmJMt6Vs92olpXnDBjnVHIsCWikQnIdpFBcktDMiU90Wh1wTMMLmEG7_k6GDOmX32cQ8dyNjciJ-J2lmEl2zw34-BkyulFQ2lOPCMCwzQEbPeivrVKnmUyRWD_VvjlPFq8vi9OXeug2XZHfObpRy6NzkpYFgIwBE"/>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div>
+<h3 class="font-label-bold uppercase">RAW DENIM CARGO</h3>
+<p class="font-label-mono text-on-surface-variant mt-1">$220</p>
+</div>
+<span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+</div>
+</a>
+<a class="group border-border-thick border-on-background flex flex-col bg-surface hover:bg-surface-container transition-colors" href="#">
+<div class="aspect-square relative overflow-hidden border-b-border-thick border-on-background">
+<img alt="Tactical Boot" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500" data-alt="A chunky, black tactical sneaker with aggressive tread patterns, resting on a metal grate. High contrast lighting accentuates the sharp lines and utilitarian design, perfectly matching a dark, unapologetic streetwear aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYqBpjDm_PdYQRksJ31WFTxj57OfJnu0rDh8ZwRVNscGc9hBX9X45pbkgB9o_vNZJGI3fucD_QI1laZZ24z7ZEydE1VLiET3I4LG7HAF4W0RwilJL1Xp8lVnGzL6cGPAMyb2p3a94abATIwJ2RCkkWmsVpsHH2ltc0exHXqwdVp2XoPmaw2677n6Lc41Qw3eMa8UTpE-MJdDO9W2p7Pw_AoY8_9FnqDFoUtZJr9mEqG-kpWHPcdcZu6cb30LlTfRTugsGqtGop-Y0"/>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div>
+<h3 class="font-label-bold uppercase">TACTICAL BOOT V2</h3>
+<p class="font-label-mono text-on-surface-variant mt-1">$310</p>
+</div>
+<span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+</div>
+</a>
+<a class="group border-border-thick border-on-background flex flex-col bg-surface hover:bg-surface-container transition-colors" href="#">
+<div class="aspect-square relative overflow-hidden border-b-border-thick border-on-background">
+<img alt="Utility Chest Rig" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist black leather chest rig bag worn by an unseen model in a dimly lit, raw industrial space. The silver metal hardware catches the stark light, emphasizing the premium, utility-driven design of the accessory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlnW-hGt_l5xc2uO9HDuA2Jx3T2zyPCso08F3Vx0wKZCFqLHje1-KPAlnCgn1JT52KjIWyq6-rj0KL3dH3eJYo37zJeXw3FH0FsyiLd15DTzJmpYkxHdmlohJYUptX4DpEebjEYbVnHr3Ugm-uWzMVV84xclUIOc8hCwtN_KH5Q4-_UKyZxlTuceDcuhaH_WJBsR0oZ_4cUIzrmC7FZKpWCDxwA8Moxd470FbMjvKZKxg12dMDUydevy3OfYEIyTtG1d4PsTwh_EM"/>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div>
+<h3 class="font-label-bold uppercase">UTILITY CHEST RIG</h3>
+<p class="font-label-mono text-on-surface-variant mt-1">$145</p>
+</div>
+<span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-12 px-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-end bg-white dark:bg-black border-t-3 border-black dark:border-white text-black dark:text-white mt-auto">
+<div class="col-span-1 md:col-span-4">
+<span class="text-xl font-black">STREET_ARCHIVE</span>
+</div>
+<div class="col-span-1 md:col-span-4 flex flex-col md:flex-row gap-6 font-inter font-bold uppercase text-xs tracking-widest">
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">PRIVACY</a>
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">TERMS</a>
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">SHIPPING</a>
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">CONTACT</a>
+</div>
+<div class="col-span-1 md:col-span-4 text-left md:text-right font-inter font-bold uppercase text-xs tracking-widest text-black dark:text-white">
+            ©2024 STREET_ARCHIVE. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

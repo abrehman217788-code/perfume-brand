@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STREET_ARCHIVE - Order Confirmed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface": "#131313",
+        "background": "#131313",
+        "on-background": "#e5e2e1",
+        "tertiary": "#abd600"
+      },
+      "fontFamily": {
+        "headline-lg": ["Inter"],
+        "label-mono": ["Inter"]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex items-center justify-center">
+<div class="border-[3px] border-on-background p-12 text-center max-w-lg bg-surface relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-2 bg-tertiary"></div>
+<h1 class="text-4xl font-black uppercase tracking-tighter mb-4 text-white">ORDER CONFIRMED</h1>
+<p class="font-label-mono text-gray-400 mb-8">Your fragments have been secured. We will notify you when they ship.</p>
+<div class="font-label-mono border-y-2 border-dashed border-gray-600 py-4 mb-8 text-sm text-left">
+  <p>ORDER STATUS: <span class="text-tertiary">PROCESSING</span></p>
+  <p>PAYMENT: <span class="text-white">BYPASSED (OFFLINE MODE)</span></p>
+</div>
+<a href="/shop" class="inline-block bg-white text-black px-8 py-4 font-black uppercase tracking-widest hover:bg-tertiary hover:text-black transition-colors w-full">RETURN TO LAB</a>
+</div>
+</body>
+</html>

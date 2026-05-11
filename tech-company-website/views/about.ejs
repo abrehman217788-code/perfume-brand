@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+
+<main style="padding-top: 8rem;">
+    <section>
+        <div class="grid-2" style="align-items: center; margin-bottom: 8rem;">
+            <div>
+                <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem;">WE ARE THE<br><span style="color: var(--primary);">ARCHITECTS</span> OF<br>TOMORROW.</h1>
+                <p style="font-size: 1.25rem; color: var(--text-muted);">Elegant Tech Showcase is a collective of visionary engineers, architects, and designers dedicated to pushing the boundaries of what's possible in the digital realm.</p>
+            </div>
+            <div class="glass card glass-glow-violet">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h3 style="color: var(--primary);">150+</h3>
+                        <p style="font-size: 0.9rem;">Projects Delivered</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary);">25+</h3>
+                        <p style="font-size: 0.9rem;">Cloud Specialists</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary);">99.9%</h3>
+                        <p style="font-size: 0.9rem;">Uptime Guaranteed</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary);">24/7</h3>
+                        <p style="font-size: 0.9rem;">Security Monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="grid-2">
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Ready to Build?</h2>
+                <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Have a complex challenge? Our experts are ready to provide a consultation and roadmap for your digital transformation.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--primary);">📍</span>
+                        <span>Innovation Plaza, Silicon Valley, CA</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--primary);">✉️</span>
+                        <span>solutions@elegant-tech.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass card">
+                <% if (locals.success) { %>
+                    <div style="padding: 2rem; background: rgba(34, 211, 238, 0.1); border: 1px solid var(--primary); border-radius: var(--radius-sm); color: var(--primary); text-align: center;">
+                        <p><%= success %></p>
+                    </div>
+                <% } else { %>
+                    <form action="/contact" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Challenge</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Initialize Consultation</button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

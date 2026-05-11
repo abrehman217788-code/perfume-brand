@@ -1,0 +1,26 @@
+[
+    {
+        "id": "quantum-finance",
+        "title": "Quantum Finance Engine",
+        "category": "FinTech",
+        "description": "A high-frequency trading platform built on distributed ledger technology, optimizing for sub-millisecond execution.",
+        "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800",
+        "tech": ["Node.js", "Redis", "Kafka", "PostgreSQL"]
+    },
+    {
+        "id": "nexus-iot",
+        "title": "Nexus IoT Ecosystem",
+        "category": "IoT",
+        "description": "Comprehensive smart city monitoring system integrating thousands of sensors for real-time traffic and energy management.",
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+        "tech": ["Python", "MQTT", "Grafana", "InfluxDB"]
+    },
+    {
+        "id": "lumina-dashboard",
+        "title": "Lumina Analytics Suite",
+        "category": "Data Viz",
+        "description": "Enterprise-level data visualization dashboard providing real-time insights for multi-national retail chains.",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+        "tech": ["React", "D3.js", "GraphQL", "Azure"]
+    }
+]

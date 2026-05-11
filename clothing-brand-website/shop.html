@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STREET_ARCHIVE - Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#ffdad6",
+                      "secondary-container": "#454747",
+                      "on-primary": "#303030",
+                      "on-primary-fixed": "#1b1b1b",
+                      "on-secondary": "#2f3131",
+                      "on-tertiary-container": "#647f00",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "secondary-fixed": "#e2e2e2",
+                      "tertiary-fixed-dim": "#abd600",
+                      "on-primary-fixed-variant": "#474747",
+                      "on-tertiary-fixed-variant": "#3c4d00",
+                      "surface": "#131313",
+                      "primary-fixed": "#e2e2e2",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "surface-bright": "#393939",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "outline-variant": "#4c4546",
+                      "tertiary": "#abd600",
+                      "background": "#131313",
+                      "on-secondary-container": "#b4b5b5",
+                      "tertiary-fixed": "#c3f400",
+                      "surface-dim": "#131313",
+                      "inverse-on-surface": "#313030",
+                      "primary-container": "#000000",
+                      "surface-container-highest": "#353535",
+                      "on-surface": "#e5e2e1",
+                      "on-tertiary-fixed": "#161e00",
+                      "outline": "#988e90",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-container": "#20201f",
+                      "secondary": "#c6c6c7",
+                      "inverse-primary": "#5e5e5e",
+                      "on-surface-variant": "#cfc4c5",
+                      "surface-tint": "#c6c6c6",
+                      "on-error": "#690005",
+                      "tertiary-container": "#000000",
+                      "error": "#ffb4ab",
+                      "on-primary-container": "#757575",
+                      "inverse-surface": "#e5e2e1",
+                      "on-tertiary": "#283500",
+                      "on-secondary-fixed-variant": "#454747",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-variant": "#353535",
+                      "on-background": "#e5e2e1",
+                      "primary": "#c6c6c6",
+                      "surface-container-lowest": "#0e0e0e",
+                      "error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "border-thin": "1px",
+                      "border-thick": "3px",
+                      "margin": "40px",
+                      "gutter": "24px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "headline-2xl": ["Inter"],
+                      "label-mono": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-bold": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-2xl": ["120px", { "lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "900" }],
+                      "label-mono": ["12px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                      "headline-lg": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                      "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+                      "headline-xl": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased pt-20 flex flex-col min-h-screen selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-white dark:bg-black border-b-3 border-black dark:border-white">
+<div class="flex items-center gap-10">
+<a class="text-3xl font-black tracking-tighter text-black dark:text-white uppercase font-headline-lg" href="index.html">
+                STREET_ARCHIVE
+            </a>
+<nav class="hidden md:flex items-center gap-6 font-inter uppercase tracking-tighter font-black text-sm">
+<a class="text-black dark:text-white border-b-3 border-black dark:border-white pb-1 transition-colors duration-100" href="shop.html">SHOP</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="product.html">DROPS</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="index.html">COLLECTIONS</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2" href="about.html">LAB</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black border-2 border-transparent hover:border-black dark:hover:border-white transition-all duration-100">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black border-2 border-transparent hover:border-black dark:hover:border-white transition-all duration-100">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black border-2 border-transparent hover:border-black dark:hover:border-white transition-all duration-100 relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-tertiary border-2 border-black dark:border-white rounded-none"></span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-black dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-6 py-12 grid grid-cols-12 gap-gutter">
+<!-- Header / Filters Top Bar -->
+<div class="col-span-12 mb-10 flex flex-col md:flex-row justify-between items-start md:items-end border-b-3 border-on-background pb-6 gap-6">
+<div>
+<h1 class="font-headline-xl text-on-background uppercase tracking-tighter">ALL GEAR</h1>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-lg">Engineered for the concrete. Unapologetic utility meets high-contrast brutalism. Limited runs only.</p>
+</div>
+<div class="flex flex-wrap gap-4 items-center w-full md:w-auto">
+<div class="relative w-full md:w-48">
+<select class="w-full bg-transparent border-3 border-on-background text-on-background font-label-mono uppercase py-3 px-4 appearance-none rounded-none focus:outline-none focus:border-tertiary focus:ring-0 cursor-pointer">
+<option value="all">CATEGORY: ALL</option>
+<option value="hoodies">HOODIES</option>
+<option value="cargo">CARGOS</option>
+<option value="tees">TEES</option>
+<option value="accessories">ACCESSORIES</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<div class="relative w-full md:w-48">
+<select class="w-full bg-transparent border-3 border-on-background text-on-background font-label-mono uppercase py-3 px-4 appearance-none rounded-none focus:outline-none focus:border-tertiary focus:ring-0 cursor-pointer">
+<option value="new">SORT: NEWEST</option>
+<option value="price-asc">PRICE: LOW-HIGH</option>
+<option value="price-desc">PRICE: HIGH-LOW</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<button class="hidden lg:flex w-12 h-12 border-3 border-on-background items-center justify-center hover:bg-on-background hover:text-background transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<article class="group border-3 border-on-background flex flex-col relative bg-surface overflow-hidden">
+<div class="w-full aspect-[4/5] bg-surface-container border-b-3 border-on-background overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500" data-alt="A gritty, high-contrast fashion editorial shot of a heavy black utility hoodie hanging against a raw concrete wall. The lighting is harsh and directional, creating deep shadows that emphasize the thick fabric and industrial hardware details. The scene feels like a still from a dark, urban streetwear film, with subtle film grain adding texture. The overall aesthetic is brutalist, monochromatic, and aggressively modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaTMuNuSR676-4yD1dS6zISWdNLAfeQHYmuz6o2EBDrdANYAsV4F27HgZ-OIIzxHPHW6IAiZZdewvgQdt7fRERfFN-ZzBNaM0wjDb4AtoYMHW42pKAArvUwTNssrunyhbbXsPu8xk-IVE1kGOx1XekV_Tw10QU_Iips5U2ntdYo1uWlAKu3D1pWUu54krpx-p2sSypmlgGkqJszx-JHs16cyR256l7IPXMCBEIX1ewBY_SYKIqnF5ZUo7Ir46-cL_wGvoqB-4J-ls"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary font-label-mono px-3 py-1 border-2 border-on-background">NEW DROP</div>
+</div>
+<div class="p-4 flex flex-col flex-grow bg-surface">
+<h3 class="font-label-bold text-on-background uppercase truncate mb-1">01_HEAVY_UTILITY_HOODIE</h3>
+<p class="font-label-mono text-on-surface-variant mb-4">BLACK / 100% COTTON</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="font-headline-lg text-on-background leading-none">$145</span>
+<button class="border-2 border-on-background px-4 py-2 font-label-mono uppercase hover:bg-on-background hover:text-background transition-colors">ADD</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 (Sold Out) -->
+<article class="group border-3 border-on-background flex flex-col relative bg-surface overflow-hidden opacity-75">
+<div class="w-full aspect-[4/5] bg-surface-container border-b-3 border-on-background overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover grayscale contrast-125 opacity-80" data-alt="A stark, minimalist product shot of technical cargo pants with multiple oversized pockets, laid flat on a distressed steel grate floor. The color palette is strictly muted greys and blacks, illuminated by a single, harsh overhead light source that casts sharp, structural shadows. Film grain is heavy, giving the image a raw, underground warehouse rave aesthetic. The style perfectly captures brutalist streetwear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBVNclSFl1k69YM6HKE9PFdVHbAIRzu0Z5qkB1oljZExaBn-ctBB6yPZsx_MWM4tuQj4b5xqILKYoxTlCO9DOPoKSCzMpILwTRVkvzALVerf2JqoKpiRJd_NwO3w-YnKpMBUp8CbzvJ7d4hu2ee-LOLMaYvMbv2NNSXUPTVykRHK08yQyrV9RsjMAVYJQrgTgPR5PieY_KKdnePntVmfKUhAlAlCyTr2MJUSJhz6KBLdInT5uqg08zcbyry9CYkof2di2A7O-3lKo"/>
+<div class="absolute inset-0 bg-background/50 flex items-center justify-center backdrop-blur-sm">
+<div class="bg-error text-on-error font-label-mono px-6 py-2 border-3 border-error-container transform -rotate-12 shadow-[4px_4px_0px_#93000a] uppercase tracking-widest text-lg">SOLD OUT</div>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-grow bg-surface">
+<h3 class="font-label-bold text-on-surface-variant uppercase truncate mb-1 line-through">02_TACTICAL_CARGO_V2</h3>
+<p class="font-label-mono text-outline mb-4">ASH / RIPSTOP</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="font-headline-lg text-on-surface-variant leading-none">$180</span>
+<button class="border-2 border-surface-variant text-surface-variant px-4 py-2 font-label-mono uppercase cursor-not-allowed">N/A</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="group border-3 border-on-background flex flex-col relative bg-surface overflow-hidden shadow-[8px_8px_0px_#abd600]">
+<div class="w-full aspect-[4/5] bg-surface-container border-b-3 border-on-background overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500" data-alt="A close-up, high-fashion editorial shot of an oversized black t-white graphic print tee worn by an anonymous model in a dimly lit, raw concrete tunnel. The flash photography style washes out the subject slightly while intensifying the deep blacks of the garment. The aesthetic is heavily influenced by underground skate culture and modern brutalism, featuring stark contrast and visible film grain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPsm93qB6-OuaxjQtVh772uRNC-Dgql7PD-ivHyXJ0GKDJMugFegsBlmhUszEW5S07TyjKWZjSCpuZpyXJ4mCuoOjlk-nqAZwLyWGqz0bMsEX8KQMI2gJBRswW5iMuFq_xke--iEya8KKY7r4JyTVovUrYzR_VcfTBJOCVesW6nmRyLvrH1qZPESQkuB2MMOFWthOY9XpmCDcTKElpiqLKOnkabRNXRTWX1tra2iQ6_UAKQYZcX6ihbA5M4tK6ylt965Z3CiZHo6Y"/>
+</div>
+<div class="p-4 flex flex-col flex-grow bg-surface">
+<h3 class="font-label-bold text-on-background uppercase truncate mb-1">03_BRUTALIST_LOGO_TEE</h3>
+<p class="font-label-mono text-on-surface-variant mb-4">BONE / HEAVYWEIGHT</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="font-headline-lg text-on-background leading-none">$65</span>
+<button class="border-2 border-on-background bg-on-background text-background px-4 py-2 font-label-mono uppercase hover:bg-tertiary hover:text-on-tertiary hover:border-tertiary transition-colors">ADD</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="group border-3 border-on-background flex flex-col relative bg-surface overflow-hidden">
+<div class="w-full aspect-[4/5] bg-surface-container border-b-3 border-on-background overflow-hidden relative">
+<img alt="Product Image" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-500" data-alt="A moody, high-contrast shot of a heavy silver chain and padlock accessory resting on a slab of dark, textured asphalt. The lighting is low-key, highlighting the metallic reflections against the rough, matte surface of the street. The image has a raw, industrial vibe, heavily edited to resemble a black-and-white film photograph with significant grain and sharp, unrelenting focus on the hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcpqBoCEaU5UCUk5tS-Bw9wIrz2p9idZ2BVWT40Gh6oTOgCd-QxTHBmI37Rg1ZBSHimZBsJRQWLNw46xkgkkCoRLD_-xOZMg5CJfCuQRpR-ZQDgzE1WDwijQUjASdlHOPsrkdhrz8F_AVYp8K28xc_ecwzT1NqDECGMmdwsKBy3O1exqdU0m3Ul1zYmPrYEm4EAw6cSB7qzwivrzAt9tqsCH1o_jNSA_lAxK-CYOxJlGo-UD-4hAc6M0KedmV_orvpu53WszSLAW8"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary font-label-mono px-3 py-1 border-2 border-on-background">LIMITED</div>
+</div>
+<div class="p-4 flex flex-col flex-grow bg-surface">
+<h3 class="font-label-bold text-on-background uppercase truncate mb-1">04_INDUSTRIAL_CHAIN</h3>
+<p class="font-label-mono text-on-surface-variant mb-4">SILVER / STAINLESS</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="font-headline-lg text-on-background leading-none">$95</span>
+<button class="border-2 border-on-background px-4 py-2 font-label-mono uppercase hover:bg-on-background hover:text-background transition-colors">ADD</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination / Load More -->
+<div class="col-span-12 mt-16 flex justify-center border-t-3 border-on-background pt-8">
+<button class="border-3 border-on-background bg-background text-on-background px-12 py-4 font-label-bold uppercase tracking-widest hover:bg-on-background hover:text-background transition-colors flex items-center gap-2">
+                LOAD MORE FRAGMENTS
+                <span class="material-symbols-outlined">arrow_downward</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-10 grid grid-cols-12 gap-6 items-end bg-white dark:bg-black border-t-3 border-black dark:border-white docked full-width mt-auto">
+<div class="col-span-12 md:col-span-6 flex flex-col gap-4">
+<h2 class="text-xl font-black text-black dark:text-white uppercase">STREET_ARCHIVE</h2>
+<p class="font-inter font-bold uppercase text-xs tracking-widest text-black dark:text-white">©2024 STREET_ARCHIVE. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="col-span-12 md:col-span-6 flex flex-wrap justify-start md:justify-end gap-6 font-inter font-bold uppercase text-xs tracking-widest">
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">PRIVACY</a>
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">TERMS</a>
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">SHIPPING</a>
+<a class="text-black dark:text-white hover:invert transition-all duration-75" href="#">CONTACT</a>
+</div>
+</footer>
+</body></html>

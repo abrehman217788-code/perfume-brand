@@ -1,0 +1,30 @@
+[
+    {
+        "id": "cloud-infrastructure",
+        "title": "Cloud Infrastructure",
+        "description": "Architecting resilient, scalable cloud environments using AWS, Azure, and Google Cloud. We optimize for performance and cost-efficiency.",
+        "icon": "cloud",
+        "features": ["Multi-cloud Strategy", "Serverless Computing", "Cloud Migration", "Auto-scaling Ops"]
+    },
+    {
+        "id": "ai-integration",
+        "title": "AI & Machine Learning",
+        "description": "Integrating cutting-edge AI models into your business workflow. From predictive analytics to custom LLM deployments.",
+        "icon": "brain",
+        "features": ["Predictive Analytics", "NLP Integration", "Computer Vision", "Custom LLM Fine-tuning"]
+    },
+    {
+        "id": "cybersecurity",
+        "title": "Cybersecurity Elite",
+        "description": "Uncompromising security protocols to protect your digital assets. We provide continuous monitoring and threat intelligence.",
+        "icon": "shield",
+        "features": ["Penetration Testing", "Zero Trust Architecture", "Security Audits", "Incident Response"]
+    },
+    {
+        "id": "custom-software",
+        "title": "Custom Software",
+        "description": "Tailor-made software solutions designed to solve your unique business challenges with precision and elegance.",
+        "icon": "code",
+        "features": ["Full-stack Development", "API Ecosystems", "Microservices", "Legacy Modernization"]
+    }
+]

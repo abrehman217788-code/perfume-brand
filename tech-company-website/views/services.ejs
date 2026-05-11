@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+<main style="padding-top: 8rem;">
+    <section>
+        <h1 class="section-title" style="text-align: left; font-size: 3.5rem;">OUR SERVICES</h1>
+        <p style="color: var(--text-muted); max-width: 800px; font-size: 1.1rem; margin-bottom: 4rem;">We provide a comprehensive suite of digital services designed to scale your business into the future. Our approach combines architectural precision with innovative thinking.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 4rem;">
+            <% services.forEach((service, index) => { %>
+                <div class="card glass <%= index % 2 === 0 ? 'glass-glow-cyan' : 'glass-glow-violet' %>" style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start;">
+                    <div>
+                        <span style="font-size: 3rem; color: var(--primary); font-family: var(--font-display); opacity: 0.3;">0<%= index + 1 %></span>
+                        <h2 style="font-size: 2rem; margin-top: 1rem;"><%= service.title %></h2>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.1rem; margin-bottom: 2rem;"><%= service.description %></p>
+                        <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <% service.features.forEach(feature => { %>
+                                <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">
+                                    <span style="color: var(--primary);">▹</span> <%= feature %>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem;">Ready to transform your infrastructure?</h2>
+        <a href="/about" class="btn btn-primary">Let's Talk Strategy</a>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

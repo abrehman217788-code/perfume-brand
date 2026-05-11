@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Rehman — Full-Stack Developer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <span class="brand-mark">AR</span>
+        <span style="font-weight:500;color:var(--text-main);">Abdul Rehman</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="mailto:ab.rehman217788@gmail.com" class="nav-link" style="color:var(--primary);">Contact</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-badge">Full-Stack Developer</span>
+      <h1 class="hero-title">
+        Building <span class="gradient-text">Digital</span><br>Experiences
+      </h1>
+      <p class="hero-subtitle">
+        I craft modern web applications from concept to deployment — combining clean code, thoughtful design, and scalable architecture.
+      </p>
+      <div class="hero-contact">
+        <a href="mailto:ab.rehman217788@gmail.com">ab.rehman217788@gmail.com</a>
+        <span style="opacity:0.3;">|</span>
+        <a href="tel:+923331940971">+92 333 1940971</a>
+        <span style="opacity:0.3;">|</span>
+        <a href="#projects">Explore Projects &darr;</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Featured Work</span>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">A showcase of full-stack applications, brand platforms, and interactive tools.</p>
+      </div>
+      <div class="projects-grid fade-in" id="projectsGrid">
+        <!-- Projects injected by build script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Developer &amp; Problem Solver</h2>
+      </div>
+      <div class="about-grid">
+        <div class="fade-in">
+          <p class="about-text">
+            I'm a full-stack developer passionate about building modern web experiences.
+            I specialize in the MERN stack with a focus on clean architecture,
+            responsive design, and performant applications.
+          </p>
+          <p class="about-text">
+            Each project is an opportunity to push boundaries — from brutalist streetwear stores
+            with session-based carts, to CV builders with live A4 preview.
+            Great code is both functional and elegant.
+          </p>
+        </div>
+        <div class="about-stats fade-in">
+          <div class="stat">
+            <span class="stat-number">6+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">Full</span>
+            <span class="stat-label">Stack</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Passion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Services &amp; Expertise</h2>
+        <p class="section-desc">End-to-end development from concept to deployment.</p>
+      </div>
+      <div class="services-grid fade-in">
+        <div class="service-card">
+          <div class="service-icon">&#9900;</div>
+          <h3>Full-Stack Web Development</h3>
+          <p>Node.js, Express, EJS, and MongoDB for complete server-rendered applications with RESTful APIs and session management.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#9733;</div>
+          <h3>Frontend &amp; UI</h3>
+          <p>Responsive, accessible interfaces using Tailwind CSS, vanilla CSS, and modern JavaScript — from brutalist to elegant.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#9881;</div>
+          <h3>Tooling &amp; Automation</h3>
+          <p>Build scripts, static site generation, Puppeteer-based screenshot capture, PDF generation, and CI/CD pipelines.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#9650;</div>
+          <h3>Deployment &amp; DevOps</h3>
+          <p>GitHub Pages, Express server deployment, environment configuration, and project architecture planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-text">&copy; 2026 Abdul Rehman &mdash; Full-Stack Developer</span>
+        <div class="footer-links">
+          <a href="mailto:ab.rehman217788@gmail.com">Email</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // ── Navbar scroll effect ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Mobile menu ──
+  const toggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // ── Fade-in observer ──
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+  }
+
+  // ── Scan sibling directories for projects ──
+  // Uses the directory listing approach (same-origin)
+  // Falls back to a manual listing if directory listing is unavailable
+  const projects = [
+    {
+      name: 'STREET_ARCHIVE',
+      path: 'clothing-brand-website',
+      entry: 'clothing-brand-website/index.html',
+      img: null,
+      label: 'Brutalist streetwear brand with cart & auth'
+    },
+    {
+      name: 'CV Studio',
+      path: 'cv builder/cv-studio',
+      entry: 'cv%20builder/cv-studio/public/index.html',
+      img: null,
+      label: 'Browser-based CV builder with live preview & API'
+    },
+    {
+      name: 'Lumina Cafe',
+      path: 'cafe-website',
+      entry: 'cafe-website',
+      img: null,
+      label: 'Cafe bistro site with menu, cart & reservations'
+    },
+    {
+      name: 'Elegant Tech Showcase',
+      path: 'tech-company-website',
+      entry: 'tech-company-website',
+      img: null,
+      label: 'IT consulting hub linking all projects'
+    },
+    {
+      name: 'Lumina Cafe (MongoDB)',
+      path: 'lumina-cafe',
+      entry: 'lumina-cafe',
+      img: null,
+      label: 'Cafe site with MongoDB & custom CSS'
+    },
+    {
+      name: 'Developer Portfolio',
+      path: 'portfolio',
+      entry: 'portfolio/index.html',
+      img: null,
+      label: 'Personal portfolio with print-to-PDF'
+    }
+  ];
+
+  const grid = document.getElementById('projectsGrid');
+  const COLORS = ['#22d3ee', '#8b5cf6', '#f472b6', '#34d399', '#fbbf24', '#f97316'];
+  const ICONS = ['ST', 'CV', 'LC', 'ET', 'LM', 'DP'];
+
+  projects.forEach((p, i) => {
+    const nameKey = p.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+    const initials = ICONS[i] || nameKey;
+    const hue = COLORS[i % COLORS.length];
+
+    const card = document.createElement('a');
+    card.href = p.entry;
+    card.className = 'project-card fade-in';
+    card.target = '_blank';
+    card.innerHTML =
+      '<div class="project-thumb">' +
+        '<div class="thumb-fallback" style="color:' + hue + ';">' + initials + '</div>' +
+      '</div>' +
+      '<div class="project-body">' +
+        '<div class="project-name">' + p.name + '</div>' +
+        '<div class="project-path">' + p.label + '</div>' +
+      '</div>';
+
+    // If a local screenshot exists, try to load it
+    const img = new Image();
+    const imgPath = p.path + '/thumbnail.png';
+    img.onload = function() {
+      card.querySelector('.thumb-fallback').outerHTML =
+        '<img src="' + imgPath + '" alt="' + p.name + '" />';
+    };
+    img.src = imgPath;
+
+    grid.appendChild(card);
+  });
+
+  // Re-observe new cards
+  if (window.projectObserver) {
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => window.projectObserver.observe(el));
+  }
+</script>
+
+</body>
+</html>

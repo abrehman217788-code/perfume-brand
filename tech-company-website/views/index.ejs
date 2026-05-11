@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+
+<main>
+    <section class="hero">
+        <h1 class="hero-title">PRECISION<br>MEETS INNOVATION</h1>
+        <p class="hero-subtitle">High-tier enterprise solutions for the next generation of digital leaders. We build what others only imagine.</p>
+        <div style="display: flex; gap: 1.5rem;">
+            <a href="/services" class="btn btn-primary">Our Expertise</a>
+            <a href="/about" class="btn btn-outline">Connect Now</a>
+        </div>
+    </section>
+
+    <section id="featured-services">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="grid-3">
+            <% services.forEach(service => { %>
+                <div class="card glass glass-glow-cyan">
+                    <h3><%= service.title %></h3>
+                    <p><%= service.description %></p>
+                    <a href="/services" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600;">View Details →</a>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <section id="featured-portfolio" style="background: var(--bg-surface);">
+        <h2 class="section-title">Case Studies</h2>
+        <div class="grid-2">
+            <% projects.forEach(project => { %>
+                <div class="portfolio-item">
+                    <a href="<%= project.link %>">
+                        <img src="<%= project.image %>" alt="<%= project.name %>" class="portfolio-img" />
+                    </a>
+                    <div style="padding: 2.5rem;">
+                        <h2 style="font-size: 1.75rem; margin: 1rem 0;"> <%= project.name %> </h2>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="/portfolio" class="btn btn-outline">Explore Full Gallery</a>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

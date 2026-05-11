@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu — Lumina Cafe</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">LUMINA</a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/menu" class="nav-link active">Menu</a>
+      <a href="/reservations" class="nav-link">Reservations</a>
+      <a href="/experience" class="nav-link">Experience</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="hero-subtitle">Our Offerings</p>
+    <h1 class="page-title">Menu</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar">
+      <a href="/menu" class="filter-btn <% if (!currentPath || currentPath === '/menu') { %>active<% } %>">All</a>
+      <a href="/menu/category/Coffee" class="filter-btn <%= currentPath === '/menu/category/Coffee' ? 'active' : '' %>">Coffee</a>
+      <a href="/menu/category/Brunch" class="filter-btn <%= currentPath === '/menu/category/Brunch' ? 'active' : '' %>">Brunch</a>
+      <a href="/menu/category/Desserts" class="filter-btn <%= currentPath === '/menu/category/Desserts' ? 'active' : '' %>">Desserts</a>
+    </div>
+
+    <div class="menu-grid">
+      <% if (typeof menuItems !== 'undefined' && menuItems.length > 0) { %>
+        <% menuItems.forEach(item => { %>
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img src="<%= item.image %>" alt="<%= item.name %>" loading="lazy"/>
+            </div>
+            <div class="menu-card-body">
+              <span class="menu-card-category"><%= item.category %></span>
+              <h3 class="menu-card-name"><%= item.name %></h3>
+              <p class="menu-card-desc"><%= item.description %></p>
+              <span class="menu-card-price">$<%= item.price.toFixed(2) %></span>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="no-items">No menu items found.</p>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>LUMINA</h3>
+        <p>Light. Flavor. Community.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/reservations">Reservations</a>
+        <a href="/experience">Experience</a>
+      </div>
+      <div class="footer-hours">
+        <h4>Hours</h4>
+        <p>Mon–Fri: 7am – 9pm</p>
+        <p>Sat–Sun: 8am – 10pm</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Visit</h4>
+        <p>42 Elm Street, Downtown</p>
+        <p>hello@luminacafe.com</p>
+        <p>(555) 123-4567</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumina Cafe. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

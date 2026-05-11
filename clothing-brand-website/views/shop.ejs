@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREET_ARCHIVE - Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen">
+    <header class="p-6 border-b border-white">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold">STREET_ARCHIVE</h1>
+            <nav class="space-x-6">
+                <a href="/" class="hover:text-gray-300">HOME</a>
+                <a href="/shop" class="border-b-2 border-white">SHOP</a>
+                <a href="/about" class="hover:text-gray-300">ABOUT</a>
+            </nav>
+            <div>
+                <a href="/cart" class="hover:text-gray-300 mr-4">CART (<%= typeof cart !== 'undefined' ? cart.length : 0 %>)</a>
+                <% if (user) { %>
+                    <span>Welcome, <%= user.email %></span>
+                    <a href="/logout" class="ml-4 hover:text-gray-300">LOGOUT</a>
+                <% } else { %>
+                    <a href="/login" class="hover:text-gray-300">LOGIN</a>
+                <% } %>
+            </div>
+        </div>
+    </header>
+
+    <main class="p-6">
+        <h2 class="text-3xl font-bold mb-8">SHOP ALL PRODUCTS</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% if (typeof products !== 'undefined' && products.length > 0) { %>
+                <% products.forEach(product => { %>
+                    <div class="border border-white p-4">
+                        <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-64 object-cover mb-4">
+                        <h3 class="text-xl font-bold"><%= product.name %></h3>
+                        <p class="text-gray-300 mb-2"><%= product.code %></p>
+                        <p class="text-sm mb-4"><%= product.description %></p>
+                        <p class="text-lg font-bold">$<%= product.price %>.00</p>
+                        <form action="/cart/add" method="POST" class="mt-4">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <button type="submit" class="bg-white text-black px-4 py-2 hover:bg-gray-200 w-full font-bold">ADD TO CART</button>
+                        </form>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No products available</p>
+            <% } %>
+        </div>
+    </main>
+
+    <footer class="p-6 border-t border-white mt-12">
+        <p>&copy; 2024 STREET_ARCHIVE. All rights reserved.</p>
+    </footer>
+</body>
+</html>

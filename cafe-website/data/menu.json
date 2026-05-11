@@ -1,0 +1,74 @@
+[
+  {
+    "id": "golden-hour-latte",
+    "name": "Golden Hour Latte",
+    "category": "coffee",
+    "description": "Double shot espresso, oat milk, and a hint of turmeric sunshine. A warm, glowing start to your day.",
+    "price": 7.00,
+    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "rosemary-bloom",
+    "name": "Rosemary Bloom Cold Brew",
+    "category": "coffee",
+    "description": "Sparkling cold brew infused with fresh rosemary and peach bitters. Refreshing and sophisticated.",
+    "price": 6.50,
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "lumina-flat-white",
+    "name": "Lumina Flat White",
+    "category": "coffee",
+    "description": "Micro-foamed milk folded into our house-blend medium roast. Smooth and velvety.",
+    "price": 5.50,
+    "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "minty-matcha",
+    "name": "Minty Matcha Cloud",
+    "category": "specialty",
+    "description": "Ceremonial matcha topped with a light mint-infused cold foam. A vibrant, airy escape.",
+    "price": 7.50,
+    "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "espresso",
+    "name": "House Espresso",
+    "category": "coffee",
+    "description": "Rich, bold single-origin espresso shot with caramel crema",
+    "price": 3.50,
+    "image": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "chai-latte",
+    "name": "Spiced Chai",
+    "category": "specialty",
+    "description": "Spiced black tea concentrate with steamed milk and a hint of vanilla",
+    "price": 4.75,
+    "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "croissant",
+    "name": "Almond Croissant",
+    "category": "food",
+    "description": "Flaky, golden-baked croissant filled with sweet almond cream",
+    "price": 4.50,
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "avocado-toast",
+    "name": "Lumina Avocado Toast",
+    "category": "food",
+    "description": "Sourdough with smashed avocado, heirloom tomatoes, and micro-greens",
+    "price": 12.00,
+    "image": "https://images.unsplash.com/photo-1603046891726-36bfd10e0c3b?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "matcha-tiramisu",
+    "name": "Matcha Tiramisu",
+    "category": "food",
+    "description": "Layers of matcha-soaked ladyfingers with mascarpone cream and ceremonial matcha powder",
+    "price": 9.00,
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=400&fit=crop"
+  }
+]
