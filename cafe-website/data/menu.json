@@ -5,70 +5,142 @@
     "category": "coffee",
     "description": "Double shot espresso, oat milk, and a hint of turmeric sunshine. A warm, glowing start to your day.",
     "price": 7.00,
-    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&h=400&fit=crop"
-  },
-  {
-    "id": "rosemary-bloom",
-    "name": "Rosemary Bloom Cold Brew",
-    "category": "coffee",
-    "description": "Sparkling cold brew infused with fresh rosemary and peach bitters. Refreshing and sophisticated.",
-    "price": 6.50,
-    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&h=400&fit=crop"
+    "tags": ["vegan", "vegetarian"],
+    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&h=400&fit=crop&q=80"
   },
   {
     "id": "lumina-flat-white",
     "name": "Lumina Flat White",
     "category": "coffee",
-    "description": "Micro-foamed milk folded into our house-blend medium roast. Smooth and velvety.",
+    "description": "Micro-foamed milk folded into our house-blend medium roast. Smooth and velvety perfection.",
     "price": 5.50,
-    "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=400&fit=crop"
+    "tags": ["vegetarian"],
+    "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "house-espresso",
+    "name": "House Espresso",
+    "category": "coffee",
+    "description": "Rich, bold single-origin espresso shot with caramel crema from Ethiopian beans.",
+    "price": 3.50,
+    "tags": ["vegan", "vegetarian", "gluten-free"],
+    "image": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "spiced-chai",
+    "name": "Spiced Chai Latte",
+    "category": "specialty",
+    "description": "Spiced black tea concentrate with steamed oat milk and a hint of vanilla bean.",
+    "price": 5.75,
+    "tags": ["vegan", "vegetarian"],
+    "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=600&h=400&fit=crop&q=80"
   },
   {
     "id": "minty-matcha",
     "name": "Minty Matcha Cloud",
     "category": "specialty",
-    "description": "Ceremonial matcha topped with a light mint-infused cold foam. A vibrant, airy escape.",
+    "description": "Ceremonial matcha topped with mint-infused cold foam. A vibrant, airy escape.",
     "price": 7.50,
-    "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=600&h=400&fit=crop"
+    "tags": ["vegan", "vegetarian"],
+    "image": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=600&h=400&fit=crop&q=80"
   },
   {
-    "id": "espresso",
-    "name": "House Espresso",
-    "category": "coffee",
-    "description": "Rich, bold single-origin espresso shot with caramel crema",
-    "price": 3.50,
-    "image": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600&h=400&fit=crop"
-  },
-  {
-    "id": "chai-latte",
-    "name": "Spiced Chai",
+    "id": "rosemary-bloom",
+    "name": "Rosemary Bloom Cold Brew",
     "category": "specialty",
-    "description": "Spiced black tea concentrate with steamed milk and a hint of vanilla",
-    "price": 4.75,
-    "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=600&h=400&fit=crop"
+    "description": "Sparkling cold brew infused with fresh rosemary and peach bitters. Refreshingly sophisticated.",
+    "price": 6.50,
+    "tags": ["vegan", "vegetarian", "gluten-free"],
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&h=400&fit=crop&q=80"
   },
   {
-    "id": "croissant",
-    "name": "Almond Croissant",
+    "id": "butter-croissant",
+    "name": "French Butter Croissant",
     "category": "food",
-    "description": "Flaky, golden-baked croissant filled with sweet almond cream",
+    "description": "Flaky, golden-baked all-butter croissant made fresh every morning in-house.",
     "price": 4.50,
-    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&h=400&fit=crop"
+    "tags": ["vegetarian"],
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=600&h=400&fit=crop&q=80"
   },
   {
     "id": "avocado-toast",
     "name": "Lumina Avocado Toast",
     "category": "food",
-    "description": "Sourdough with smashed avocado, heirloom tomatoes, and micro-greens",
+    "description": "Sourdough with smashed avocado, heirloom tomatoes, micro-greens and chili flakes.",
     "price": 12.00,
-    "image": "https://images.unsplash.com/photo-1603046891726-36bfd10e0c3b?w=600&h=400&fit=crop"
+    "tags": ["vegan", "vegetarian"],
+    "image": "https://images.unsplash.com/photo-1603046891726-36bfd10e0c3b?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "truffle-fries",
+    "name": "Truffle Parmesan Fries",
+    "category": "food",
+    "description": "Crispy golden fries tossed in truffle oil, parmesan, and fresh herbs.",
+    "price": 9.00,
+    "tags": ["vegetarian", "gluten-free"],
+    "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "grilled-panini",
+    "name": "Pesto Panini",
+    "category": "food",
+    "description": "Grilled ciabatta with basil pesto, mozzarella, roasted peppers, and arugula.",
+    "price": 11.00,
+    "tags": ["vegetarian"],
+    "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&h=400&fit=crop&q=80"
   },
   {
     "id": "matcha-tiramisu",
     "name": "Matcha Tiramisu",
-    "category": "food",
-    "description": "Layers of matcha-soaked ladyfingers with mascarpone cream and ceremonial matcha powder",
+    "category": "desserts",
+    "description": "Layers of matcha-soaked ladyfingers with mascarpone cream and ceremonial matcha dust.",
     "price": 9.00,
-    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=400&fit=crop"
+    "tags": ["vegetarian"],
+    "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "chocolate-lava",
+    "name": "Dark Chocolate Lava Cake",
+    "category": "desserts",
+    "description": "Warm molten dark chocolate cake with vanilla bean ice cream and raspberry coulis.",
+    "price": 10.00,
+    "tags": ["vegetarian"],
+    "image": "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "vegan-bowl",
+    "name": "Acai Berry Bowl",
+    "category": "food",
+    "description": "Blended acai with banana, granola, coconut flakes, and fresh seasonal berries.",
+    "price": 13.00,
+    "tags": ["vegan", "vegetarian", "gluten-free"],
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "berry-tart",
+    "name": "Mixed Berry Tart",
+    "category": "desserts",
+    "description": "Buttery pate sablee filled with vanilla pastry cream and topped with fresh berries.",
+    "price": 8.50,
+    "tags": ["vegetarian"],
+    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "cold-brew",
+    "name": "Nitro Cold Brew",
+    "category": "coffee",
+    "description": "Slow-steeped 24-hour cold brew served on nitro tap for a creamy, smooth finish.",
+    "price": 5.00,
+    "tags": ["vegan", "vegetarian", "gluten-free"],
+    "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&h=400&fit=crop&q=80"
+  },
+  {
+    "id": "gluten-free-brownie",
+    "name": "Flourless Chocolate Brownie",
+    "category": "desserts",
+    "description": "Rich, fudgy dark chocolate brownie made with almond flour. Decadently gluten-free.",
+    "price": 6.50,
+    "tags": ["vegetarian", "gluten-free"],
+    "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=400&fit=crop&q=80"
   }
 ]

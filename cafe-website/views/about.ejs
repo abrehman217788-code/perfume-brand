@@ -3,148 +3,75 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Experience - Lumina Cafe</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            lumina: {
-              cream: '#fff8f5',
-              mint: '#4ade80',
-              'mint-dark': '#006d36',
-              peach: '#fb923c',
-              espresso: '#221a14',
-              'espresso-light': '#3d4a3e'
-            }
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-    .glass {
-      background: rgba(255, 248, 245, 0.6);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(109, 123, 109, 0.1);
-    }
-  </style>
+  <title>About Us — Cafe Serenity</title>
+  <meta name="description" content="Learn the story behind Cafe Serenity — our philosophy, values, and commitment to quality coffee and community."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
 </head>
-<body class="bg-lumina-cream text-lumina-espresso">
-  <nav class="fixed top-0 left-0 w-full z-50 glass border-b border-lumina-mint/10">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold font-serif text-lumina-mint-dark tracking-tighter">LUMINA</a>
-      <div class="hidden md:flex items-center gap-8 font-semibold text-sm uppercase tracking-wider text-lumina-espresso-light">
-        <a href="/" class="hover:text-lumina-mint transition-colors">Home</a>
-        <a href="/menu" class="hover:text-lumina-mint transition-colors">Menu</a>
-        <a href="/reservations" class="hover:text-lumina-mint transition-colors">Reservations</a>
-        <a href="/about" class="text-lumina-mint-dark border-b-2 border-lumina-mint pb-1">Experience</a>
-        <a href="/contact" class="hover:text-lumina-mint transition-colors">Contact</a>
-      </div>
-      <a href="/cart" class="relative text-lumina-espresso-light hover:text-lumina-mint transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
-        <% if (cartCount > 0) { %>
-          <span class="absolute -top-2 -right-2 bg-lumina-peach text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold shadow-lg shadow-lumina-peach/40"><%= cartCount %></span>
-        <% } %>
-      </a>
+<body>
+  <%- include('partials/nav') %>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-tag">Our Story</span>
+      <h1 class="page-title">The Serenity <span style="color:var(--gold);">Experience</span></h1>
+      <p class="page-subtitle">Where light meets flavor. Community meets craft.</p>
     </div>
-  </nav>
+  </section>
 
-  <main class="pt-20">
-    <section class="bg-lumina-espresso py-24 px-6 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-lumina-mint/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-      <div class="max-w-6xl mx-auto text-center relative z-10">
-        <p class="text-lumina-mint uppercase tracking-[0.4em] text-xs font-bold mb-6">Sip the Sunshine</p>
-        <h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight">The Lumina <span class="italic text-lumina-mint">Experience</span></h1>
-      </div>
-    </section>
-
-    <section class="py-24 px-6 max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div class="relative">
-          <div class="absolute inset-0 bg-lumina-mint/20 blur-[100px] rounded-full scale-75"></div>
-          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&h=1000&fit=crop" alt="Lumina Sanctuary" class="relative z-10 rounded-[3rem] shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-700"/>
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image reveal-left">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&h=1000&fit=crop&q=80" alt="Cafe interior" loading="lazy"/>
         </div>
-        <div>
-          <p class="text-lumina-peach font-bold uppercase tracking-widest text-xs mb-6">Our Philosophy</p>
-          <h2 class="text-5xl font-black text-lumina-espresso mb-8 leading-tight tracking-tighter">Where Light <span class="italic text-lumina-mint-dark">Meets</span> Flavor</h2>
-          <div class="space-y-6 text-lg text-lumina-espresso-light leading-relaxed">
-            <p>Lumina was envisioned as more than just a destination for coffee. It's a vibrant sanctuary—a space where the fast-paced urban rhythm slows down to a gentle hum.</p>
-            <p>We believe that your morning ritual deserves a backdrop of natural light, organic fluidity, and the highest expression of craft. Every corner of our space is designed to foster inspiration, whether you're a digital nomad seeking focus or an aesthetic seeker chasing the golden hour.</p>
-            <p class="font-bold italic text-lumina-mint-dark">"Lumina is the pulse of the community, wrapped in the warmth of a sun-drenched escape."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 bg-lumina-mint/5">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-black text-lumina-espresso mb-16 tracking-tighter">The <span class="italic text-lumina-mint-dark">Lumina</span> Pillars</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div class="glass p-12 rounded-[3rem] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <div class="w-20 h-20 bg-lumina-mint/20 rounded-[2rem] flex items-center justify-center text-4xl mb-8 mx-auto">🍃</div>
-            <h3 class="text-2xl font-bold text-lumina-espresso mb-4">Pure Sourcing</h3>
-            <p class="text-lumina-espresso-light text-sm leading-relaxed">We trace every bean to its origin, ensuring regenerative farming practices and direct-trade transparency.</p>
-          </div>
-          <div class="glass p-12 rounded-[3rem] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <div class="w-20 h-20 bg-lumina-peach/20 rounded-[2rem] flex items-center justify-center text-4xl mb-8 mx-auto">⚡</div>
-            <h3 class="text-2xl font-bold text-lumina-espresso mb-4">Precision Craft</h3>
-            <p class="text-lumina-espresso-light text-sm leading-relaxed">Our baristas are masters of extraction, utilizing scientific precision to highlight the vibrant notes of every roast.</p>
-          </div>
-          <div class="glass p-12 rounded-[3rem] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <div class="w-20 h-20 bg-lumina-mint/20 rounded-[2rem] flex items-center justify-center text-4xl mb-8 mx-auto">☁️</div>
-            <h3 class="text-2xl font-bold text-lumina-espresso mb-4">Urban Oasis</h3>
-            <p class="text-lumina-espresso-light text-sm leading-relaxed">A sanctuary for the mind. Comfortable ergonomics, high-speed connectivity, and an atmosphere of calm.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-lumina-espresso text-lumina-cream py-20 px-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-      <div class="col-span-1 md:col-span-1">
-        <h4 class="text-white font-black font-serif text-3xl mb-6 tracking-tighter">LUMINA</h4>
-        <p class="text-sm leading-relaxed text-white/50 max-w-xs">A vibrant sanctuary designed for digital nomads and aesthetic seekers. Sip the sunshine in every cup.</p>
-      </div>
-      <div>
-        <h4 class="text-lumina-mint font-bold uppercase tracking-widest text-xs mb-8">Navigate</h4>
-        <div class="flex flex-col gap-4 text-sm font-medium">
-          <a href="/" class="hover:text-white transition-colors">Home</a>
-          <a href="/menu" class="hover:text-white transition-colors">Menu</a>
-          <a href="/reservations" class="hover:text-white transition-colors">Reservations</a>
-          <a href="/about" class="hover:text-white transition-colors">Experience</a>
-          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-lumina-peach font-bold uppercase tracking-widest text-xs mb-8">Hours</h4>
-        <div class="flex flex-col gap-2 text-sm text-white/70">
-          <p>Mon–Fri: 7am – 9pm</p>
-          <p>Sat–Sun: 8am – 10pm</p>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-lumina-mint font-bold uppercase tracking-widest text-xs mb-8">Visit</h4>
-        <div class="flex flex-col gap-2 text-sm text-white/70">
-          <p>42 Elm Street, Downtown</p>
-          <p>hello@luminacafe.com</p>
-          <p>(555) 123-4567</p>
+        <div class="story-content reveal-right">
+          <span class="section-tag">Our Philosophy</span>
+          <h2 class="section-title">Where <span class="highlight">Flavor</span> Meets Community</h2>
+          <p>Cafe Serenity was born from a simple belief: that great coffee and good food have the power to bring people together. Founded in 2020, we've grown from a small corner cafe into a beloved community gathering place.</p>
+          <p>We source our beans directly from sustainable farms, ensuring quality from origin to cup. Our kitchen creates fresh, seasonal dishes made with locally-sourced ingredients that complement our beverages perfectly.</p>
+          <p>Every corner of our space is designed to foster inspiration. Whether you're a digital nomad seeking focus or a friend catching up over lattes, Serenity is your home away from home.</p>
+          <p class="italic" style="color:var(--terracotta);font-weight:600;font-size:1.2rem;">"Serenity is the pulse of the community, wrapped in the warmth of a sun-drenched escape."</p>
         </div>
       </div>
     </div>
-    <div class="border-t border-white/10 mt-16 pt-10 text-center text-[10px] uppercase tracking-[0.2em] text-white/30">
-      &copy; 2026 Lumina Cafe. Crafted for the vibrant sanctuary.
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What We Stand For</span>
+        <h2 class="section-title">The Serenity <span class="highlight">Pillars</span></h2>
+      </div>
+      <div class="values-grid stagger-children reveal">
+        <div class="value-card tilt-3d">
+          <div class="tilt-3d-inner">
+            <span class="value-icon"><i class="fas fa-seedling"></i></span>
+            <h3>Pure Sourcing</h3>
+            <p>We trace every bean to its origin, ensuring regenerative farming practices and direct-trade transparency. Quality from farm to cup.</p>
+          </div>
+        </div>
+        <div class="value-card tilt-3d">
+          <div class="tilt-3d-inner">
+            <span class="value-icon"><i class="fas fa-bolt"></i></span>
+            <h3>Precision Craft</h3>
+            <p>Our baristas are masters of extraction, utilizing scientific precision to highlight the vibrant notes of every single-origin roast.</p>
+          </div>
+        </div>
+        <div class="value-card tilt-3d">
+          <div class="tilt-3d-inner">
+            <span class="value-icon"><i class="fas fa-cloud"></i></span>
+            <h3>Urban Oasis</h3>
+            <p>A sanctuary for the mind. Comfortable ergonomics, high-speed connectivity, and an atmosphere of calm in the heart of the city.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/chat') %>
+  <script src="/js/main.js"></script>
 </body>
 </html>

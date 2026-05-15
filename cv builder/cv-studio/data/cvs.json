@@ -1,33 +1,126 @@
 [
   {
-    "id": "1778422504324",
-    "name": "Jane Doe",
-    "title": "Software Engineer",
-    "email": "jane@example.com",
-    "location": "San Francisco, CAAn experienced software engineer with a passion for building sc",
-    "summary": "alable web applications.",
+    "id": "cv_sample_001",
+    "name": "Sarah Johnson",
+    "title": "Senior Product Designer",
+    "email": "sarah.johnson@email.com",
+    "phone": "+1 (415) 555-0123",
+    "location": "San Francisco, CA",
+    "linkedin": "https://linkedin.com/in/sarahjohnson",
+    "github": "https://github.com/sarahjohnson",
+    "website": "https://sarahjohnson.design",
+    "summary": "Creative designer with a passion for crafting intuitive user experiences. Expert in Figma, Adobe Creative Suite, and design systems.",
     "experience": [
       {
-        "company": "",
-        "role": "",
-        "years": "",
-        "desc": ""
+        "company": "Google",
+        "role": "Senior Product Designer",
+        "years": "2021 - Present",
+        "desc": "Lead design for Google Maps platform serving 1B+ users. Established design system used by 200+ product teams."
+      },
+      {
+        "company": "Airbnb",
+        "role": "Product Designer",
+        "years": "2018 - 2021",
+        "desc": "Designed end-to-end booking experience. Improved conversion by 23% through UX research and iteration."
       }
-    ]
-  },
-  {
-    "id": "1778433341758",
-    "name": "Your Name",
-    "title": "Job Title",
-    "email": "email@example.com",
-    "location": "Location",
-    "summary": "Professional summary...",
-    "experience": [
+    ],
+    "education": [
       {
-        "company": "",
-        "role": "",
-        "years": "",
-        "desc": ""
+        "school": "Stanford University",
+        "degree": "B.S. Computer Science + Design",
+        "years": "2014 - 2018",
+        "desc": "Dean's List, HCI Research Assistant"
+      }
+    ],
+    "projects": [
+      {
+        "name": "Design System Framework",
+        "role": "Lead Designer",
+        "years": "2023",
+        "url": "",
+        "desc": "Built a comprehensive design system with 200+ components used across 50+ products."
+      },
+      {
+        "name": "UX Research Dashboard",
+        "role": "Researcher",
+        "years": "2022",
+        "url": "",
+        "desc": "Created analytics dashboard to track UX metrics for 10M+ monthly active users."
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Google UX Design Professional",
+        "issuer": "Google/Coursera",
+        "date": "2020",
+        "url": ""
+      },
+      {
+        "name": "Human-Centered Design",
+        "issuer": "IDEO",
+        "date": "2019",
+        "url": ""
+      }
+    ],
+    "skills": [
+      {
+        "name": "Figma",
+        "level": "Expert"
+      },
+      {
+        "name": "Design Systems",
+        "level": "Expert"
+      },
+      {
+        "name": "UX Research",
+        "level": "Advanced"
+      },
+      {
+        "name": "Prototyping",
+        "level": "Expert"
+      },
+      {
+        "name": "Design Sprint",
+        "level": "Advanced"
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Spanish",
+        "level": "Fluent"
+      }
+    ],
+    "template": "modern",
+    "color": "#6C5CE7",
+    "font": "Inter",
+    "layout": "classic",
+    "language": "en",
+    "sectionOrder": [
+      "summary",
+      "experience",
+      "education",
+      "projects",
+      "skills",
+      "certifications",
+      "languages"
+    ],
+    "views": 43,
+    "shareId": "cv_abc123",
+    "lastViewed": "2026-05-14T20:44:46.929Z",
+    "createdAt": "2026-01-15T10:00:00Z",
+    "updatedAt": "2026-05-10T15:30:00Z",
+    "versions": [
+      {
+        "timestamp": 1705312800000,
+        "data": {}
+      },
+      {
+        "timestamp": 1707904800000,
+        "data": {}
       }
     ]
   }

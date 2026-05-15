@@ -1,0 +1,38 @@
+[
+  {
+    "id": "t-1",
+    "name": "Marcus Chen",
+    "role": "Architect, Tokyo",
+    "content": "The quality is unmatched. I've been wearing my Rebar Hoodie daily for 6 months and it still looks new. This is the only brand that understands brutalist design.",
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    "productId": "sa-002"
+  },
+  {
+    "id": "t-2",
+    "name": "Elena Voss",
+    "role": "Designer, Berlin",
+    "content": "Finally, streetwear that respects construction. The modular pocket system on the cargo pants is genius. I can carry everything without a bag.",
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
+    "productId": "sa-001"
+  },
+  {
+    "id": "t-3",
+    "name": "Jay Thompson",
+    "role": "Photographer, NYC",
+    "content": "The Utility Vest is my everyday carry. Detachable pouches mean I can reconfigure for shoots. Durability is insane.",
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
+    "productId": "sa-004"
+  },
+  {
+    "id": "t-4",
+    "name": "Aiko Tanaka",
+    "role": "Skateboarder, Osaka",
+    "content": "SILO tees are the only tees I trust. The fit after 50 washes is identical to day one. That's rare.",
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200",
+    "productId": "sa-003"
+  }
+]

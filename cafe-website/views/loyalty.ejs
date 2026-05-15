@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loyalty Rewards — Cafe Serenity</title>
+  <meta name="description" content="Join Cafe Serenity loyalty program. Earn points, collect digital stamps, and redeem rewards."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-tag">Earn While You Sip</span>
+      <h1 class="page-title">Loyalty <span style="color:var(--gold);">Rewards</span></h1>
+      <p class="page-subtitle">Every purchase brings you closer to something special.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="loyalty-grid">
+        <div class="reveal-left">
+          <div class="stamp-card">
+            <h3>Coffee Stamp Card</h3>
+            <p>Buy 5 drinks, get the 6th free!</p>
+            <div class="stamp-grid">
+              <% for(var i = 0; i < 10; i++) { %>
+                <div class="stamp <%= i < stamps ? 'filled' : '' %>">
+                  <%- i < stamps ? '<i class="fas fa-mug-hot"></i>' : '' %>
+                </div>
+              <% } %>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);">
+              <strong><%= Math.min(stamps, 10) %></strong> of 10 stamps collected
+            </p>
+            <% if (stamps >= 10) { %>
+              <div class="alert alert-success" style="margin-top:16px;">
+                <span class="alert-icon"><i class="fas fa-circle-check"></i></span> Congratulations! You've earned a free drink!
+              </div>
+            <% } %>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="points-display">
+            <div class="points-number"><%= points %></div>
+            <div class="points-label">Points Earned</div>
+            <div class="points-progress">
+              <div class="points-progress-fill" style="width:<%= Math.min((points % 50) / 50 * 100, 100) %>%"></div>
+            </div>
+            <div class="points-next">
+              <%= points >= 50 ? 'You have enough points for a reward!' : (50 - (points % 50)) + ' points until your next reward' %>
+            </div>
+            <% if (typeof error !== 'undefined' && error) { %>
+              <div class="alert alert-error"><span class="alert-icon"><i class="fas fa-triangle-exclamation"></i></span> <%= error %></div>
+            <% } %>
+            <% if (typeof success !== 'undefined' && success) { %>
+              <div class="alert alert-success"><span class="alert-icon"><i class="fas fa-circle-check"></i></span> <%= success %></div>
+            <% } %>
+            <form action="/loyalty/redeem" method="POST">
+              <button type="submit" class="btn btn-gold btn-full" <%= points < 50 ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : '' %>>
+                <i class="fas fa-gift"></i> Redeem 50 Points — Free Drink
+              </button>
+            </form>
+            <p style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);">
+              <i class="fas fa-info-circle"></i> Earn 1 point per menu item ordered. 50 points = 1 free drink.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/chat') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /about
+Allow: /careers
+Disallow: /cart
+Disallow: /login
+Disallow: /success
+
+Sitemap: https://street-archive.com/sitemap.xml

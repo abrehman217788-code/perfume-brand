@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-content">
+      <span class="section-tag" style="color:var(--tertiary)">Real-Time Updates</span>
+      <h1>Order Tracking</h1>
+      <p>Enter your order number and email to track your package.</p>
+    </div>
+  </div>
+
+  <section class="section" style="max-width:600px;margin:0 auto;">
+    <form class="tracking-form" action="/tracking/lookup" method="POST">
+      <input type="text" name="orderNumber" placeholder="Order number (e.g. SA-10042)" required class="checkout-input">
+      <input type="email" name="email" placeholder="Email used at checkout" required class="checkout-input">
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+        Track Order <i class="fa-regular fa-arrow-right"></i>
+      </button>
+    </form>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div class="checkout-error" style="margin-top:2rem;"><%= error %></div>
+    <% } %>
+
+    <% if (typeof orders !== 'undefined' && orders.length > 0) { %>
+      <div style="margin-top:3rem;">
+        <h3>Recent Orders</h3>
+        <% orders.forEach(function(o) { %>
+          <a href="/order/<%= o.orderNumber %>" class="order-card">
+            <div>
+              <strong><%= o.orderNumber %></strong>
+              <span style="color:var(--text-muted);font-size:0.85rem;"><%= o.customerName %></span>
+            </div>
+            <div style="text-align:right;">
+              <span class="order-status <%= o.status %>"><%= o.status %></span>
+              <span style="display:block;font-size:0.85rem;color:var(--text-muted);">$<%= o.total %></span>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    <% } %>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

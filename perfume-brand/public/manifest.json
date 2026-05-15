@@ -1,0 +1,17 @@
+{
+  "name": "AURÉE | Luxury Fragrance House",
+  "short_name": "AURÉE",
+  "description": "Discover the art of fine perfumery. AURÉE crafts olfactory experiences that transcend time.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#c9a84c",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" },
+    { "src": "/icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml" },
+    { "src": "/icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "categories": ["lifestyle", "shopping"],
+  "lang": "en-US"
+}

@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-content">
+      <span class="section-tag" style="color:var(--tertiary)">📍 Live</span>
+      <h1>Order <%= order.orderNumber %></h1>
+    </div>
+  </div>
+
+  <section class="section" style="max-width:800px;margin:0 auto;">
+    <div class="order-status-card">
+      <div class="order-status-header">
+        <div>
+          <span class="order-status <%= order.status %>" style="font-size:1rem;"><%= order.status %></span>
+          <p style="color:var(--text-muted);margin-top:0.5rem;">Estimated delivery: <%= order.estimatedDelivery %></p>
+        </div>
+        <% if (order.trackingNumber) { %>
+          <div style="text-align:right;">
+            <span style="font-size:0.85rem;color:var(--text-muted);">Tracking #</span>
+            <p style="font-weight:600;"><%= order.trackingNumber %></p>
+            <span style="font-size:0.85rem;color:var(--text-muted);"><%= order.carrier %></span>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="order-timeline">
+        <% if (order.timeline) { order.timeline.forEach(function(t) { %>
+          <div class="timeline-item <%= t.completed ? 'completed' : '' %>">
+            <div class="timeline-dot"></div>
+            <div>
+              <p><strong><%= t.event %></strong></p>
+              <span style="color:var(--text-muted);font-size:0.85rem;"><%= t.date %></span>
+            </div>
+          </div>
+        <% }); } %>
+      </div>
+
+      <div class="order-items">
+        <h3>Items</h3>
+        <% if (order.items) { order.items.forEach(function(item) { %>
+          <div class="order-item-row">
+            <span><%= item.name || item.sku %></span>
+            <span>Qty: <%= item.quantity %></span>
+            <span>$<%= item.price %></span>
+          </div>
+        <% }); } %>
+      </div>
+
+      <div class="order-total-row">
+        <span>Total</span>
+        <span>$<%= order.total %></span>
+      </div>
+
+      <div class="order-shipping">
+        <h3>Shipping Address</h3>
+        <% if (order.shippingAddress) { %>
+          <p><%= order.shippingAddress.street %>, <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %> <%= order.shippingAddress.zip %></p>
+        <% } %>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="/tracking" class="btn btn-outline">Track Another Order <i class="fa-regular fa-arrow-right"></i></a>
+      <a href="/returns" class="btn btn-outline" style="margin-left:1rem;">Start a Return <i class="fa-regular fa-rotate-left"></i></a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

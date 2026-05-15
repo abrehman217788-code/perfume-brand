@@ -1,0 +1,56 @@
+[
+  {
+    "id": "acoustic-night",
+    "title": "Acoustic Night",
+    "date": "Every Friday",
+    "time": "7:00 PM - 9:00 PM",
+    "description": "Unwind with live acoustic performances from local artists while sipping your favorite brew. Our intimate setting creates the perfect backdrop for a relaxing evening.",
+    "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&h=500&fit=crop&q=80",
+    "type": "music"
+  },
+  {
+    "id": "latte-art-workshop",
+    "title": "Latte Art Workshop",
+    "date": "First Saturday monthly",
+    "time": "10:00 AM - 12:00 PM",
+    "description": "Learn the art of pouring beautiful latte art from our head barista. All skill levels welcome. Includes all materials and your practice drinks!",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=500&fit=crop&q=80",
+    "type": "workshop"
+  },
+  {
+    "id": "happy-hour",
+    "title": "Golden Hour Specials",
+    "date": "Mon - Thu",
+    "time": "4:00 PM - 6:00 PM",
+    "description": "Enjoy 20% off all specialty drinks and select pastries during our golden hour. The perfect mid-week pick-me-up at a sweet price.",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop&q=80",
+    "type": "special"
+  },
+  {
+    "id": "open-mic",
+    "title": "Open Mic Night",
+    "date": "Last Wednesday monthly",
+    "time": "6:30 PM - 9:00 PM",
+    "description": "Share your poetry, music, or comedy on our cozy stage. Sign up at the counter. All forms of expression welcome in a supportive, warm environment.",
+    "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=500&fit=crop&q=80",
+    "type": "music"
+  },
+  {
+    "id": "coffee-cupping",
+    "title": "Coffee Cupping Experience",
+    "date": "Second Saturday monthly",
+    "time": "11:00 AM - 12:30 PM",
+    "description": "Explore single-origin coffees from around the world. Learn to taste flavor notes, understand roast profiles, and discover your perfect cup.",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop&q=80",
+    "type": "workshop"
+  },
+  {
+    "id": "book-club",
+    "title": "Book & Brew Club",
+    "date": "Third Thursday monthly",
+    "time": "6:00 PM - 7:30 PM",
+    "description": "Join fellow book lovers for lively discussions over specialty coffee. This month's selection is announced on our Instagram. Free to join!",
+    "image": "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=800&h=500&fit=crop&q=80",
+    "type": "community"
+  }
+]

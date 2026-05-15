@@ -6,3 +6,5 @@ server.err
 .DS_Store
 { } html
 cv buider
+ssl/
+ai-code-reviewer/

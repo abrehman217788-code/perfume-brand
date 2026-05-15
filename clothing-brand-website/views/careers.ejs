@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+<main class="flex-grow max-w-container-max mx-auto px-6 py-24">
+    <div class="reveal">
+        <p class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest mb-4">&gt;&gt; JOIN US</p>
+        <h1 class="font-headline-xl text-headline-xl uppercase mb-4">Open Positions</h1>
+        <p class="font-body-md text-body-md text-gray-400 max-w-2xl mb-16">We're looking for people who understand that garments are architecture. If you have the skills and share our vision, we want to hear from you.</p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+        <% careers.forEach(function(job, index) { %>
+            <div class="border-[3px] border-on-background p-6 bg-surface hover:bg-surface-container transition-colors reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;" data-search="<%= job.title %> <%= job.department %> <%= job.description %>" data-search-title="<%= job.title %>" data-search-link="/careers">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-headline-lg text-headline-lg uppercase"><%= job.title %></h3>
+                        <div class="flex gap-4 mt-2 font-label-mono text-label-mono">
+                            <span class="text-tertiary"><%= job.department %></span>
+                            <span class="text-gray-400"><%= job.location %></span>
+                            <span class="text-gray-400"><%= job.type %></span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3 max-w-xl"><%= job.description %></p>
+                    </div>
+                    <a href="mailto:ab.rehman217788@gmail.com?subject=<%= encodeURIComponent(job.title) %>" class="whitespace-nowrap bg-on-background text-background font-label-bold text-label-bold uppercase px-6 py-3 border-3 border-on-background hover:bg-tertiary hover:text-black hover:border-tertiary transition-colors inline-block text-center">APPLY</a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <div class="border-[3px] border-on-background p-8 bg-surface text-center mt-16 reveal">
+        <h2 class="font-headline-lg text-headline-lg uppercase mb-4">Don't See Your Role?</h2>
+        <p class="font-body-md text-body-md text-gray-400 max-w-lg mx-auto mb-6">We're always looking for talented individuals who believe in our vision. Send us your portfolio.</p>
+        <a href="mailto:ab.rehman217788@gmail.com" class="inline-block border-3 border-on-background text-on-background font-label-bold text-label-bold uppercase px-8 py-3 hover:bg-on-background hover:text-background transition-colors">SEND PORTFOLIO</a>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

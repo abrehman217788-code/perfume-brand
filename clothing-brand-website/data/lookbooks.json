@@ -1,0 +1,33 @@
+[
+  {
+    "id": "lb-01",
+    "title": "CONCRETE SEASONS",
+    "subtitle": "SS26 Lookbook",
+    "description": "Brutalist silhouettes set against raw urban architecture. SS26 explores the tension between rigid structure and fluid movement.",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=1200",
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1593032454572-4266f443c87c?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=800"
+    ],
+    "products": ["sa-001", "sa-002", "sa-004", "sa-005"],
+    "featured": true,
+    "createdAt": "2026-05-01"
+  },
+  {
+    "id": "lb-02",
+    "title": "NOCTURNAL TRANSIT",
+    "subtitle": "Night City Capsule",
+    "description": "High-visibility reflective elements meet dark, utilitarian silhouettes. Built for the night shift.",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=1200",
+    "images": [
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800"
+    ],
+    "products": ["sa-004", "sa-005", "sa-002"],
+    "featured": true,
+    "createdAt": "2026-04-15"
+  }
+]

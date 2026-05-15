@@ -1,0 +1,101 @@
+<%- include('partials/header') %>
+
+<main class="checkout-page">
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Checkout</h1>
+    </div>
+  </div>
+
+  <section class="checkout-layout">
+    <form class="checkout-form" action="/checkout/process" method="POST" onsubmit="return validateCheckout(event)">
+      <div class="checkout-section">
+        <h2>Contact</h2>
+        <input type="email" name="email" placeholder="Email address" required class="checkout-input">
+        <label class="checkout-checkbox"><input type="checkbox" checked> Email me order updates</label>
+      </div>
+
+      <div class="checkout-section">
+        <h2>Delivery</h2>
+        <div class="checkout-row">
+          <input type="text" name="name" placeholder="Full name" required class="checkout-input">
+        </div>
+        <input type="text" name="address" placeholder="Address" required class="checkout-input">
+        <div class="checkout-row">
+          <input type="text" name="city" placeholder="City" required class="checkout-input">
+          <input type="text" name="state" placeholder="State" required class="checkout-input">
+          <input type="text" name="zip" placeholder="ZIP code" required class="checkout-input" pattern="[0-9]{5}">
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h2>Payment</h2>
+        <div class="payment-methods">
+          <label class="payment-method active">
+            <input type="radio" name="payment" value="card" checked>
+            <i class="fa-regular fa-credit-card"></i> Card
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="klarna">
+            <span class="payment-badge">Klarna</span>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="afterpay">
+            <span class="payment-badge">Afterpay</span>
+          </label>
+          <label class="payment-method">
+            <input type="radio" name="payment" value="paypal">
+            <span class="payment-badge">PayPal</span>
+          </label>
+        </div>
+        <div class="card-details">
+          <input type="text" placeholder="Card number" class="checkout-input" pattern="[0-9\s]{13,19}">
+          <div class="checkout-row">
+            <input type="text" placeholder="MM/YY" class="checkout-input" pattern="[0-9]{2}/[0-9]{2}">
+            <input type="text" placeholder="CVC" class="checkout-input" pattern="[0-9]{3,4}">
+          </div>
+        </div>
+      </div>
+
+      <% if (typeof error !== 'undefined' && error) { %>
+        <div class="checkout-error"><i class="fa-regular fa-circle-exclamation"></i> <%= error %></div>
+      <% } %>
+
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+        Pay $<%= cartTotal %> <i class="fa-regular fa-arrow-right"></i>
+      </button>
+      <p class="checkout-guest-note">Guest checkout — no account required. Your order will be confirmed via email.</p>
+    </form>
+
+    <div class="checkout-summary">
+      <h3>Order Summary</h3>
+      <% cartItems.forEach(function(item) { %>
+        <div class="checkout-summary-item">
+          <img src="<%= item.product?.image || '' %>" alt="" loading="lazy">
+          <div>
+            <p><%= item.product?.name || item.sku %></p>
+            <span>Qty: <%= item.qty || 1 %></span>
+          </div>
+          <span>$<%= (item.product?.price || 0) * (item.qty || 1) %></span>
+        </div>
+      <% }); %>
+      <div class="checkout-summary-total">
+        <span>Total</span>
+        <span>$<%= cartTotal %></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+function validateCheckout(e) {
+  const email = e.target.querySelector('input[name=email]').value;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return false;
+  }
+  return true;
+}
+</script>
+
+<%- include('partials/footer') %>

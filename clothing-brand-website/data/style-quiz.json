@@ -1,0 +1,33 @@
+[
+  {
+    "id": "q-1",
+    "question": "How would you describe your style?",
+    "type": "single",
+    "options": [
+      { "value": "minimal", "label": "Clean & Minimal", "tags": ["monochrome", "slim"] },
+      { "value": "utility", "label": "Utility & Cargo", "tags": ["cargo", "pockets", "layered"] },
+      { "value": "brutalist", "label": "Brutalist / Avant", "tags": ["oversized", "structured"] },
+      { "value": "athleisure", "label": "Sport / Tech", "tags": ["tech", "slim", "performance"] }
+    ]
+  },
+  {
+    "id": "q-2",
+    "question": "What's your go-to fit?",
+    "type": "single",
+    "options": [
+      { "value": "slim", "label": "Slim / Tailored", "tags": ["slim"] },
+      { "value": "regular", "label": "Regular / Classic", "tags": ["regular"] },
+      { "value": "oversized", "label": "Oversized / Relaxed", "tags": ["oversized"] }
+    ]
+  },
+  {
+    "id": "q-3",
+    "question": "Pick your palette:",
+    "type": "single",
+    "options": [
+      { "value": "mono", "label": "Monochrome (Black/Grey)", "tags": ["black", "charcoal", "bone"] },
+      { "value": "earth", "label": "Earth Tones (Olive/Clay)", "tags": ["olive", "clay", "sand"] },
+      { "value": "contrast", "label": "High Contrast (Black/Orange)", "tags": ["black", "orange"] }
+    ]
+  }
+]

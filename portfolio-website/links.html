@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB Rehman - Portfolio Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .profile-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .section:first-of-type {
+            border-top: none;
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            gap: 10px;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-btn i {
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: #667eea;
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #764ba2;
+        }
+
+        .projects-section {
+            text-align: left;
+        }
+
+        .project-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .project-title {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .project-desc {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #f7fafc;
+            border-radius: 50%;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .profile-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>AB Rehman</h1>
+            <div class="subtitle">Full Stack Web Developer & Designer</div>
+            <p class="bio">Creating beautiful, responsive websites and powerful web applications that drive business growth</p>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="section">
+            <div class="section-title">Get In Touch</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:ab.rehman217788@gmail.com">ab.rehman217788@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+923331940971">+923331940971</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Pakistan</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Portfolio Link -->
+        <div class="section">
+            <a href="index.html" class="link-btn">
+                <i class="fas fa-globe"></i>
+                View Full Portfolio Website
+            </a>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="section projects-section">
+            <div class="section-title">Featured Projects</div>
+            <div class="project-item">
+                <div class="project-title">🛍️ Clothing Brand Website</div>
+                <div class="project-desc">E-commerce platform with shopping cart and secure checkout</div>
+                <a href="../clothing-brand-website/index.html" target="_blank" class="project-link">View Project →</a>
+            </div>
+            <div class="project-item">
+                <div class="project-title">☕ Lumina Cafe</div>
+                <div class="project-desc">Restaurant website with menu and reservations system</div>
+                <a href="../lumina-cafe/public/index.html" target="_blank" class="project-link">View Project →</a>
+            </div>
+            <div class="project-item">
+                <div class="project-title">💻 Tech Company Website</div>
+                <div class="project-desc">Professional corporate site with services and portfolio</div>
+                <a href="../tech-company-website/index.html" target="_blank" class="project-link">View Project →</a>
+            </div>
+            <div class="project-item">
+                <div class="project-title">📄 CV Generator</div>
+                <div class="project-desc">Interactive resume builder with PDF download</div>
+                <a href="../cv%20builder/cv-studio/public/index.html" target="_blank" class="project-link">View Project →</a>
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="section">
+            <div class="section-title">Connect With Me</div>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- PDF Download Section -->
+        <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; margin: 30px 0;">
+            <div class="section-title" style="color: white; margin-bottom: 20px;">Download PDFs</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="javascript:window.print()" class="link-btn" style="background: rgba(255,255,255,0.2); border: 2px solid white; text-align: center;">
+                    <i class="fas fa-download"></i> Download as PDF (Press Ctrl+P)
+                </a>
+                <a href="download-pdf.html" style="background: rgba(255,255,255,0.2); border: 2px solid white; padding: 15px; border-radius: 8px; color: white; text-decoration: none; text-align: center; font-weight: 600;">
+                    <i class="fas fa-question-circle"></i> View PDF Guide
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 AB Rehman. All rights reserved.</p>
+            <p style="margin-top: 10px;">Share this link with clients to view all my work</p>
+        </div>
+    </div>
+</body>
+</html>

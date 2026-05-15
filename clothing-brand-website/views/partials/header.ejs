@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= typeof title !== 'undefined' ? title : 'STREET_ARCHIVE' %></title>
+<meta name="description" content="STREET_ARCHIVE — Brutalist streetwear engineered for the concrete. Heavyweight garments, modular utility, uncompromising design.">
+<meta property="og:title" content="STREET_ARCHIVE | Brutalist Streetwear">
+<meta property="og:description" content="No compromise. Just structure. Engineered in the shadows, built for the concrete.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://street-archive.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/styles.css">
+<style>#loader{position:fixed;inset:0;z-index:9999;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}#loader .spinner{width:48px;height:48px;border:3px solid rgba(255,255,255,.1);border-top-color:#abd600;border-radius:50%;animation:spin 1s linear infinite}#loader p{margin-top:16px;font-family:Inter,sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#888;animation:pulse 1.5s ease-in-out infinite}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}</style>
+</head>
+<body>
+<div id="loader"><div class="spinner"></div><p>Loading Archive</p></div>
+
+<nav class="navbar" role="navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">STREET_ARCHIVE</a>
+    <div class="nav-links" id="navLinks">
+      <a href="/shop" class="nav-link <%= currentPage === 'shop' ? 'active' : '' %>">Shop</a>
+      <a href="/lookbooks" class="nav-link <%= currentPage === 'lookbooks' ? 'active' : '' %>">Lookbooks</a>
+      <a href="/style-quiz" class="nav-link">Style Quiz</a>
+      <a href="/about" class="nav-link <%= currentPage === 'about' ? 'active' : '' %>">About</a>
+      <a href="/tracking" class="nav-link">Tracking</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-icon" id="searchToggle" aria-label="Search"><i class="fa-regular fa-search"></i></button>
+      <a href="/cart" class="nav-icon cart-icon" aria-label="Cart">
+        <i class="fa-regular fa-bag-shopping"></i>
+        <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %><span class="cart-badge"><%= cartCount %></span><% } %>
+      </a>
+      <button class="nav-icon md-hidden" id="mobileToggle" aria-label="Menu"><i class="fa-regular fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose"><i class="fa-regular fa-xmark"></i></button>
+  <div class="mobile-menu-inner">
+    <a href="/" class="mobile-link">Home</a>
+    <a href="/shop" class="mobile-link">Shop</a>
+    <a href="/lookbooks" class="mobile-link">Lookbooks</a>
+    <a href="/style-quiz" class="mobile-link">Style Quiz</a>
+    <a href="/about" class="mobile-link">About</a>
+    <a href="/tracking" class="mobile-link">Order Tracking</a>
+    <a href="/returns" class="mobile-link">Returns</a>
+    <a href="/sustainability" class="mobile-link">Sustainability</a>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" id="searchClose"><i class="fa-regular fa-xmark"></i></button>
+  <div class="search-modal">
+    <input type="text" id="searchInput" placeholder="Search products, styles, articles..." autocomplete="off">
+    <div class="search-hints">
+      <span>Try: cargo, hoodie, black, utility</span>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>

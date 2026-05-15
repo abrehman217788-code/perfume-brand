@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events — Cafe Serenity</title>
+  <meta name="description" content="Upcoming events at Cafe Serenity — live music, workshops, happy hours, and community gatherings."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-tag">Something's Always Brewing</span>
+      <h1 class="page-title">Events & <span style="color:var(--gold);">Specials</span></h1>
+      <p class="page-subtitle">Live music, creative workshops, happy hours — there's always something happening.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="events-grid stagger-children reveal">
+        <% events.forEach(function(event) { %>
+          <div class="event-card tilt-3d">
+            <div class="tilt-3d-inner">
+              <div class="event-card-img">
+                <img src="<%= event.image %>" alt="<%= event.title %>" loading="lazy"/>
+                <span class="event-type"><%= event.type %></span>
+              </div>
+              <div class="event-card-body">
+                <div class="event-date"><i class="far fa-calendar-alt"></i> <%= event.date %></div>
+                <h3><%= event.title %></h3>
+                <p><%= event.description %></p>
+                <span class="event-time"><i class="far fa-clock"></i> <%= event.time %></span>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/chat') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

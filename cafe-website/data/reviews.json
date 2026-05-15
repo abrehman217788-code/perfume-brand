@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah M.",
+    "rating": 5,
+    "text": "The Golden Hour Latte is absolutely divine! The ambiance is perfect for working remotely. Free WiFi and plenty of outlets. My favorite spot in town.",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80",
+    "date": "2026-04-12"
+  },
+  {
+    "id": 2,
+    "name": "James K.",
+    "rating": 5,
+    "text": "Best cold brew I've ever had. The rosemary bloom is uniquely refreshing. The staff is incredibly friendly and the space is beautifully designed.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80",
+    "date": "2026-04-08"
+  },
+  {
+    "id": 3,
+    "name": "Emily R.",
+    "rating": 5,
+    "text": "Their avocado toast is life-changing! Love that they have clearly marked vegan and gluten-free options. The outdoor seating is lovely on sunny days.",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80",
+    "date": "2026-03-28"
+  },
+  {
+    "id": 4,
+    "name": "David L.",
+    "rating": 4,
+    "text": "Great atmosphere for meetings and catching up with friends. The matcha tiramisu is a must-try. Parking can be tricky but totally worth it.",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80",
+    "date": "2026-03-15"
+  },
+  {
+    "id": 5,
+    "name": "Maya T.",
+    "rating": 5,
+    "text": "The latte art workshop was incredible! Learned so much from the barista. Already signed up for the next one. This place is a gem!",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&q=80",
+    "date": "2026-03-05"
+  },
+  {
+    "id": 6,
+    "name": "Alex W.",
+    "rating": 5,
+    "text": "As a digital nomad, I've worked from countless cafes. This one has the perfect balance of great coffee, comfortable seating, and strong WiFi.",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80",
+    "date": "2026-02-20"
+  }
+]

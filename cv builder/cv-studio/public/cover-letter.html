@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Letter Builder — CV Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cl-layout { display:flex; gap:32px; margin-top:72px; min-height:calc(100vh - 72px); }
+    .cl-sidebar { width:400px; min-width:400px; padding:24px 0 24px 24px; overflow-y:auto; }
+    .cl-preview-area { flex:1; padding:24px 24px 24px 0; overflow-y:auto; display:flex; justify-content:center; background:var(--bg2); border-radius:var(--radius-lg) 0 0 var(--radius-lg); }
+    @media (max-width:1024px) { .cl-layout{flex-direction:column;} .cl-sidebar{width:100%;min-width:auto;padding:24px;} .cl-preview-area{padding:24px;} }
+    .cover-letter-paper { width:794px; min-height:1123px; background:white; color:#1a1a2e; padding:80px 72px; box-shadow:0 8px 40px rgba(0,0,0,0.15); border-radius:4px; font-family:'Inter',sans-serif; line-height:1.7; }
+    .cl-template-options { display:flex; gap:8px; margin-bottom:16px; }
+    .cl-template-btn { padding:8px 16px; border-radius:var(--radius-sm); font-size:13px; font-weight:600; background:var(--surface); border:1px solid var(--border); color:var(--text-secondary); cursor:pointer; }
+    .cl-template-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon">CV</div>
+        <span>CV Studio</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Templates</a>
+        <a href="dashboard.html">My CVs</a>
+        <a href="cover-letter.html" class="active">Cover Letter</a>
+        <a href="editor.html" class="btn btn-primary btn-sm">Create CV</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="cl-layout">
+    <div class="cl-sidebar">
+      <h2 style="font-size:24px;font-weight:800;margin-bottom:4px;">Cover Letter</h2>
+      <p style="color:var(--text-secondary);font-size:14px;margin-bottom:24px;">Pair a compelling cover letter with your CV.</p>
+
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input class="form-input" type="text" id="cl-name" placeholder="John Doe" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Email</label>
+        <input class="form-input" type="email" id="cl-email" placeholder="john@example.com" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Phone</label>
+        <input class="form-input" type="text" id="cl-phone" placeholder="+1 (555) 123-4567" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Address</label>
+        <input class="form-input" type="text" id="cl-address" placeholder="San Francisco, CA" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Hiring Manager Name</label>
+        <input class="form-input" type="text" id="cl-hiring-manager" placeholder="Hiring Manager" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Company Name</label>
+        <input class="form-input" type="text" id="cl-company" placeholder="Company Inc." oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Company Address</label>
+        <input class="form-input" type="text" id="cl-company-address" placeholder="New York, NY" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Job Title</label>
+        <input class="form-input" type="text" id="cl-job-title" placeholder="Software Engineer" oninput="updateCoverLetter()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Message</label>
+        <textarea class="form-textarea" id="cl-body" rows="8" oninput="updateCoverLetter()">I am writing to express my strong interest in the [Job Title] position at [Company Name]. With my background in [Your Field] and passion for delivering results, I am confident that I would be a valuable addition to your team.</textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Template Style</label>
+        <div class="cl-template-options">
+          <button class="cl-template-btn active" onclick="setClTemplate('modern',this)">Modern</button>
+          <button class="cl-template-btn" onclick="setClTemplate('classic',this)">Classic</button>
+          <button class="cl-template-btn" onclick="setClTemplate('minimal',this)">Minimal</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button onclick="exportCoverLetter('pdf')" class="btn btn-primary" style="flex:1;justify-content:center;">📄 Export PDF</button>
+        <button onclick="exportCoverLetter('word')" class="btn btn-secondary" style="flex:1;justify-content:center;">📝 Export Word</button>
+      </div>
+      <button onclick="generateAICoverLetter()" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:8px;">🤖 AI Generate</button>
+      <button onclick="importFromCV()" class="btn btn-ghost import-from-cv-btn" style="width:100%;justify-content:center;margin-top:4px;">📥 Import from My CV</button>
+    </div>
+    <div class="cl-preview-area">
+      <div class="cover-letter-paper" id="cl-preview">
+        <div id="cl-content">
+          <div style="margin-bottom:48px;">
+            <div style="font-size:24px;font-weight:800;color:#1a1a2e;" id="cl-preview-name">Your Name</div>
+            <div style="font-size:14px;color:#666;" id="cl-preview-contact">email@example.com | +1 (555) 000-0000</div>
+            <div style="font-size:14px;color:#666;" id="cl-preview-address">San Francisco, CA</div>
+          </div>
+          <div style="margin-bottom:24px;font-size:14px;color:#666;" id="cl-preview-date">May 15, 2026</div>
+          <div style="margin-bottom:32px;">
+            <div style="font-size:16px;font-weight:600;color:#1a1a2e;" id="cl-preview-hiring">Hiring Manager</div>
+            <div style="font-size:14px;color:#666;" id="cl-preview-company">Company Name</div>
+            <div style="font-size:14px;color:#666;" id="cl-preview-company-address">Company Address</div>
+          </div>
+          <div style="margin-bottom:24px;font-size:14px;color:#1a1a2e;">Re: <span style="font-weight:600;" id="cl-preview-job">Job Title</span> Position</div>
+          <div style="font-size:14px;color:#444;line-height:1.8;white-space:pre-wrap;" id="cl-preview-body">Dear Hiring Manager,
+
+I am writing to express my strong interest in the [Job Title] position at [Company Name]. With my background in [Your Field] and passion for delivering results, I am confident that I would be a valuable addition to your team.
+
+Thank you for your time and consideration. I look forward to the opportunity to discuss how my skills and experience align with the needs of your organization.
+
+Best regards,
+Your Name</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let clTemplate = 'modern';
+
+    function setClTemplate(tpl, btn) {
+      clTemplate = tpl;
+      document.querySelectorAll('.cl-template-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateCoverLetter();
+    }
+
+    function updateCoverLetter() {
+      const name = document.getElementById('cl-name').value || 'Your Name';
+      const email = document.getElementById('cl-email').value || 'email@example.com';
+      const phone = document.getElementById('cl-phone').value || '+1 (555) 000-0000';
+      const address = document.getElementById('cl-address').value || 'Your Address';
+      const hiring = document.getElementById('cl-hiring-manager').value || 'Hiring Manager';
+      const company = document.getElementById('cl-company').value || 'Company Name';
+      const companyAddr = document.getElementById('cl-company-address').value || '';
+      const jobTitle = document.getElementById('cl-job-title').value || 'Job Title';
+      let body = document.getElementById('cl-body').value || 'Dear Hiring Manager,\n\nI am writing to express my interest in the position.';
+
+      if (!body.includes('Dear')) {
+        body = `Dear ${hiring},\n\n${body}`;
+      }
+      if (!body.includes('Best regards') && !body.includes('Sincerely')) {
+        body += `\n\nBest regards,\n${name}`;
+      }
+
+      document.getElementById('cl-preview-name').textContent = name;
+      document.getElementById('cl-preview-contact').textContent = `${email} | ${phone}`;
+      document.getElementById('cl-preview-address').textContent = address;
+      
+      const now = new Date();
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      document.getElementById('cl-preview-date').textContent = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+      
+      document.getElementById('cl-preview-hiring').textContent = hiring;
+      document.getElementById('cl-preview-company').textContent = company;
+      document.getElementById('cl-preview-company-address').textContent = companyAddr;
+      document.getElementById('cl-preview-job').textContent = jobTitle;
+      document.getElementById('cl-preview-body').textContent = body;
+
+      const paper = document.getElementById('cl-preview');
+      if (clTemplate === 'classic') {
+        paper.style.fontFamily = 'Georgia, serif';
+      } else if (clTemplate === 'minimal') {
+        paper.style.fontFamily = 'Arial, sans-serif';
+      } else {
+        paper.style.fontFamily = "'Inter', sans-serif";
+      }
+    }
+
+    function generateAICoverLetter() {
+      const company = document.getElementById('cl-company').value || 'your company';
+      const job = document.getElementById('cl-job-title').value || 'the position';
+      const body = `Dear ${document.getElementById('cl-hiring-manager').value || 'Hiring Manager'},
+
+I am writing to enthusiastically apply for the ${job} role at ${company}. With a proven track record of delivering impactful results and a deep passion for innovation, I am confident that my skills and experience make me an ideal candidate.
+
+In my previous role, I consistently exceeded expectations by [key achievement]. I bring strong expertise in [relevant skill 1], [relevant skill 2], and [relevant skill 3], which I believe directly align with the requirements of this position.
+
+I am particularly drawn to ${company} because of your commitment to excellence and innovation. I am eager to contribute to your team's success and would welcome the opportunity to discuss how my background can benefit your organization.
+
+Thank you for your time and consideration.
+
+Best regards,
+${document.getElementById('cl-name').value || 'Your Name'}`;
+
+      document.getElementById('cl-body').value = body;
+      updateCoverLetter();
+      showNotification('AI-generated cover letter ready!', 'success');
+    }
+
+    function exportCoverLetter(format) {
+      updateCoverLetter();
+      const paper = document.getElementById('cl-preview');
+      const content = paper.innerHTML;
+
+      const doc = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Cover Letter</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  @page { size: A4; margin: 0; }
+  body { width: 794px; margin: 0 auto; padding: 80px 72px; font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.7; }
+</style></head><body>${content}</body></html>`;
+
+      if (format === 'pdf') {
+        const win = window.open('', '_blank');
+        win.document.write(doc);
+        win.document.close();
+        win.focus();
+        win.print();
+        showNotification('PDF export initiated.', 'success');
+      } else {
+        const blob = new Blob([doc], { type: 'application/msword' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Cover_Letter.doc';
+        link.click();
+        URL.revokeObjectURL(link.href);
+        showNotification('Word document downloaded!', 'success');
+      }
+    }
+
+    async function importFromCV() {
+      const cvs = await fetchCvs();
+      if (cvs.length === 0) { showNotification('No CVs found. Create one first.', 'error'); return; }
+      const names = cvs.filter(c => c.name).map(c => ({ id: c.id, name: c.name }));
+      if (names.length === 0) { showNotification('No named CVs found.', 'error'); return; }
+
+      const picker = document.createElement('div');
+      picker.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:9999;';
+      picker.innerHTML = `
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px;max-width:400px;width:90%;">
+          <h3 style="margin-bottom:16px;">Select CV to Import</h3>
+          ${names.map(n => `<button class="btn btn-secondary" style="width:100%;justify-content:center;margin-bottom:8px;" data-id="${n.id}">${escHtml(n.name)}</button>`).join('')}
+          <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:8px;" onclick="this.closest('div[style]').remove()">Cancel</button>
+        </div>`;
+      document.body.appendChild(picker);
+
+      picker.querySelectorAll('[data-id]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const cv = await fetchCv(btn.dataset.id);
+          if (cv) {
+            if (cv.name) document.getElementById('cl-name').value = cv.name;
+            if (cv.email) document.getElementById('cl-email').value = cv.email;
+            if (cv.phone) document.getElementById('cl-phone').value = cv.phone;
+            if (cv.location) document.getElementById('cl-address').value = cv.location;
+            if (cv.title) document.getElementById('cl-job-title').value = cv.title;
+            showNotification('CV data imported!', 'success');
+            updateCoverLetter();
+          }
+          picker.remove();
+        });
+      });
+    }
+
+    document.querySelector('.import-from-cv-btn')?.addEventListener('click', importFromCV);
+
+    document.addEventListener('DOMContentLoaded', updateCoverLetter);
+  </script>
+</body>
+</html>

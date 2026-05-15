@@ -1,77 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Studio | Curated Minimalism for Professionals</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Studio — Build Professional CVs That Stand Out</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; margin-top: 48px; }
+    .testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+    .testimonial-card .stars { color: var(--accent2); margin-bottom: 12px; font-size: 18px; }
+    .testimonial-card p { color: var(--text-secondary); font-style: italic; margin-bottom: 16px; line-height: 1.7; }
+    .testimonial-card .author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-card .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: white; }
+    .testimonial-card .author-info h4 { font-size: 15px; font-weight: 600; }
+    .testimonial-card .author-info span { font-size: 13px; color: var(--text-muted); }
+
+    .floating-icons { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .floating-icon { position: absolute; width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 22px; animation: floatAround 20s ease-in-out infinite; opacity: 0.6; backdrop-filter: blur(10px); }
+    .floating-icon:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
+    .floating-icon:nth-child(2) { top: 25%; right: 8%; animation-delay: -5s; }
+    .floating-icon:nth-child(3) { bottom: 30%; left: 10%; animation-delay: -10s; }
+    .floating-icon:nth-child(4) { bottom: 20%; right: 5%; animation-delay: -15s; }
+    .floating-icon:nth-child(5) { top: 50%; left: 3%; animation-delay: -7s; }
+    .floating-icon:nth-child(6) { top: 60%; right: 3%; animation-delay: -12s; }
+    @keyframes floatAround {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(30px, -20px) rotate(5deg); }
+      50% { transform: translate(-20px, 30px) rotate(-3deg); }
+      75% { transform: translate(20px, 10px) rotate(4deg); }
+    }
+
+    .hero-3d-cards { position: absolute; right: -5%; top: 50%; transform: translateY(-50%); perspective: 1200px; z-index: 1; width: 400px; height: 500px; }
+    .hero-3d-card { position: absolute; width: 280px; height: 180px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); backdrop-filter: blur(20px); padding: 24px; display: flex; flex-direction: column; justify-content: center; box-shadow: var(--shadow); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .hero-3d-card:nth-child(1) { top: 0; right: 0; transform: rotateY(-10deg) rotateX(5deg) translateZ(20px); }
+    .hero-3d-card:nth-child(2) { bottom: 20px; left: 0; transform: rotateY(10deg) rotateX(-5deg) translateZ(40px); }
+    .hero-3d-card:nth-child(3) { top: 50%; left: 20%; transform: rotateY(-5deg) rotateX(10deg) translateZ(60px); }
+    .hero-3d-card .mini-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 100px; font-size: 10px; font-weight: 600; margin-bottom: 8px; background: rgba(0,206,201,0.15); color: var(--secondary); width: fit-content; }
+    .hero-3d-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .hero-3d-card p { font-size: 12px; color: var(--text-secondary); }
+
+    @media (max-width: 1024px) { .hero-3d-cards { display: none; } }
+
+    .ai-suggestion-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px;
+      background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(0,206,201,0.2));
+      border: 1px solid rgba(108,92,231,0.3);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--primary-light);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .ai-suggestion-badge:hover { background: linear-gradient(135deg, rgba(108,92,231,0.3), rgba(0,206,201,0.3)); }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 40px; transition: var(--transition-bounce); position: relative; }
+    .pricing-card:hover { transform: translateY(-8px); border-color: var(--border-light); box-shadow: var(--shadow-glow); }
+    .pricing-card.featured { border-color: var(--primary); background: linear-gradient(135deg, rgba(108,92,231,0.1), transparent); }
+    .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 4px 16px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 100px; font-size: 12px; font-weight: 600; color: white; }
+    .pricing-card h3 { font-size: 22px; margin-bottom: 8px; }
+    .pricing-card .price { font-size: 48px; font-weight: 800; margin-bottom: 4px; }
+    .pricing-card .price span { font-size: 16px; font-weight: 400; color: var(--text-muted); }
+    .pricing-card .desc { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
+    .pricing-card ul { list-style: none; margin-bottom: 32px; }
+    .pricing-card ul li { padding: 8px 0; font-size: 14px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
+    .pricing-card ul li::before { content: '✓'; color: var(--secondary); font-weight: 700; }
+
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    .cta-section { text-align: center; padding: 100px 0; background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(0,206,201,0.05)); border-radius: var(--radius-xl); margin: 0 24px; }
+    .cta-section h2 { font-size: 48px; margin-bottom: 16px; }
+    .cta-section p { color: var(--text-secondary); max-width: 500px; margin: 0 auto 32px; }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-            <a href="index.html" class="logo">CV Studio</a>
-            <div class="nav-links">
-                <a href="gallery.html">Templates</a>
-                <a href="dashboard.html">My CVs</a>
-                <a href="editor.html" class="btn btn-primary">Create Now</a>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon">CV</div>
+        <span>CV Studio</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="gallery.html">Templates</a>
+        <a href="dashboard.html">My CVs</a>
+        <a href="cover-letter.html">Cover Letter</a>
+        <a href="editor.html" class="btn btn-primary btn-sm">Create CV</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg-3d">
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+    </div>
+    <div class="floating-icons">
+      <div class="floating-icon">📄</div>
+      <div class="floating-icon">🎨</div>
+      <div class="floating-icon">🚀</div>
+      <div class="floating-icon">💼</div>
+      <div class="floating-icon">⭐</div>
+      <div class="floating-icon">📊</div>
+    </div>
+    <div class="hero-3d-cards">
+      <div class="hero-3d-card">
+        <span class="mini-badge">ATS-Friendly</span>
+        <h4>98% Pass Rate</h4>
+        <p>Our templates are optimized for applicant tracking systems.</p>
+      </div>
+      <div class="hero-3d-card">
+        <span class="mini-badge">AI Powered</span>
+        <h4>Smart Suggestions</h4>
+        <p>Get AI-generated bullet points tailored to your role.</p>
+      </div>
+      <div class="hero-3d-card">
+        <span class="mini-badge">Real-Time</span>
+        <h4>Live Preview</h4>
+        <p>See changes instantly as you type in our editor.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Trusted by 10,000+ professionals
+        </div>
+        <h1 class="hero-title">
+          Build a <span class="gradient-text">Stunning CV</span><br>That Gets You Hired
+        </h1>
+        <p class="hero-subtitle">
+          Create professional, ATS-optimized CVs in minutes with our intuitive drag-and-drop editor, 
+          AI-powered content suggestions, and beautifully designed templates.
+        </p>
+        <div class="hero-actions">
+          <a href="editor.html" class="btn btn-primary btn-lg">
+            Start Building Free
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="gallery.html" class="btn btn-secondary btn-lg">
+            Browse Templates
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">10K+</div>
+            <div class="hero-stat-label">CVs Created</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">98%</div>
+            <div class="hero-stat-label">ATS Pass Rate</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">50+</div>
+            <div class="hero-stat-label">Templates</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">4.9★</div>
+            <div class="hero-stat-label">User Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">Everything You Need to Land Your Dream Job</h2>
+        <p class="section-desc">From AI-powered suggestions to real-time preview, we've got you covered.</p>
+      </div>
+      <div class="features-grid">
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(108,92,231,0.2),rgba(108,92,231,0.05));">
+              <span class="feature-icon-3d">🎨</span>
             </div>
+            <h3>Drag & Drop Editor</h3>
+            <p>Intuitive drag-and-drop interface with real-time A4 preview. Customize every element with pixel-perfect control.</p>
+          </div>
         </div>
-    </nav>
-
-    <header class="hero" style="padding: 120px 0 80px; text-align: center;">
-        <div class="container">
-            <h1 class="animate-up" style="font-size: 72px; margin-bottom: 24px;">Your career, <br><span style="font-style: italic;">beautifully presented.</span></h1>
-            <p class="animate-up" style="font-size: 20px; color: var(--on-surface-variant); max-width: 600px; margin: 0 auto 40px; animation-delay: 0.2s;">
-                Build professional CVs with curated minimalist designs. Inspired by digital stationery, crafted for high-fidelity presentation.
-            </p>
-            <div class="animate-up" style="display: flex; gap: 16px; justify-content: center; animation-delay: 0.4s;">
-                <a href="gallery.html" class="btn btn-primary">Browse Templates</a>
-                <a href="#features" class="btn btn-secondary">Learn More</a>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(0,206,201,0.2),rgba(0,206,201,0.05));">
+              <span class="feature-icon-3d">🤖</span>
             </div>
+            <h3>AI Content Suggestions</h3>
+            <p>Get smart bullet points, summaries, and achievements generated by AI based on your job role and industry.</p>
+          </div>
         </div>
-    </header>
-
-    <section id="features" style="padding: 100px 0; background-color: var(--surface);">
-        <div class="container">
-            <h2 style="font-size: 48px; text-align: center; margin-bottom: 64px;">Why CV Studio?</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
-                <div class="feature-card">
-                    <h3 style="font-size: 24px; margin-bottom: 16px;">Pinterest-Inspired</h3>
-                    <p style="color: var(--on-surface-variant);">Browse and discover templates in a fluid masonry layout that prioritizes inspiration.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 style="font-size: 24px; margin-bottom: 16px;">Digital Stationery</h3>
-                    <p style="color: var(--on-surface-variant);">Every CV feels like high-quality paper, with refined typography and tactile details.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 style="font-size: 24px; margin-bottom: 16px;">Focus on Content</h3>
-                    <p style="color: var(--on-surface-variant);">Our editor helps you organize your achievements without overwhelming technical clutter.</p>
-                </div>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(253,121,168,0.2),rgba(253,121,168,0.05));">
+              <span class="feature-icon-3d">📱</span>
             </div>
+            <h3>Multi-Format Export</h3>
+            <p>Export your CV as PDF, Word document, or plain text. Print-ready with perfect formatting every time.</p>
+          </div>
         </div>
-    </section>
-
-    <section style="padding: 100px 0; text-align: center;">
-        <div class="container">
-            <h2 style="font-size: 40px; margin-bottom: 32px;">Ready to elevate your profile?</h2>
-            <a href="editor.html" class="btn btn-primary" style="padding: 16px 40px; font-size: 18px;">Start Building for Free</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">CV Studio</div>
-                <div class="nav-links">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                    <a href="#">Support</a>
-                </div>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(253,203,110,0.2),rgba(253,203,110,0.05));">
+              <span class="feature-icon-3d">📝</span>
             </div>
-            <p style="opacity: 0.6; font-size: 14px;">&copy; 2026 CV Studio. All rights reserved.</p>
+            <h3>Cover Letter Builder</h3>
+            <p>Create matching cover letters that pair with your CV. AI-powered templates for any application.</p>
+          </div>
         </div>
-    </footer>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(108,92,231,0.2),rgba(0,206,201,0.05));">
+              <span class="feature-icon-3d">🔗</span>
+            </div>
+            <h3>LinkedIn & GitHub Import</h3>
+            <p>Import your profile data directly from LinkedIn or GitHub. Auto-populate your CV in seconds.</p>
+          </div>
+        </div>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(0,206,201,0.2),rgba(253,121,168,0.05));">
+              <span class="feature-icon-3d">📊</span>
+            </div>
+            <h3>Job Match Scoring</h3>
+            <p>Paste a job description and get an instant score showing how well your CV matches the requirements.</p>
+          </div>
+        </div>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(253,121,168,0.2),rgba(253,203,110,0.05));">
+              <span class="feature-icon-3d">🌐</span>
+            </div>
+            <h3>Shareable Online CV</h3>
+            <p>Get a shareable link to your CV with real-time view tracking. Know when employers open it.</p>
+          </div>
+        </div>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(108,92,231,0.2),rgba(253,203,110,0.05));">
+              <span class="feature-icon-3d">☁️</span>
+            </div>
+            <h3>Cloud Storage & Version History</h3>
+            <p>Auto-saved to the cloud with full version history. Never lose a change with unlimited revisions.</p>
+          </div>
+        </div>
+        <div class="card-3d">
+          <div class="card-3d-inner feature-card">
+            <div class="feature-icon" style="background:linear-gradient(135deg,rgba(0,206,201,0.2),rgba(108,92,231,0.05));">
+              <span class="feature-icon-3d">🌍</span>
+            </div>
+            <h3>Multi-Language Support</h3>
+            <p>Create CVs in 15+ languages with localized formatting, date styles, and professional conventions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section class="section section-alt" id="templates">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Templates</div>
+        <h2 class="section-title">Professionally Designed, ATS-Approved</h2>
+        <p class="section-desc">Choose from 50+ templates crafted by design experts and optimized for applicant tracking systems.</p>
+      </div>
+      <div class="template-showcase" id="home-templates">
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="gallery.html" class="btn btn-secondary">View All Templates →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">Loved by Professionals Worldwide</h2>
+        <p class="section-desc">Hear from users who landed their dream jobs with CV Studio.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card card-3d">
+          <div class="card-3d-inner" style="padding:32px;">
+            <div class="stars">★★★★★</div>
+            <p>"The AI suggestions helped me write bullet points that actually got me interviews. Landed a senior role at Google within 3 weeks!"</p>
+            <div class="author">
+              <div class="author-avatar">SK</div>
+              <div class="author-info">
+                <h4>Sarah Kim</h4>
+                <span>Senior Engineer at Google</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card-3d">
+          <div class="card-3d-inner" style="padding:32px;">
+            <div class="stars">★★★★★</div>
+            <p>"The ATS scoring feature is a game-changer. I optimized my CV based on the feedback and immediately started getting more callbacks."</p>
+            <div class="author">
+              <div class="author-avatar">MJ</div>
+              <div class="author-info">
+                <h4>Marcus Johnson</h4>
+                <span>Product Manager at Stripe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card-3d">
+          <div class="card-3d-inner" style="padding:32px;">
+            <div class="stars">★★★★★</div>
+            <p>"I love the LinkedIn import feature! Saved me hours of typing. The cover letter builder paired with my CV is incredibly polished."</p>
+            <div class="author">
+              <div class="author-avatar">AL</div>
+              <div class="author-info">
+                <h4>Aisha Lopez</h4>
+                <span>Marketing Director at Spotify</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">Start Free, Upgrade When Ready</h2>
+        <p class="section-desc">All plans include access to our core CV builder. Premium features for serious job seekers.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="price">$0<span>/mo</span></div>
+          <p class="desc">Perfect for getting started</p>
+          <ul>
+            <li>5 CV templates</li>
+            <li>Basic editor</li>
+            <li>PDF export</li>
+            <li>1 CV version</li>
+          </ul>
+          <a href="editor.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Pro</h3>
+          <div class="price">$9<span>/mo</span></div>
+          <p class="desc">For serious job seekers</p>
+          <ul>
+            <li>50+ templates</li>
+            <li>AI content suggestions</li>
+            <li>LinkedIn/GitHub import</li>
+            <li>Multi-format export</li>
+            <li>Cover letter builder</li>
+            <li>Job match scoring</li>
+            <li>Version history</li>
+            <li>View tracking</li>
+          </ul>
+          <a href="editor.html?pro=1" class="btn btn-primary" style="width:100%;justify-content:center;">Start Free Trial</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">$29<span>/mo</span></div>
+          <p class="desc">For teams & recruiters</p>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Unlimited CV versions</li>
+            <li>Team collaboration</li>
+            <li>API access</li>
+            <li>Custom branding</li>
+            <li>Priority support</li>
+            <li>Bulk export</li>
+          </ul>
+          <a href="editor.html?enterprise=1" class="btn btn-secondary" style="width:100%;justify-content:center;">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="margin:0 24px 60px;">
+    <div class="container">
+      <h2>Ready to Build Your Dream CV?</h2>
+      <p>Join 10,000+ professionals who've already advanced their careers with CV Studio.</p>
+      <a href="editor.html" class="btn btn-primary btn-lg">
+        Start Building Free
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">CV Studio</span>
+          </div>
+          <p class="footer-desc">Build professional CVs that stand out. Our AI-powered platform helps you create, customize, and share your perfect CV.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="gallery.html">Templates</a>
+          <a href="editor.html">CV Builder</a>
+          <a href="cover-letter.html">Cover Letter</a>
+          <a href="#">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Blog</a>
+          <a href="#">Career Guides</a>
+          <a href="#">ATS Guide</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CV Studio. All rights reserved.</span>
+        <span>Made with ❤️ for professionals</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const templates = [
+        { id: 'modern', name: 'Modern Professional', color: '#6C5CE7', badge: 'Popular' },
+        { id: 'creative', name: 'Creative Portfolio', color: '#FD79A8', badge: 'Trending' },
+        { id: 'executive', name: 'Executive Suite', color: '#2E3A59', badge: 'ATS Optimized' },
+        { id: 'minimal', name: 'Sleek Minimal', color: '#00CEC9', badge: 'New' },
+        { id: 'academic', name: 'Academic Scholar', color: '#FDCB6E', badge: 'Best for Academia' },
+        { id: 'designer', name: 'Designer Choice', color: '#A29BFE', badge: 'Creative' }
+      ];
+      const grid = document.getElementById('home-templates');
+      grid.innerHTML = templates.map(t => `
+        <a href="editor.html?template=${t.id}" class="template-card">
+          <div class="template-card-img" style="background: linear-gradient(135deg, ${t.color}22, ${t.color}44); display: flex; align-items: center; justify-content: center;">
+            <div style="width:120px;height:160px;background:white;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.2);transform:rotate(3deg);transition:transform 0.3s ease;display:flex;flex-direction:column;padding:16px;">
+              <div style="height:8px;width:60%;background:${t.color};border-radius:4px;margin-bottom:8px;"></div>
+              <div style="height:4px;width:40%;background:#ddd;border-radius:2px;margin-bottom:4px;"></div>
+              <div style="height:4px;width:80%;background:#eee;border-radius:2px;margin-bottom:12px;"></div>
+              <div style="height:6px;width:50%;background:${t.color}33;border-radius:3px;margin-bottom:6px;"></div>
+              <div style="height:4px;width:70%;background:#eee;border-radius:2px;margin-bottom:4px;"></div>
+              <div style="height:4px;width:60%;background:#eee;border-radius:2px;margin-bottom:4px;"></div>
+            </div>
+          </div>
+          <div class="template-card-body">
+            <h3>${t.name}</h3>
+            <span class="badge">${t.badge}</span>
+          </div>
+        </a>
+      `).join('');
+    });
+  </script>
 </body>
 </html>

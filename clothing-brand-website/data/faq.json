@@ -1,0 +1,27 @@
+[
+  {
+    "id": "f-1",
+    "question": "What are your shipping times?",
+    "answer": "Domestic orders arrive within 3-5 business days. International shipping takes 7-14 business days. All orders are processed within 24 hours. Tracked shipping included on all orders."
+  },
+  {
+    "id": "f-2",
+    "question": "How does the return process work?",
+    "answer": "We offer free returns within 30 days of delivery. Use our self-service return portal to generate a QR code. Drop your package at any authorized carrier location. Refunds are processed within 5 business days of receipt."
+  },
+  {
+    "id": "f-3",
+    "question": "Are your materials sustainable?",
+    "answer": "Yes. We use 100% organic cotton, recycled nylon, and PFC-free DWR coatings. Our facilities are powered by renewable energy and we offset remaining emissions. See our full Sustainability Report for details."
+  },
+  {
+    "id": "f-4",
+    "question": "How do I find my size?",
+    "answer": "Use our Fit Predictor tool on each product page. Enter your height, weight, and preferred fit — we'll recommend the perfect size. Each product page also includes detailed measurements and model sizing info."
+  },
+  {
+    "id": "f-5",
+    "question": "Do you accept buy now, pay later?",
+    "answer": "Yes. We accept Klarna, Afterpay, and PayPal Pay Later at checkout. Select your preferred option and pay in 4 interest-free installments. No hidden fees."
+  }
+]

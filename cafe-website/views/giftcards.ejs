@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gift Cards — Cafe Serenity</title>
+  <meta name="description" content="Purchase digital gift cards for Cafe Serenity. The perfect gift for coffee lovers."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-tag">Give the Gift of Serenity</span>
+      <h1 class="page-title">Gift <span style="color:var(--gold);">Cards</span></h1>
+      <p class="page-subtitle">The perfect present for every coffee lover in your life.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="giftcard-grid">
+        <div class="giftcard-preview reveal-left">
+          <div class="gift-icon"><i class="fas fa-gift"></i></div>
+          <h3>Cafe Serenity</h3>
+          <p>Share the warmth of a perfect cup.</p>
+          <div style="margin-top:24px;font-size:3rem;font-weight:700;font-family:var(--font-serif);" id="giftAmount">$25</div>
+        </div>
+        <div class="reveal-right">
+          <form class="reservation-form" action="/giftcards" method="POST">
+            <% if (typeof success !== 'undefined' && success) { %>
+              <div class="alert alert-success"><span class="alert-icon"><i class="fas fa-circle-check"></i></span> <%= success %></div>
+            <% } %>
+            <div class="form-group">
+              <label for="amount">Gift Card Amount</label>
+              <select id="amount" name="amount" required onchange="document.getElementById('giftAmount').textContent = '$' + this.value">
+                <option value="10">$10</option>
+                <option value="25" selected>$25</option>
+                <option value="50">$50</option>
+                <option value="100">$100</option>
+                <option value="200">$200</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="recipient">Recipient's Email</label>
+              <input type="email" id="recipient" name="recipient" required placeholder="friend@email.com"/>
+            </div>
+            <div class="form-group">
+              <label for="sender">Your Name</label>
+              <input type="text" id="sender" name="sender" required placeholder="Your name"/>
+            </div>
+            <div class="form-group">
+              <label for="message">Personal Message (Optional)</label>
+              <textarea id="message" name="message" rows="3" placeholder="Write a warm note..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold btn-full"><i class="fas fa-gift"></i> Send Gift Card</button>
+            <p style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);text-align:center;">
+              <i class="fas fa-shield-alt"></i> Digital gift card will be delivered via email immediately.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/chat') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

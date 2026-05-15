@@ -1,274 +1,221 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>STREET_ARCHIVE</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-error-container": "#ffdad6",
-                      "secondary-container": "#454747",
-                      "on-primary": "#303030",
-                      "on-primary-fixed": "#1b1b1b",
-                      "on-secondary": "#2f3131",
-                      "on-tertiary-container": "#647f00",
-                      "secondary-fixed-dim": "#c6c6c7",
-                      "secondary-fixed": "#e2e2e2",
-                      "tertiary-fixed-dim": "#abd600",
-                      "on-primary-fixed-variant": "#474747",
-                      "on-tertiary-fixed-variant": "#3c4d00",
-                      "surface": "#131313",
-                      "primary-fixed": "#e2e2e2",
-                      "primary-fixed-dim": "#c6c6c6",
-                      "surface-bright": "#393939",
-                      "on-secondary-fixed": "#1a1c1c",
-                      "outline-variant": "#4c4546",
-                      "tertiary": "#abd600",
-                      "background": "#131313",
-                      "on-secondary-container": "#b4b5b5",
-                      "tertiary-fixed": "#c3f400",
-                      "surface-dim": "#131313",
-                      "inverse-on-surface": "#313030",
-                      "primary-container": "#000000",
-                      "surface-container-highest": "#353535",
-                      "on-surface": "#e5e2e1",
-                      "on-tertiary-fixed": "#161e00",
-                      "outline": "#988e90",
-                      "surface-container-high": "#2a2a2a",
-                      "surface-container": "#20201f",
-                      "secondary": "#c6c6c7",
-                      "inverse-primary": "#5e5e5e",
-                      "on-surface-variant": "#cfc4c5",
-                      "surface-tint": "#c6c6c6",
-                      "on-error": "#690005",
-                      "tertiary-container": "#000000",
-                      "error": "#ffb4ab",
-                      "on-primary-container": "#757575",
-                      "inverse-surface": "#e5e2e1",
-                      "on-tertiary": "#283500",
-                      "on-secondary-fixed-variant": "#454747",
-                      "surface-container-low": "#1c1b1b",
-                      "surface-variant": "#353535",
-                      "on-background": "#e5e2e1",
-                      "primary": "#c6c6c6",
-                      "surface-container-lowest": "#0e0e0e",
-                      "error-container": "#93000a"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "unit": "8px",
-                      "border-thin": "1px",
-                      "border-thick": "3px",
-                      "margin": "40px",
-                      "gutter": "24px",
-                      "container-max": "1440px"
-              },
-              "fontFamily": {
-                      "headline-2xl": [
-                              "Inter"
-                      ],
-                      "label-mono": [
-                              "Inter"
-                      ],
-                      "headline-lg": [
-                              "Inter"
-                      ],
-                      "label-bold": [
-                              "Inter"
-                      ],
-                      "body-lg": [
-                              "Inter"
-                      ],
-                      "headline-xl": [
-                              "Inter"
-                      ],
-                      "body-md": [
-                              "Inter"
-                      ]
-              },
-              "fontSize": {
-                      "headline-2xl": [
-                              "120px",
-                              {
-                                      "lineHeight": "100px",
-                                      "letterSpacing": "-0.05em",
-                                      "fontWeight": "900"
-                              }
-                      ],
-                      "label-mono": [
-                              "12px",
-                              {
-                                      "lineHeight": "14px",
-                                      "letterSpacing": "0.1em",
-                                      "fontWeight": "500"
-                              }
-                      ],
-                      "headline-lg": [
-                              "48px",
-                              {
-                                      "lineHeight": "48px",
-                                      "letterSpacing": "-0.02em",
-                                      "fontWeight": "800"
-                              }
-                      ],
-                      "label-bold": [
-                              "14px",
-                              {
-                                      "lineHeight": "16px",
-                                      "letterSpacing": "0.05em",
-                                      "fontWeight": "700"
-                              }
-                      ],
-                      "body-lg": [
-                              "18px",
-                              {
-                                      "lineHeight": "28px",
-                                      "letterSpacing": "0em",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "headline-xl": [
-                              "72px",
-                              {
-                                      "lineHeight": "72px",
-                                      "letterSpacing": "-0.03em",
-                                      "fontWeight": "800"
-                              }
-                      ],
-                      "body-md": [
-                              "16px",
-                              {
-                                      "lineHeight": "24px",
-                                      "letterSpacing": "0em",
-                                      "fontWeight": "400"
-                              }
-                      ]
-              }
-      },
-          },
-        }
-      </script>
-</head>
-<body class="bg-background text-on-background antialiased min-h-screen flex flex-col pt-20">
-<!-- TopAppBar -->
-<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-white dark:bg-black docked full-width border-b-3 border-black dark:border-white">
-<div class="flex items-center gap-6">
-<span class="text-3xl font-black tracking-tighter text-black dark:text-white">STREET_ARCHIVE</span>
-</div>
-<nav class="hidden md:flex items-center gap-8 font-inter uppercase tracking-tighter font-black text-sm text-black dark:text-white">
-<a class="text-black dark:text-white border-b-3 border-black dark:border-white pb-1 Active: translate-y-0.5 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100" href="/shop">SHOP</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100" href="/product">DROPS</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100" href="/">COLLECTIONS</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100" href="/about">LAB</a>
-</nav>
-<div class="flex items-center gap-4 text-black dark:text-white">
-<% if (user) { %>
-  <span>Welcome, <%= user.email %></span>
-  <a href="/logout" class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
-    <span class="material-symbols-outlined">logout</span>
-  </a>
-<% } else { %>
-  <a href="/login" class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
-    <span class="material-symbols-outlined">person</span>
-  </a>
-<% } %>
-<button class="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-100 p-2">
-<span class="material-symbols-outlined">shopping_bag</span>
-</button>
-</div>
-</header>
-<main class="flex-grow flex flex-col">
-<!-- Hero Section -->
-<section class="relative h-[870px] w-full border-b-3 border-white flex flex-col justify-end p-margin" data-alt="A gritty, high-contrast black and white photograph of an urban concrete staircase leading to a harsh industrial structure. The lighting is extremely dramatic, with stark, heavy shadows and bright, blown-out highlights emphasizing the raw texture of the concrete. The overall aesthetic perfectly captures a modern brutalist streetwear vibe, evoking a sense of underground exclusivity and stark architectural geometry within a deep dark mode palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuj5fEmFbIvGneMdOKQyq6XfuEL6RWZf5yoILnGl4zbeD3fNTrmrNz7FBPPsHGldaP5EjzmnCbOTpznHkN3ED3uJuTuZTcaKSOaO2id-m_yWQqT84swHIc2yjAr6rW_rIrLnwXM-Tke02gWPeGrBvy5qrEHYYhfaJnqV6EZ6nUZNMxDZzkzm10Oy0vkDS9N9IR764pelFGVBT5yei_Ue4CY9xitwCZe0X6DRzdQHpl-NK3zlGUgb6Ad-Zs3jJhNGkzJh4I8LS2L_c'); background-size: cover; background-position: center;">
-<div class="absolute inset-0 bg-black/40"></div>
-<div class="relative z-10 max-w-container-max mx-auto w-full grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-8">
-<h1 class="font-headline-2xl text-headline-2xl text-white uppercase mb-6 drop-shadow-xl">ARCHIVE 01:<br/>THE NEW STANDARD</h1>
-<button class="bg-white text-black font-label-bold text-label-bold uppercase border-3 border-white px-8 py-4 hover:bg-black hover:text-white transition-colors duration-100 inline-flex items-center gap-2">
-                        SHOP NOW <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-</section>
-<!-- Featured Drops -->
-<section class="py-[128px] px-margin max-w-container-max mx-auto w-full border-b-3 border-white">
-<div class="flex justify-between items-end mb-16 border-b-3 border-white pb-6">
-<h2 class="font-headline-xl text-headline-xl uppercase">FEATURED DROPS</h2>
-<a class="font-label-bold text-label-bold uppercase hover:text-tertiary transition-colors duration-100 flex items-center gap-1" href="/shop">VIEW ALL <span class="material-symbols-outlined">north_east</span></a>
-</div>
-<div class="grid grid-cols-12 gap-gutter">
-<% if (typeof products !== 'undefined' && products.length > 0) { %>
-  <% products.slice(0, 3).forEach((product, index) => { %>
-    <a href="/product/<%= product._id || product.id %>" class="col-span-12 md:col-span-4 border-3 border-white group relative cursor-pointer block <%= product.isSoldOut ? 'opacity-75 grayscale' : '' %>">
-      <% if (product.isSoldOut) { %>
-        <div class="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
-          <span class="bg-black text-white font-headline-lg text-headline-lg px-6 py-2 border-3 border-white -rotate-12">SOLD OUT</span>
-        </div>
-      <% } else if (product.isNewDrop) { %>
-        <div class="absolute top-4 left-4 z-10 bg-tertiary text-black px-3 py-1 font-label-mono text-label-mono border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">NEW DROP</div>
-      <% } %>
-      <div class="h-[400px] w-full border-b-3 border-white overflow-hidden bg-surface-container">
-        <img alt="<%= product.name %>" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" src="<%= product.image %>"/>
-      </div>
-      <div class="p-6 bg-background group-hover:bg-white group-hover:text-black transition-colors duration-100 h-full">
-        <p class="font-label-mono text-label-mono mb-2 text-primary group-hover:text-gray-500"><%= product.sku || product.code %></p>
-        <h3 class="font-headline-lg text-headline-lg leading-tight uppercase"><%= product.name %></h3>
-        <div class="mt-4 flex justify-between items-center border-t-1 border-white group-hover:border-black pt-4">
-          <span class="font-label-bold text-label-bold">$<%= product.price %>.00</span>
-          <span class="material-symbols-outlined"><%= product.isSoldOut ? 'close' : 'add' %></span>
-        </div>
-      </div>
-    </a>
-  <% }); %>
-<% } %>
-</div>
-</section>
+<%- include('partials/header') %>
 
-<!-- Brand Storytelling -->
-<section class="py-[160px] px-margin max-w-container-max mx-auto w-full grid grid-cols-12 gap-gutter items-center">
-<div class="col-span-12 md:col-span-5 flex flex-col gap-8">
-<h2 class="font-headline-xl text-headline-xl uppercase leading-none">NO<br/>COMPROMISE.<br/>JUST<br/>STRUCTURE.</h2>
-<div class="w-full h-1 bg-white"></div>
-<p class="font-body-lg text-body-lg text-primary max-w-md">STREET_ARCHIVE rejects the transient nature of modern fashion. We build modular, brutalist garments designed for utility and permanence. Engineered in the shadows, built for the concrete.</p>
-<button class="self-start bg-transparent text-white font-label-bold text-label-bold uppercase border-3 border-white px-8 py-4 hover:bg-white hover:text-black transition-colors duration-100 inline-flex items-center gap-2">
-                    READ THE MANIFESTO
-                </button>
-</div>
-<div class="col-span-12 md:col-span-7 grid grid-cols-2 gap-gutter relative h-[600px]">
-<div class="border-3 border-white h-full relative z-10 translate-y-12">
-<img alt="Urban brutalist architecture" class="w-full h-full object-cover grayscale" data-alt="A claustrophobic view looking straight up at massive, overlapping brutalist concrete apartment buildings against a stark, featureless sky. The image is strictly black and white with heavy contrast, emphasizing the harsh geometric lines and aggressive, imposing scale of the architecture. This gritty, urban aesthetic serves as the conceptual foundation for a stark dark mode streetwear brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY_oyLK1MdpbE1hokLJAhapwKxSMdM_FfLsFkARPeRfpuiVanrKzse32cEAWmNKsVFO2B90xNMmdieN3UdGuC6mPRqhRGptWJMXLFzzQcvaQKprJav2FrLlyR4qJbpZKlFG8r17wGWBUgz_kRUjNsXvbx9jxA3Uhtebcj-WtwqL7AJF4IfMS-ncx36FSmDk5V-A_ig4wguyGwcrY4vZ87K69LCSvxVclN6UxRtE2ljbHVw_f7V2Y1MSZLQRZpYG3erfHF0nbT_Go0"/>
-</div>
-<div class="border-3 border-white h-[80%] relative z-0 -translate-y-8 bg-surface-container">
-<img alt="Person wearing streetwear in alley" class="w-full h-full object-cover grayscale" data-alt="A solitary figure wearing dark, structured, oversized streetwear stands in an oppressive, narrow concrete alleyway. Heavy film grain and extreme high-contrast black and white lighting obscure the figure's face, focusing entirely on the silhouette and the heavy drape of the garments against the raw, dirty textures of the urban environment. A perfect execution of modern brutalist fashion photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYFfqwhYuZdGqOAH1QSFqQjoTigqSH-VBRazP3rq_hARJ6MQQgQIjFVgfd4q8qLkuPTyiE6Q_wZ2Z_PveZZc8Z2y7EpOwxBE8RjLbUan2gn7Uae61zBqI2QulauxC0buRReocePdYoCjRPQxM2dNHHu_UkzmhsH5bC5O8JUZIDjDqGEN8Rb4cm2gMZz3ttliRo_KcyBQhqIcXtaE9tKJ5xlFjNfqpWIhqOIHmmirceHAFWloRwUfvzRR0D9Eyf5bxgqcaJ2XuBGpg"/>
-</div>
-</div>
-</section>
+<main>
+  <!-- 3D Hero -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">SS26 Collection</div>
+      <h1 class="hero-title">CONCRETE<br>SEASONS</h1>
+      <p class="hero-sub">Brutalist silhouettes meet raw urban architecture. The new standard in heavyweight streetwear.</p>
+      <div class="hero-actions">
+        <a href="/shop" class="btn btn-primary">Explore Collection <i class="fa-regular fa-arrow-right"></i></a>
+        <a href="/lookbooks" class="btn btn-outline">View Lookbook <i class="fa-regular fa-eye"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">25</span><span class="hero-stat-label">Drops</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">12K</span><span class="hero-stat-label">Holders</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">4.9</span><span class="hero-stat-label">Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lookbook Carousel -->
+  <section class="section" id="lookbooks">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">Curated</span>
+        <h2 class="section-title">Lookbooks</h2>
+      </div>
+      <a href="/lookbooks" class="section-link">View All <i class="fa-regular fa-arrow-right"></i></a>
+    </div>
+    <div class="lookbook-carousel" id="lookbookCarousel">
+      <% if (typeof lookbooks !== 'undefined' && lookbooks.length > 0) { %>
+        <% lookbooks.forEach(function(lb) { %>
+          <div class="lookbook-card">
+            <div class="lookbook-image">
+              <img src="<%= lb.image %>" alt="<%= lb.title %>" loading="lazy">
+              <div class="lookbook-overlay">
+                <span class="lookbook-sub"><%= lb.subtitle %></span>
+                <h3 class="lookbook-title"><%= lb.title %></h3>
+                <p class="lookbook-desc"><%= lb.description %></p>
+                <a href="/shop" class="btn btn-sm btn-primary">Shop Look <i class="fa-regular fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" id="featured">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">Latest Drops</span>
+        <h2 class="section-title">Featured Gear</h2>
+      </div>
+      <a href="/shop" class="section-link">Shop All <i class="fa-regular fa-arrow-right"></i></a>
+    </div>
+    <div class="product-grid">
+      <% if (typeof products !== 'undefined' && products.length > 0) { %>
+        <% products.slice(0, 4).forEach(function(p) { %>
+          <a href="/product/<%= p.id %>" class="product-card <%= p.isSoldOut ? 'sold-out' : '' %>">
+            <div class="product-card-image">
+              <img src="<%= p.image %>" alt="<%= p.name %>" loading="lazy">
+              <% if (p.isNewDrop) { %><span class="product-badge new">New</span><% } %>
+              <% if (p.isLimited) { %><span class="product-badge limited">Limited</span><% } %>
+              <% if (p.isSoldOut) { %><span class="product-badge sold">Sold Out</span><% } %>
+              <% if (p.originalPrice) { %><span class="product-badge sale">Sale</span><% } %>
+            </div>
+            <div class="product-card-body">
+              <span class="product-card-sku"><%= p.sku %></span>
+              <h3 class="product-card-title"><%= p.name %></h3>
+              <div class="product-card-footer">
+                <span class="product-card-price">
+                  <% if (p.originalPrice) { %><del>$<%= p.originalPrice %></del> <% } %>
+                  $<%= p.price %>
+                </span>
+                <span class="product-card-rating"><i class="fa-regular fa-star"></i> <%= p.rating %></span>
+              </div>
+            </div>
+          </a>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Style Quiz CTA -->
+  <section class="section section-dark quiz-cta">
+    <div class="quiz-cta-bg"></div>
+    <div class="quiz-cta-content">
+      <span class="section-tag">Find Your Fit</span>
+      <h2 class="section-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">Not Sure Where<br>To Start?</h2>
+      <p>Take our 30-second style quiz and get personalized outfit recommendations based on your aesthetic.</p>
+      <a href="/style-quiz" class="btn btn-primary btn-lg">Take The Quiz <i class="fa-regular fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Community Wall -->
+  <section class="section" id="community">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">#STREETARCHIVE</span>
+        <h2 class="section-title">As Seen On You</h2>
+      </div>
+      <button class="section-link" id="uploadPhotoBtn">Upload Yours <i class="fa-regular fa-camera"></i></button>
+    </div>
+    <div class="community-grid">
+      <% if (typeof community !== 'undefined' && community.length > 0) { %>
+        <% community.forEach(function(c) { %>
+          <div class="community-card">
+            <img src="<%= c.image %>" alt="<%= c.name %>" loading="lazy">
+            <div class="community-card-overlay">
+              <p>"<%= c.caption %>"</p>
+              <span>— <%= c.name %></span>
+              <span class="community-likes"><i class="fa-regular fa-heart"></i> <%= c.likes %></span>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">Endorsements</span>
+        <h2 class="section-title">Trusted By</h2>
+      </div>
+    </div>
+    <div class="testimonial-grid">
+      <% if (typeof testimonials !== 'undefined' && testimonials.length > 0) { %>
+        <% testimonials.forEach(function(t) { %>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><% for(let s=0; s<t.rating; s++){ %><i class="fa-regular fa-star"></i><% } %></div>
+            <p class="testimonial-text">"<%= t.content %>"</p>
+            <div class="testimonial-author">
+              <img src="<%= t.image %>" alt="<%= t.name %>" loading="lazy">
+              <div>
+                <strong><%= t.name %></strong>
+                <span><%= t.role %></span>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="section" id="journal">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">Journal</span>
+        <h2 class="section-title">From The Archive</h2>
+      </div>
+    </div>
+    <div class="blog-grid">
+      <% if (typeof blog !== 'undefined' && blog.length > 0) { %>
+        <% blog.slice(0, 3).forEach(function(b) { %>
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="<%= b.image %>" alt="<%= b.title %>" loading="lazy">
+              <span class="blog-category"><%= b.category %></span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span><%= b.date %></span>
+                <span><%= b.readTime %></span>
+              </div>
+              <h3><%= b.title %></h3>
+              <p><%= b.excerpt %></p>
+            </div>
+          </article>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">Questions</span>
+        <h2 class="section-title">FAQ</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <% if (typeof faq !== 'undefined' && faq.length > 0) { %>
+        <% faq.forEach(function(f, i) { %>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <%= f.question %>
+              <i class="fa-regular fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer"><p><%= f.answer %></p></div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Sustainability Banner -->
+  <section class="section sustain-banner">
+    <div class="sustain-banner-content">
+      <span class="section-tag">Impact</span>
+      <h2 class="section-title">Built To Last,<br>Built Responsibly</h2>
+      <p>Organic cotton. Recycled nylon. Carbon-neutral shipping. We're transparent about every material choice.</p>
+      <div class="sustain-stats">
+        <div><span>100%</span> Organic Cotton</div>
+        <div><span>85%</span> Recycled Materials</div>
+        <div><span>Zero</span> Single-Use Plastic</div>
+      </div>
+      <a href="/sustainability" class="btn btn-outline">Our Commitments <i class="fa-regular fa-arrow-right"></i></a>
+    </div>
+  </section>
 </main>
-<!-- Footer -->
-<footer class="w-full py-12 px-10 grid grid-cols-12 gap-6 items-end bg-white dark:bg-black text-black dark:text-white font-inter font-bold uppercase text-xs tracking-widest docked full-width border-t-3 border-black dark:border-white">
-<div class="col-span-12 md:col-span-6 flex flex-col gap-4">
-<span class="text-xl font-black text-black dark:text-white">STREET_ARCHIVE</span>
-<p>©2024 STREET_ARCHIVE. ALL RIGHTS RESERVED.</p>
-</div>
-<div class="col-span-12 md:col-span-6 flex flex-wrap justify-end gap-8">
-<a class="text-black dark:text-white hover:invert transition-all duration-75 Active: scale-95" href="#">PRIVACY</a>
-<a class="text-black dark:text-white hover:invert transition-all duration-75 Active: scale-95" href="#">TERMS</a>
-<a class="text-black dark:text-white hover:invert transition-all duration-75 Active: scale-95" href="#">SHIPPING</a>
-<a class="text-black dark:text-white hover:invert transition-all duration-75 Active: scale-95" href="#">CONTACT</a>
-</div>
-</footer>
-</body></html></content>
-<parameter name="filePath">c:\Users\User\OneDrive\Attachments 1\html\clothing-brand-website\views\index.ejs
+
+<%- include('partials/footer') %>

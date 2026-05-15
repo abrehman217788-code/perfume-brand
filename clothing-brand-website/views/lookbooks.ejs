@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-content">
+      <span class="section-tag" style="color:var(--tertiary)">Visual Discovery</span>
+      <h1>Lookbooks</h1>
+      <p>Curated collections. Shoppable editorials. Find your next fit.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="lookbook-grid">
+      <% if (typeof lookbooks !== 'undefined' && lookbooks.length > 0) { %>
+        <% lookbooks.forEach(function(lb) { %>
+          <div class="lookbook-card-full">
+            <div class="lookbook-card-image">
+              <img src="<%= lb.image %>" alt="<%= lb.title %>" loading="lazy">
+              <div class="lookbook-card-overlay">
+                <span class="lookbook-sub"><%= lb.subtitle %></span>
+                <h2><%= lb.title %></h2>
+                <p><%= lb.description %></p>
+                <div class="lookbook-products">
+                  <% if (lb.products) { lb.products.forEach(function(pid) { %>
+                    <span class="lookbook-product-tag"><%= pid %></span>
+                  <% }); } %>
+                </div>
+                <a href="/shop" class="btn btn-primary">Shop This Look <i class="fa-regular fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="lookbook-thumbs">
+              <% if (lb.images) { lb.images.slice(0, 4).forEach(function(img) { %>
+                <img src="<%= img %>" alt="" loading="lazy">
+              <% }); } %>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

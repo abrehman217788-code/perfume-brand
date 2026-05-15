@@ -1,0 +1,46 @@
+[
+  {
+    "id": "b-1",
+    "title": "The Brutalist Guide: Styling Heavyweight Layers",
+    "excerpt": "Master the art of layering structured garments. From shell jackets to cargo silhouettes — how to build proportions that command attention.",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=800",
+    "date": "May 12, 2026",
+    "readTime": "8 min read",
+    "author": "SA Design Team",
+    "category": "Style Guide",
+    "featured": true
+  },
+  {
+    "id": "b-2",
+    "title": "Inside the Archive: Material Testing at 500GSM",
+    "excerpt": "We put our heavyweight loopwheel cotton through 200 wash cycles, abrasion tests, and structural stress tests. Here's what survived.",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=800",
+    "date": "April 28, 2026",
+    "readTime": "12 min read",
+    "author": "Materials Lab",
+    "category": "Behind The Brand",
+    "featured": true
+  },
+  {
+    "id": "b-3",
+    "title": "Concrete Runway: SS26 Lookbook Released",
+    "excerpt": "Our Spring/Summer 2026 collection reimagines urban armor through modular construction and raw textiles. Full lookbook inside.",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800",
+    "date": "April 15, 2026",
+    "readTime": "5 min read",
+    "author": "Creative Direction",
+    "category": "Collections",
+    "featured": true
+  },
+  {
+    "id": "b-4",
+    "title": "Sustainability Report: Our Path to Carbon Neutral",
+    "excerpt": "Transparent breakdown of our sourcing, manufacturing, and shipping emissions. And the roadmap to 2030 carbon neutrality.",
+    "image": "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&q=80&w=800",
+    "date": "March 10, 2026",
+    "readTime": "10 min read",
+    "author": "Sustainability Team",
+    "category": "Impact",
+    "featured": false
+  }
+]

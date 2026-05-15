@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Heavyweight Pattern Cutter",
+        "department": "Production",
+        "location": "Los Angeles, CA",
+        "type": "Full-time",
+        "description": "We need a master pattern cutter experienced with heavyweight denim, cotton, and technical fabrics. 5+ years in industrial garment construction required."
+    },
+    {
+        "title": "Brand Photographer",
+        "department": "Creative",
+        "location": "Remote",
+        "type": "Contract",
+        "description": "Seeking a photographer who understands brutalist aesthetics. High-contrast monochrome portfolio required. Must have experience shooting garment details."
+    },
+    {
+        "title": "E-Commerce Developer",
+        "department": "Engineering",
+        "location": "San Francisco, CA",
+        "type": "Full-time",
+        "description": "Build and maintain our e-commerce platform. Experience with Node.js, Express, and Tailwind CSS required. Streetwear enthusiasm a plus."
+    }
+]

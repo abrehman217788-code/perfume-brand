@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View CV — CV Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .view-container { max-width: 794px; margin: 40px auto; }
+    .view-header { text-align: center; margin-bottom: 24px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .view-actions { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
+    .view-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; background: rgba(0,206,201,0.15); color: var(--secondary); }
+    .cv-paper-view { width: 794px; min-height: 1123px; background: white; color: #1a1a2e; padding: 60px 56px; box-shadow: 0 8px 40px rgba(0,0,0,0.15); border-radius: 4px; margin: 0 auto; }
+    .error-state { text-align: center; padding: 100px 24px; }
+    .error-state h2 { font-size: 28px; margin-bottom: 12px; }
+    .error-state p { color: var(--text-secondary); margin-bottom: 24px; }
+    @media (max-width: 840px) { .cv-paper-view { width: 100%; padding: 32px 24px; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon">CV</div>
+        <span>CV Studio</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="editor.html" class="btn btn-primary btn-sm">Create Your CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="view-container" id="view-container">
+    <div class="view-header" id="view-header" style="display:none;">
+      <div class="view-badge">👁️ <span id="view-count-badge">0</span> views</div>
+    </div>
+    <div class="view-actions" id="view-actions" style="display:none;">
+      <button onclick="window.print()" class="btn btn-secondary">🖨️ Print</button>
+      <button onclick="downloadPDF()" class="btn btn-primary">📄 Download PDF</button>
+    </div>
+    <div id="cv-view-content">
+      <div class="error-state" id="loading-state">
+        <h2>Loading CV...</h2>
+        <p>Please wait while we load the CV.</p>
+        <div class="skeleton" style="width:300px;height:20px;margin:0 auto;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+  <script>
+    async function loadSharedCV() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      const container = document.getElementById('cv-view-content');
+
+      if (!id) {
+        container.innerHTML = `
+          <div class="error-state">
+            <h2>Invalid Link</h2>
+            <p>This CV link is invalid or has expired.</p>
+            <a href="index.html" class="btn btn-primary">Create Your CV</a>
+          </div>
+        `;
+        return;
+      }
+
+      try {
+        let resp = await fetch(`${API_BASE}/share/${encodeURIComponent(id)}`);
+        let cv = null;
+        if (resp.ok) {
+          cv = await resp.json();
+        } else {
+          resp = await fetch(`${API_BASE}/cvs/${encodeURIComponent(id)}`);
+          if (resp.ok) {
+            cv = await resp.json();
+            cv.views = (cv.views || 0) + 1;
+          }
+        }
+
+        if (!cv) {
+          container.innerHTML = `
+            <div class="error-state">
+              <h2>CV Not Found</h2>
+              <p>The CV you're looking for could not be found.</p>
+              <a href="index.html" class="btn btn-primary">Create Your CV</a>
+            </div>
+          `;
+          return;
+        }
+
+        document.getElementById('view-header').style.display = 'block';
+        document.getElementById('view-actions').style.display = 'flex';
+        document.getElementById('view-count-badge').textContent = cv.views;
+
+        const accentColor = cv.color || '#6C5CE7';
+        const order = cv.sectionOrder || ['summary','experience','education','projects','skills','certifications','languages'];
+        
+        const sectionRenderers = {
+          summary: cv.summary ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Professional Summary</h2>
+              <p style="font-size:14px;color:#444;line-height:1.7;">${escHtml(cv.summary)}</p>
+            </div>
+          ` : '',
+          experience: cv.experience && cv.experience.length > 0 ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Experience</h2>
+              ${cv.experience.map(exp => `
+                <div style="margin-bottom:16px;">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                    <h3 style="font-size:15px;font-weight:700;color:#1a1a2e;">${escHtml(exp.role || 'Role')}</h3>
+                    <span style="font-size:13px;color:#888;">${escHtml(exp.years || '')}</span>
+                  </div>
+                  <div style="font-size:14px;font-weight:600;color:${accentColor};margin-bottom:6px;">${escHtml(exp.company || 'Company')}</div>
+                  <p style="font-size:13px;color:#555;line-height:1.6;">${escHtml(exp.desc || '')}</p>
+                </div>
+              `).join('')}
+            </div>
+          ` : '',
+          education: cv.education && cv.education.length > 0 ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Education</h2>
+              ${cv.education.map(edu => `
+                <div style="margin-bottom:12px;">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                    <h3 style="font-size:15px;font-weight:700;color:#1a1a2e;">${escHtml(edu.degree || 'Degree')}</h3>
+                    <span style="font-size:13px;color:#888;">${escHtml(edu.years || '')}</span>
+                  </div>
+                  <div style="font-size:14px;color:#666;">${escHtml(edu.school || 'School')}</div>
+                  ${edu.desc ? `<p style="font-size:13px;color:#555;margin-top:4px;">${escHtml(edu.desc)}</p>` : ''}
+                </div>
+              `).join('')}
+            </div>
+          ` : '',
+          projects: cv.projects && cv.projects.length > 0 ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Projects</h2>
+              ${cv.projects.map(p => `
+                <div style="margin-bottom:14px;">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                    <h3 style="font-size:15px;font-weight:700;color:#1a1a2e;">${escHtml(p.name || 'Project')}</h3>
+                    <span style="font-size:13px;color:#888;">${escHtml(p.years || '')}</span>
+                  </div>
+                  ${p.role ? `<div style="font-size:13px;font-weight:600;color:${accentColor};margin-bottom:4px;">${escHtml(p.role)}</div>` : ''}
+                  ${p.url ? `<a href="${escHtml(p.url)}" target="_blank" style="font-size:12px;color:${accentColor};margin-bottom:4px;display:inline-block;">🔗 ${escHtml(p.url)}</a>` : ''}
+                  <p style="font-size:13px;color:#555;line-height:1.6;margin-top:4px;">${escHtml(p.desc || '')}</p>
+                </div>
+              `).join('')}
+            </div>
+          ` : '',
+          skills: cv.skills && cv.skills.length > 0 ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Skills</h2>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                ${cv.skills.map(s => `
+                  <span style="padding:4px 12px;background:${accentColor}11;color:${accentColor};border-radius:4px;font-size:13px;font-weight:500;">${escHtml(s.name)} <span style="font-weight:400;opacity:0.7;">· ${s.level}</span></span>
+                `).join('')}
+              </div>
+            </div>
+          ` : '',
+          certifications: cv.certifications && cv.certifications.length > 0 ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Certifications</h2>
+              ${cv.certifications.map(c => `
+                <div style="margin-bottom:10px;display:flex;align-items:baseline;gap:8px;">
+                  <span style="font-size:13px;color:#1a1a2e;font-weight:600;">${escHtml(c.name)}</span>
+                  ${c.issuer ? `<span style="font-size:12px;color:#888;">— ${escHtml(c.issuer)}</span>` : ''}
+                  ${c.date ? `<span style="font-size:12px;color:#888;">(${escHtml(c.date)})</span>` : ''}
+                  ${c.url ? `<a href="${escHtml(c.url)}" target="_blank" style="font-size:11px;color:${accentColor};">🔗</a>` : ''}
+                </div>
+              `).join('')}
+            </div>
+          ` : '',
+          languages: cv.languages && cv.languages.length > 0 ? `
+            <div class="cv-section" style="margin-bottom:20px;">
+              <h2 style="font-size:16px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid ${accentColor};padding-bottom:4px;margin-bottom:12px;">Languages</h2>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                ${cv.languages.map(l => `
+                  <span style="padding:4px 12px;background:#f0f0f0;color:#555;border-radius:4px;font-size:13px;">${escHtml(l.name)} <span style="font-weight:400;opacity:0.7;">· ${l.level}</span></span>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''
+        };
+
+        const sectionsHtml = order.map(s => sectionRenderers[s] || '').filter(Boolean);
+
+        container.innerHTML = `
+          <div class="cv-paper-view" style="font-family:'${cv.font || 'Inter'}',sans-serif;">
+            <div class="cv-header" style="margin-bottom:24px;">
+              <h1 style="font-size:32px;font-weight:800;margin-bottom:4px;color:#1a1a2e;">${escHtml(cv.name || 'Your Name')}</h1>
+              <div style="font-size:18px;font-weight:600;color:${accentColor};margin-bottom:8px;">${escHtml(cv.title || 'Job Title')}</div>
+              <div style="font-size:13px;color:#666;display:flex;gap:16px;flex-wrap:wrap;">
+                ${cv.email ? escHtml(cv.email) : ''}
+                ${cv.phone ? ' | ' + escHtml(cv.phone) : ''}
+                ${cv.location ? ' | ' + escHtml(cv.location) : ''}
+              </div>
+            </div>
+            ${sectionsHtml.join('')}
+          </div>
+        `;
+      } catch (error) {
+        console.error('Error loading CV:', error);
+        container.innerHTML = `
+          <div class="error-state">
+            <h2>Error Loading CV</h2>
+            <p>There was a problem loading this CV. Please try again later.</p>
+            <a href="index.html" class="btn btn-primary">Create Your CV</a>
+          </div>
+        `;
+      }
+    }
+
+    function downloadPDF() {
+      const el = document.querySelector('.cv-paper-view');
+      if (!el) { alert('Nothing to export'); return; }
+      const cvName = (document.querySelector('.cv-paper-view h1')?.textContent || 'CV').trim();
+      if (typeof html2pdf !== 'undefined') {
+        const opt = { margin: [0.5, 0.5, 0.5, 0.5], filename: `${cvName}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } };
+        html2pdf().set(opt).from(el).save();
+      } else {
+        const win = window.open('', '_blank');
+        win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${cvName}</title><style>@page{size:A4;margin:0.5in}body{font-family:Inter,sans-serif;color:#1a1a2e;padding:0;margin:0}*{box-sizing:border-box}</style></head><body>${el.outerHTML}</body></html>`);
+        win.document.close();
+        win.focus();
+        setTimeout(() => { win.print(); }, 500);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSharedCV);
+  </script>
+</body>
+</html>

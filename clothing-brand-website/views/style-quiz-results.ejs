@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-content">
+      <span class="section-tag" style="color:var(--tertiary)">Curated For You</span>
+      <h1>Your Results</h1>
+      <p>Based on your style profile, we've picked these pieces for you.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="product-grid">
+      <% if (typeof products !== 'undefined' && products.length > 0) { %>
+        <% products.forEach(function(p) { %>
+          <a href="/product/<%= p.id %>" class="product-card">
+            <div class="product-card-image">
+              <img src="<%= p.image %>" alt="<%= p.name %>" loading="lazy">
+              <% if (p.isNewDrop) { %><span class="product-badge new">Recommended</span><% } %>
+            </div>
+            <div class="product-card-body">
+              <span class="product-card-sku"><%= p.sku %></span>
+              <h3 class="product-card-title"><%= p.name %></h3>
+              <div class="product-card-footer">
+                <span class="product-card-price">$<%= p.price %></span>
+                <span class="product-card-rating"><i class="fa-regular fa-star"></i> <%= p.rating %></span>
+              </div>
+            </div>
+          </a>
+        <% }); %>
+      <% } else { %>
+        <div class="empty-state">
+          <p>No matches found. <a href="/shop" style="color:var(--tertiary)">Browse all gear</a></p>
+        </div>
+      <% } %>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="/style-quiz" class="btn btn-outline">Retake Quiz <i class="fa-regular fa-rotate"></i></a>
+      <a href="/shop" class="btn btn-primary" style="margin-left:1rem;">Shop All <i class="fa-regular fa-arrow-right"></i></a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

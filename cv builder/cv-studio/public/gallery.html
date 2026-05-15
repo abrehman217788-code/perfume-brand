@@ -1,59 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templates | CV Studio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Templates — CV Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:48px; }
+    .gallery-filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px; }
+    .filter-btn { padding:8px 20px; border-radius:100px; font-size:13px; font-weight:600; background:var(--surface); border:1px solid var(--border); color:var(--text-secondary); cursor:pointer; transition:var(--transition); }
+    .filter-btn:hover { background:var(--surface-hover); color:var(--text); }
+    .filter-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; }
+    .template-detail-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.9); opacity:0; transition:var(--transition); }
+    .template-card:hover .template-detail-btn { opacity:1; transform:translate(-50%,-50%) scale(1); }
+    .template-card { position:relative; }
+    .template-card-img { position:relative; overflow:hidden; }
+    .template-tags { display:flex; gap:4px; margin-top:8px; }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-            <a href="index.html" class="logo">CV Studio</a>
-            <div class="nav-links">
-                <a href="gallery.html" style="color: var(--primary);">Templates</a>
-                <a href="dashboard.html">My CVs</a>
-                <a href="editor.html" class="btn btn-primary">Create Now</a>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon">CV</div>
+        <span>CV Studio</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="gallery.html" class="active">Templates</a>
+        <a href="dashboard.html">My CVs</a>
+        <a href="cover-letter.html">Cover Letter</a>
+        <a href="editor.html" class="btn btn-primary btn-sm">Create CV</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <div class="section-label">Templates</div>
+          <h1>Choose Your <span class="gradient-text" style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Canvas</span></h1>
+          <p style="color:var(--text-secondary);margin-top:8px;font-size:17px;">50+ professionally designed, ATS-friendly templates.</p>
+        </div>
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" id="search-templates" placeholder="Search templates..." oninput="filterTemplates()">
+        </div>
+      </div>
+      <div class="gallery-filters" id="filter-bar">
+        <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+        <button class="filter-btn" onclick="setFilter('modern', this)">Modern</button>
+        <button class="filter-btn" onclick="setFilter('classic', this)">Classic</button>
+        <button class="filter-btn" onclick="setFilter('creative', this)">Creative</button>
+        <button class="filter-btn" onclick="setFilter('minimal', this)">Minimal</button>
+        <button class="filter-btn" onclick="setFilter('executive', this)">Executive</button>
+        <button class="filter-btn" onclick="setFilter('ats', this)">ATS-Optimized</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <div style="text-align:center;margin-top:48px;">
+        <p style="color:var(--text-muted);margin-bottom:16px;">Can't find what you're looking for?</p>
+        <a href="editor.html" class="btn btn-primary">Start from Scratch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand" style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">CV Studio</div>
+          <p class="footer-desc">Build professional CVs that stand out.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="gallery.html">Templates</a>
+          <a href="editor.html">CV Builder</a>
+          <a href="cover-letter.html">Cover Letter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Blog</a>
+          <a href="#">Career Guides</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CV Studio</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const ALL_TEMPLATES = [
+      { id:'modern-1', name:'Modern Professional', category:'modern', tags:['Popular','ATS-Optimized'], color:'#6C5CE7', description:'Clean, contemporary design with a professional edge.' },
+      { id:'modern-2', name:'Creative Portfolio', category:'creative', tags:['Trending','Creative'], color:'#FD79A8', description:'Stand out with a bold, creative layout.' },
+      { id:'classic-1', name:'Executive Suite', category:'executive', tags:['ATS-Optimized','Classic'], color:'#2E3A59', description:'Traditional format trusted by Fortune 500 recruiters.' },
+      { id:'minimal-1', name:'Sleek Minimal', category:'minimal', tags:['New','Minimal'], color:'#00CEC9', description:'Clean lines and ample whitespace for a refined look.' },
+      { id:'classic-2', name:'Academic Scholar', category:'classic', tags:['Best for Academia'], color:'#FDCB6E', description:'Ideal for research, teaching, and academic positions.' },
+      { id:'creative-1', name:'Designer Choice', category:'creative', tags:['Creative','Trending'], color:'#A29BFE', description:'A visually striking template for creative professionals.' },
+      { id:'modern-3', name:'Tech Innovator', category:'modern', tags:['ATS-Optimized','Popular'], color:'#00B894', description:'Perfect for engineers and tech professionals.' },
+      { id:'executive-1', name:'Boardroom Ready', category:'executive', tags:['Executive','Classic'], color:'#E17055', description:'Command respect with this authoritative layout.' },
+      { id:'minimal-2', name:'Pure Minimal', category:'minimal', tags:['Minimal','New'], color:'#0984E3', description:'The ultimate minimalist template.' },
+      { id:'classic-3', name:'Traditional Pro', category:'classic', tags:['Classic','ATS-Optimized'], color:'#6D5A3D', description:'A timeless design that never goes out of style.' },
+      { id:'creative-2', name:'Bold Statement', category:'creative', tags:['Creative'], color:'#D63031', description:'Make a bold impression with unique design elements.' },
+      { id:'modern-4', name:'Startup Ready', category:'modern', tags:['Popular','Modern'], color:'#6C5CE7', description:'Modern layout suited for fast-paced startup culture.' },
+    ];
+
+    function renderGallery(filter, search) {
+      const grid = document.getElementById('gallery-grid');
+      let templates = ALL_TEMPLATES;
+      if (filter && filter !== 'all') {
+        templates = templates.filter(t => t.category === filter || t.tags.some(tag => tag.toLowerCase().includes(filter)));
+      }
+      if (search) {
+        const q = search.toLowerCase();
+        templates = templates.filter(t => t.name.toLowerCase().includes(q) || t.tags.some(tag => tag.toLowerCase().includes(q)));
+      }
+      grid.innerHTML = templates.map(t => `
+        <a href="editor.html?template=${t.id}" class="template-card">
+          <div class="template-card-img" style="background:linear-gradient(135deg, ${t.color}22, ${t.color}44); height:220px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:140px;height:190px;background:white;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.15);transform:rotate(2deg);transition:transform 0.3s ease;display:flex;flex-direction:column;padding:16px;">
+              <div style="height:10px;width:70%;background:${t.color};border-radius:4px;margin-bottom:10px;"></div>
+              <div style="height:4px;width:50%;background:#ddd;border-radius:2px;margin-bottom:4px;"></div>
+              <div style="height:4px;width:80%;background:#eee;border-radius:2px;margin-bottom:16px;"></div>
+              <div style="height:6px;width:60%;background:${t.color}33;border-radius:3px;margin-bottom:8px;"></div>
+              <div style="height:4px;width:90%;background:#eee;border-radius:2px;margin-bottom:4px;"></div>
+              <div style="height:4px;width:70%;background:#eee;border-radius:2px;margin-bottom:4px;"></div>
+              <div style="height:4px;width:80%;background:#eee;border-radius:2px;"></div>
             </div>
-        </div>
-    </nav>
+            <div class="template-detail-btn btn btn-primary btn-sm">Use Template</div>
+          </div>
+          <div class="template-card-body" style="flex-direction:column;align-items:flex-start;gap:4px;">
+            <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+              <h3>${t.name}</h3>
+              <span class="badge">${t.tags[0]}</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);">${t.description}</p>
+            <div class="template-tags">${t.tags.map(tag => `<span class="tag tag-primary">${tag}</span>`).join('')}</div>
+          </div>
+        </a>
+      `).join('');
+    }
 
-    <main class="container" style="padding: 64px 24px;">
-        <header style="margin-bottom: 48px;">
-            <h1 style="font-size: 48px; margin-bottom: 16px;">Choose your <span style="font-style: italic;">canvas.</span></h1>
-            <p style="color: var(--on-surface-variant); font-size: 18px;">Discover our collection of curated CV templates.</p>
-        </header>
+    function setFilter(filter, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const search = document.getElementById('search-templates').value;
+      renderGallery(filter, search);
+    }
 
-        <div class="masonry" id="templates-grid">
-            <!-- Templates will be injected here -->
-        </div>
-    </main>
+    function filterTemplates() {
+      const active = document.querySelector('.filter-btn.active');
+      const filter = active ? active.textContent.toLowerCase() : 'all';
+      const search = document.getElementById('search-templates').value;
+      renderGallery(filter, search);
+    }
 
-    <script src="script.js"></script>
-    <script>
-        const templates = [
-            { id: 'modern', name: 'Modern Professional', image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=400&q=80' },
-            { id: 'creative', name: 'Creative Portfolio', image: 'https://images.unsplash.com/photo-1626197031507-c17099753214?auto=format&fit=crop&w=400&q=80' },
-            { id: 'academic', name: 'Academic Scholar', image: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=400&q=80' },
-            { id: 'minimal', name: 'Sleek Minimal', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80' },
-            { id: 'executive', name: 'Executive Suite', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80' },
-            { id: 'designer', name: 'Designer Choice', image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80' }
-        ];
-
-        function renderTemplates() {
-            const grid = document.getElementById('templates-grid');
-            grid.innerHTML = templates.map(t => `
-                <div class="masonry-item">
-                    <img src="${t.image}" alt="${t.name}">
-                    <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-                        <h3 style="font-size: 18px;">${t.name}</h3>
-                        <a href="editor.html?template=${t.id}" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">Use</a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        document.addEventListener('DOMContentLoaded', renderTemplates);
-    </script>
+    document.addEventListener('DOMContentLoaded', () => renderGallery('all', ''));
+  </script>
 </body>
 </html>

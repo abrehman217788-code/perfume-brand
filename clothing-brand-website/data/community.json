@@ -1,0 +1,38 @@
+[
+  {
+    "id": "c-1",
+    "name": "Marcus Chen",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+    "productId": "sa-002",
+    "caption": "Heavyweight hoodie in its natural habitat. Tokyo concrete.",
+    "likes": 234,
+    "featured": true
+  },
+  {
+    "id": "c-2",
+    "name": "Elena Voss",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+    "productId": "sa-001",
+    "caption": "Modular cargo systems are the future. Three days in Berlin with no bag needed.",
+    "likes": 189,
+    "featured": true
+  },
+  {
+    "id": "c-3",
+    "name": "Jay Thompson",
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+    "productId": "sa-004",
+    "caption": "Utility vest is a game changer for shoot days. Everything accessible.",
+    "likes": 312,
+    "featured": true
+  },
+  {
+    "id": "c-4",
+    "name": "Priya Sharma",
+    "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
+    "productId": "sa-005",
+    "caption": "Shell jacket survived a surprise downpour in London. Completely dry.",
+    "likes": 156,
+    "featured": false
+  }
+]

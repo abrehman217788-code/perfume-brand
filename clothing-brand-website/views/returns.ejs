@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<main>
+  <div class="page-header">
+    <div class="page-header-content">
+      <span class="section-tag" style="color:var(--tertiary)">Self-Service</span>
+      <h1>Returns & Exchanges</h1>
+      <p>Free returns within 30 days. No hassle. No questions.</p>
+    </div>
+  </div>
+
+  <section class="section" style="max-width:700px;margin:0 auto;">
+    <div class="returns-steps">
+      <div class="step-card"><span class="step-num">1</span><h3>Generate QR Code</h3><p>Enter your order details below and we'll email you a return QR code.</p></div>
+      <div class="step-card"><span class="step-num">2</span><h3>Drop & Go</h3><p>Scan the QR at any authorized carrier location. No printer needed.</p></div>
+      <div class="step-card"><span class="step-num">3</span><h3>Refund Issued</h3><p>We process refunds within 5 business days of receiving your return.</p></div>
+    </div>
+
+    <% if (typeof success !== 'undefined' && success) { %>
+      <div class="checkout-success" style="margin:2rem 0;"><i class="fa-regular fa-circle-check"></i> <%= success %></div>
+    <% } %>
+
+    <form class="tracking-form" action="/returns/request" method="POST">
+      <input type="text" name="orderNumber" placeholder="Order number" required class="checkout-input">
+      <input type="email" name="email" placeholder="Email used at checkout" required class="checkout-input">
+      <select name="reason" required class="checkout-input">
+        <option value="">Select reason</option>
+        <option value="size">Wrong size</option>
+        <option value="defect">Defective item</option>
+        <option value="unwanted">Changed mind</option>
+        <option value="other">Other</option>
+      </select>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+        Request Return <i class="fa-regular fa-arrow-right"></i>
+      </button>
+    </form>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

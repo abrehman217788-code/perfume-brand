@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+
+<main class="quiz-page">
+  <div class="page-header">
+    <div class="page-header-content">
+      <span class="section-tag" style="color:var(--tertiary)">Find Your Aesthetic</span>
+      <h1>Style Quiz</h1>
+      <p>Answer 3 quick questions and we'll curate the perfect fits for you.</p>
+    </div>
+  </div>
+
+  <section class="quiz-container">
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar" id="quizProgress" style="width:0%"></div>
+    </div>
+
+    <form action="/style-quiz/results" method="POST" id="quizForm">
+      <% if (typeof quiz !== 'undefined' && quiz.length > 0) { %>
+        <% quiz.forEach(function(q, qi) { %>
+          <div class="quiz-step" data-step="<%= qi %>" <%= qi > 0 ? 'style="display:none"' : '' %>>
+            <div class="quiz-question-header">
+              <span class="quiz-step-indicator"><%= qi + 1 %> / <%= quiz.length %></span>
+              <h2><%= q.question %></h2>
+            </div>
+            <div class="quiz-options">
+              <% q.options.forEach(function(o) { %>
+                <label class="quiz-option">
+                  <input type="radio" name="<%= q.type === 'single' ? ['style','fit','palette'][qi] : 'q' + qi %>" value="<%= o.value %>" required>
+                  <span class="quiz-option-label"><%= o.label %></span>
+                </label>
+              <% }); %>
+            </div>
+            <div class="quiz-nav">
+              <% if (qi < quiz.length - 1) { %>
+                <button type="button" class="btn btn-primary" onclick="nextStep(<%= qi %>)">Next <i class="fa-regular fa-arrow-right"></i></button>
+              <% } else { %>
+                <button type="submit" class="btn btn-primary">Show My Results <i class="fa-regular fa-arrow-right"></i></button>
+              <% } %>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+    </form>
+  </section>
+</main>
+
+<script>
+let currentStep = 0;
+function nextStep(step) {
+  const options = document.querySelectorAll('.quiz-step[data-step="' + step + '"] input[type="radio"]');
+  const checked = Array.from(options).some(o => o.checked);
+  if (!checked) { alert('Please select an option to continue.'); return; }
+  document.querySelector('.quiz-step[data-step="' + step + '"]').style.display = 'none';
+  const next = document.querySelector('.quiz-step[data-step="' + (step + 1) + '"]');
+  if (next) next.style.display = 'block';
+  currentStep = step + 1;
+  document.getElementById('quizProgress').style.width = ((currentStep / <%= quiz.length %>) * 100) + '%';
+}
+document.getElementById('quizProgress').style.width = ((1 / <%= quiz.length %>) * 100) + '%';
+</script>
+
+<%- include('partials/footer') %>
