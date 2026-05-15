@@ -46,16 +46,27 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             {mounted && user && (
-              <Link
-                href="/admin"
-                className="hidden md:flex items-center gap-1.5 text-xs tracking-widest uppercase text-cream/50 hover:text-gold transition-colors"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                Admin
-              </Link>
+              <>
+                <Link
+                  href="/dashboard"
+                  className="hidden md:flex items-center gap-1.5 text-xs tracking-widest uppercase text-cream/50 hover:text-gold transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  </svg>
+                  Dashboard
+                </Link>
+                <Link
+                  href="/admin"
+                  className="hidden md:flex items-center gap-1.5 text-xs tracking-widest uppercase text-cream/50 hover:text-gold transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  Admin
+                </Link>
+              </>
             )}
             {mounted && !user && (
               <Link

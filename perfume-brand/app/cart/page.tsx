@@ -17,7 +17,7 @@ const familyColors: Record<string, string> = {
 };
 
 export default function CartPage() {
-  const { items: cartItems, updateQuantity, removeItem, clearCart, subtotal } = useCart();
+  const { items: cartItems, updateQuantity, removeItem, subtotal } = useCart();
   const [giftNote, setGiftNote] = useState("");
   const [showGiftNote, setShowGiftNote] = useState(false);
 
@@ -178,15 +178,12 @@ export default function CartPage() {
                   </div>
 
                   <div className="space-y-3 pt-2">
-                    <button
-                      onClick={() => {
-                        alert("Thank you for your order! This is a demo — no payment has been processed. Your cart has been cleared.");
-                        clearCart();
-                      }}
-                      className="w-full py-4 bg-gold text-ebony rounded-full text-sm tracking-widest uppercase font-medium hover:shadow-[0_0_30px_rgba(201,168,76,0.3)] transition-all duration-300"
+                    <Link
+                      href="/checkout"
+                      className="block w-full py-4 bg-gold text-ebony rounded-full text-sm tracking-widest uppercase font-medium hover:shadow-[0_0_30px_rgba(201,168,76,0.3)] transition-all duration-300 text-center"
                     >
-                      Place Order (Demo)
-                    </button>
+                      Proceed to Checkout
+                    </Link>
                     <div className="flex items-center justify-center gap-2 text-xs text-cream/30">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <rect x="1" y="6" width="22" height="12" rx="2" />

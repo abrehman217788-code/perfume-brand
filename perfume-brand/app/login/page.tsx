@@ -105,12 +105,17 @@ export default function LoginPage() {
             {loading ? "Signing in..." : "Sign In"}
           </button>
 
-          <p className="text-center text-xs text-cream/40">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-gold hover:underline">
-              Register
+          <div className="flex items-center justify-between text-xs text-cream/40">
+            <Link href="/forgot-password" className="text-gold hover:underline">
+              Forgot password?
             </Link>
-          </p>
+            <span>
+              Don&apos;t have an account?{" "}
+              <Link href="/register" className="text-gold hover:underline">
+                Register
+              </Link>
+            </span>
+          </div>
         </form>
       </div>
     </section>

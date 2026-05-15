@@ -8,6 +8,7 @@ import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import { CartProvider } from "@/lib/cart-context";
 import { WishlistProvider } from "@/lib/wishlist-context";
 import { AuthProvider } from "@/lib/auth-context";
+import { ToastProvider } from "@/components/Toast";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -59,12 +60,14 @@ export default function RootLayout({
         <AuthProvider>
           <CartProvider>
             <WishlistProvider>
-              <Header />
-              <ScentTrailParticles />
-              <ServiceWorkerRegister />
-              <main className="min-h-screen">{children}</main>
-              <Footer />
-              <CookieConsent />
+              <ToastProvider>
+                <Header />
+                <ScentTrailParticles />
+                <ServiceWorkerRegister />
+                <main className="min-h-screen">{children}</main>
+                <Footer />
+                <CookieConsent />
+              </ToastProvider>
             </WishlistProvider>
           </CartProvider>
         </AuthProvider>
