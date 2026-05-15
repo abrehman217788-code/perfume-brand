@@ -1,11 +1,12 @@
 {
   "name": "tech-company-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-    "scripts": {
-      "start": "node server.js"
-    },
+  "description": "TechNova Solutions - Enterprise Technology Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,6 +14,10 @@
   "dependencies": {
     "ejs": "^5.0.2",
     "express": "^5.2.1",
-    "express-session": "^1.19.0"
+    "express-rate-limit": "^8.5.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.1.0",
+    "node-forge": "^1.4.0",
+    "selfsigned": "^5.5.0"
   }
 }

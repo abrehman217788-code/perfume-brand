@@ -3,24 +3,60 @@
         "id": "quantum-finance",
         "title": "Quantum Finance Engine",
         "category": "FinTech",
-        "description": "A high-frequency trading platform built on distributed ledger technology, optimizing for sub-millisecond execution.",
+        "description": "A high-frequency trading platform built on distributed ledger technology, optimizing for sub-millisecond execution with 99.99% uptime.",
         "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800",
-        "tech": ["Node.js", "Redis", "Kafka", "PostgreSQL"]
+        "tech": ["Node.js", "Redis", "Kafka", "PostgreSQL", "Docker"],
+        "link": "#",
+        "featured": true
     },
     {
         "id": "nexus-iot",
         "title": "Nexus IoT Ecosystem",
         "category": "IoT",
-        "description": "Comprehensive smart city monitoring system integrating thousands of sensors for real-time traffic and energy management.",
+        "description": "Comprehensive smart city monitoring system integrating 10,000+ sensors for real-time traffic, energy, and environmental management.",
         "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
-        "tech": ["Python", "MQTT", "Grafana", "InfluxDB"]
+        "tech": ["Python", "MQTT", "Grafana", "InfluxDB", "AWS IoT"],
+        "link": "#",
+        "featured": true
     },
     {
         "id": "lumina-dashboard",
         "title": "Lumina Analytics Suite",
-        "category": "Data Viz",
-        "description": "Enterprise-level data visualization dashboard providing real-time insights for multi-national retail chains.",
+        "category": "Data Analytics",
+        "description": "Enterprise-level data visualization dashboard providing real-time insights for multi-national retail chains across 50+ countries.",
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-        "tech": ["React", "D3.js", "GraphQL", "Azure"]
+        "tech": ["React", "D3.js", "GraphQL", "Azure", "Power BI"],
+        "link": "#",
+        "featured": true
+    },
+    {
+        "id": "secure-shield",
+        "title": "SecureShield Platform",
+        "category": "Cybersecurity",
+        "description": "Next-gen zero-trust security platform protecting 500+ enterprise clients from advanced persistent threats and ransomware.",
+        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+        "tech": ["Go", "TensorFlow", "Elasticsearch", "Kubernetes"],
+        "link": "#",
+        "featured": true
+    },
+    {
+        "id": "medchain",
+        "title": "MedChain Healthcare",
+        "category": "Healthcare",
+        "description": "Blockchain-based electronic health record system ensuring patient data privacy and interoperability across healthcare providers.",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+        "tech": ["Hyperledger", "React Native", "Node.js", "MongoDB", "FHIR"],
+        "link": "#",
+        "featured": false
+    },
+    {
+        "id": "ecom-ai",
+        "title": "AI-Powered E-Commerce",
+        "category": "E-Commerce",
+        "description": "Personalized shopping experience platform using machine learning for product recommendations and dynamic pricing optimization.",
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+        "tech": ["Python", "PyTorch", "Next.js", "Redis", "AWS SageMaker"],
+        "link": "#",
+        "featured": false
     }
 ]

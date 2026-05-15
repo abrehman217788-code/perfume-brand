@@ -1,44 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= typeof title !== 'undefined' ? title : 'TechNova Solutions | Enterprise Innovation' %></title>
+    <meta name="description" content="TechNova Solutions architects high-performance digital solutions. Cloud infrastructure, AI, cybersecurity, and custom software for enterprise clients worldwide.">
+    <meta name="keywords" content="tech company, cloud infrastructure, AI, machine learning, cybersecurity, enterprise software, digital transformation">
+    <meta name="author" content="TechNova Solutions">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TechNova Solutions | Enterprise Innovation">
+    <meta property="og:description" content="Architecting the digital future with precision engineering and innovative solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://technova-solutions.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TechNova Solutions | Enterprise Innovation">
+    <meta name="twitter:description" content="Architecting the digital future with precision engineering and innovative solutions.">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TechNova Solutions",
+        "url": "https://technova-solutions.com",
+        "logo": "https://technova-solutions.com/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+92 3331940971",
+            "contactType": "sales",
+            "email": "ab.rehman217788@gmail.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Silicon Valley",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+        },
+        "sameAs": [
+            "https://github.com/technova",
+            "https://linkedin.com/company/technova"
+        ]
+    }
+    </script>
+
+    <link rel="canonical" href="https://technova-solutions.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
 </head>
 <body>
-    <nav class="glass">
-        <a href="/" class="nav-logo">ELEGANT<span style="color: #fff;">TECH</span></a>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Loading</div>
+    </div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent glass" id="cookieConsent">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="/privacy" style="color:var(--primary);text-decoration:underline;">Privacy Policy</a>.</p>
+        <button class="btn btn-primary" id="cookieAccept">Accept</button>
+        <button class="btn btn-outline" id="cookieDecline">Decline</button>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="search-modal">
+            <input type="text" id="searchInput" placeholder="Search services, projects, articles..." autocomplete="off">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <div class="contact-bar">
+        <span><i class="fa-regular fa-envelope" style="color: var(--primary);"></i> <a href="mailto:ab.rehman217788@gmail.com" style="color: var(--text-secondary); text-decoration:none;">ab.rehman217788@gmail.com</a></span>
+        <span style="margin:0 0.8rem;">|</span>
+        <span><i class="fa-solid fa-phone" style="color: var(--primary);"></i> <a href="tel:+923331940971" style="color: var(--text-secondary); text-decoration:none;">+92 3331940971</a></span>
+    </div>
+
+    <nav class="navbar glass-strong" id="navbar">
+        <a href="/" class="nav-logo">Tech<span>Nova</span></a>
         <div class="nav-links" id="navLinks">
             <a href="/" class="nav-link">Home</a>
             <a href="/services" class="nav-link">Services</a>
             <a href="/portfolio" class="nav-link">Portfolio</a>
-            <a href="/about" class="nav-link">About & Contact</a>
+            <a href="/about" class="nav-link">About</a>
+            <a href="/careers" class="nav-link">Careers</a>
+            <button class="search-toggle" id="searchToggle" aria-label="Search"><i class="fa-solid fa-search"></i></button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+            <a href="/about#contact" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Contact</a>
         </div>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </nav>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggle = document.getElementById('mobileToggle');
-            var links = document.getElementById('navLinks');
-            if (toggle && links) {
-                toggle.addEventListener('click', function() {
-                    toggle.classList.toggle('active');
-                    links.classList.toggle('open');
-                });
-                links.querySelectorAll('.nav-link').forEach(function(link) {
-                    link.addEventListener('click', function() {
-                        toggle.classList.remove('active');
-                        links.classList.remove('open');
-                    });
-                });
-            }
-        });
-    </script>
-    <div class="contact-bar" style="background: var(--bg-surface); padding: 0.5rem 1rem; text-align: right; font-size: 0.9rem; color: var(--text-primary);">
-        <span>Email: <a href="mailto:ab.rehman217788@gmail.com" style="color: var(--primary); text-decoration:none;">ab.rehman217788@gmail.com</a></span>
-        &nbsp;|&nbsp;
-        <span>Phone: <a href="tel:+923331940971" style="color: var(--primary); text-decoration:none;">+92 3331940971</a></span>
-    </div>

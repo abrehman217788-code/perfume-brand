@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Jennifer Walsh",
+        "role": "CTO, GlobalPay Systems",
+        "content": "TechNova transformed our infrastructure completely. Their cloud architecture reduced our costs by 40% while improving performance 3x.",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
+    },
+    {
+        "name": "David Park",
+        "role": "VP Engineering, MediCore Health",
+        "content": "The AI solution they built for our diagnostic platform is revolutionary. We've seen a 60% improvement in early detection rates.",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
+    },
+    {
+        "name": "Lisa Thompson",
+        "role": "Director of IT, RetailMax Inc.",
+        "content": "Their digital transformation roadmap was exactly what we needed. Our legacy modernization project was delivered ahead of schedule.",
+        "rating": 5,
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
+    }
+]

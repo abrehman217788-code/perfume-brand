@@ -2,54 +2,122 @@
 
 <main style="padding-top: 8rem;">
     <section>
-        <div class="grid-2" style="align-items: center; margin-bottom: 8rem;">
-            <div>
-                <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem;">WE ARE THE<br><span style="color: var(--primary);">ARCHITECTS</span> OF<br>TOMORROW.</h1>
-                <p style="font-size: 1.25rem; color: var(--text-muted);">Elegant Tech Showcase is a collective of visionary engineers, architects, and designers dedicated to pushing the boundaries of what's possible in the digital realm.</p>
+        <div class="section-header reveal" style="text-align: left;">
+            <span class="section-tag"><i class="fa-solid fa-building"></i> About</span>
+            <h1 class="section-title" style="text-align: left;">We Are The<br><span style="color: var(--primary);">Architects</span> of Tomorrow</h1>
+            <p class="section-subtitle" style="text-align: left; margin: 0; max-width: 700px;">TechNova Solutions is a collective of visionary engineers, cloud architects, AI specialists, and designers dedicated to pushing the boundaries of what's possible in the digital realm.</p>
+        </div>
+
+        <div class="grid-2" style="margin-top: 4rem;">
+            <div class="card glass glow-cyan reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem;" data-search="150+ projects delivered 25+ cloud specialists 99.9% uptime 24/7 support" data-search-title="Company Stats" data-search-link="/about">
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--primary); font-family: var(--font-display);">150+</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">Projects Delivered</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--primary); font-family: var(--font-display);">25+</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">Cloud Specialists</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--primary); font-family: var(--font-display);">99.9%</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">Uptime Guaranteed</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2.5rem; color: var(--primary); font-family: var(--font-display);">24/7</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">Support Available</p>
+                </div>
             </div>
-            <div class="glass card glass-glow-violet">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div>
-                        <h3 style="color: var(--primary);">150+</h3>
-                        <p style="font-size: 0.9rem;">Projects Delivered</p>
-                    </div>
-                    <div>
-                        <h3 style="color: var(--primary);">25+</h3>
-                        <p style="font-size: 0.9rem;">Cloud Specialists</p>
-                    </div>
-                    <div>
-                        <h3 style="color: var(--primary);">99.9%</h3>
-                        <p style="font-size: 0.9rem;">Uptime Guaranteed</p>
-                    </div>
-                    <div>
-                        <h3 style="color: var(--primary);">24/7</h3>
-                        <p style="font-size: 0.9rem;">Security Monitoring</p>
-                    </div>
+            <div class="reveal reveal-delay-2">
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Founded in 2020, TechNova has grown from a small team of passionate engineers to a global technology consultancy serving Fortune 500 companies and innovative startups alike.</p>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">Our approach combines architectural precision with creative innovation, delivering solutions that are both robust and elegant. We don't just build technology — we build the future.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <span style="padding: 0.5rem 1rem; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.15); border-radius: 50px; font-size: 0.8rem; color: var(--primary);"><i class="fa-solid fa-check-circle"></i> 350+ Projects</span>
+                    <span style="padding: 0.5rem 1rem; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.15); border-radius: 50px; font-size: 0.8rem; color: var(--secondary);"><i class="fa-solid fa-check-circle"></i> 180+ Clients</span>
+                    <span style="padding: 0.5rem 1rem; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.15); border-radius: 50px; font-size: 0.8rem; color: #10b981;"><i class="fa-solid fa-check-circle"></i> ISO Certified</span>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div id="contact" class="grid-2">
-            <div>
-                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Ready to Build?</h2>
-                <p style="margin-bottom: 2.5rem; color: var(--text-muted);">Have a complex challenge? Our experts are ready to provide a consultation and roadmap for your digital transformation.</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--primary);">📍</span>
-                        <span>Innovation Plaza, Silicon Valley, CA</span>
+    <!-- MILESTONES -->
+    <section id="milestones">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-timeline"></i> Our Journey</span>
+            <h2 class="section-title">Company Milestones</h2>
+            <p class="section-subtitle">From a small team of engineers to a global technology consultancy.</p>
+        </div>
+        <div class="timeline">
+            <% milestones.forEach(function(m, index) { %>
+                <div class="timeline-item reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;">
+                    <div class="dot"></div>
+                    <div class="content">
+                        <div class="year"><%= m.year %></div>
+                        <h4><%= m.title %></h4>
+                        <p><%= m.description %></p>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--primary);">✉️</span>
-                        <span>solutions@elegant-tech.com</span>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-users"></i> Leadership</span>
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">The brilliant minds behind our success.</p>
+        </div>
+        <div class="grid-4">
+            <% team.forEach(function(member, index) { %>
+                <div class="team-card tilt reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;">
+                    <img src="<%= member.image %>" alt="<%= member.name %>" class="avatar" loading="lazy">
+                    <h3><%= member.name %></h3>
+                    <div class="role"><%= member.role %></div>
+                    <p><%= member.bio %></p>
+                    <div class="team-socials">
+                        <a href="<%= member.social.linkedin %>" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="<%= member.social.twitter %>" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- MAP + CONTACT -->
+    <section id="contact" style="padding-bottom: 8rem;">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Connect</span>
+            <h2 class="section-title">Let's Build Together</h2>
+            <p class="section-subtitle">Have a complex challenge? Our experts are ready to help.</p>
+        </div>
+
+        <div class="grid-2" style="align-items: start;">
+            <div class="reveal">
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1.2rem; padding: 1.5rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(34,211,238,0.1); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; flex-shrink: 0;"><i class="fa-solid fa-envelope"></i></div>
+                        <div><h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Email Us</h4><p style="color: var(--text-secondary); font-size: 0.9rem;">ab.rehman217788@gmail.com</p></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1.2rem; padding: 1.5rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(139,92,246,0.1); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: 1.2rem; flex-shrink: 0;"><i class="fa-solid fa-phone"></i></div>
+                        <div><h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Call Us</h4><p style="color: var(--text-secondary); font-size: 0.9rem;">+92 3331940971</p></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1.2rem; padding: 1.5rem; background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(16,185,129,0.1); display: flex; align-items: center; justify-content: center; color: #10b981; font-size: 1.2rem; flex-shrink: 0;"><i class="fa-solid fa-location-dot"></i></div>
+                        <div><h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Visit Us</h4><p style="color: var(--text-secondary); font-size: 0.9rem;">Innovation Plaza, Silicon Valley, CA</p></div>
+                    </div>
+                    <!-- Google Maps -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.6391689290777!2d-122.08409548468876!3d37.42206597982522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c9bb1a077ae!2sGoogleplex!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="glass card">
+            <div class="card reveal reveal-delay-2" style="padding: 2.5rem;">
                 <% if (locals.success) { %>
-                    <div style="padding: 2rem; background: rgba(34, 211, 238, 0.1); border: 1px solid var(--primary); border-radius: var(--radius-sm); color: var(--primary); text-align: center;">
-                        <p><%= success %></p>
+                    <div class="alert-success">
+                        <i class="fa-solid fa-circle-check" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                        <p style="font-weight: 600;"><%= success %></p>
                     </div>
                 <% } else { %>
                     <form action="/contact" method="POST">
@@ -62,10 +130,14 @@
                             <input type="email" id="email" name="email" class="form-control" placeholder="john@company.com" required>
                         </div>
                         <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Project Inquiry">
+                        </div>
+                        <div class="form-group">
                             <label for="message">Your Challenge</label>
                             <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Initialize Consultation</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
                     </form>
                 <% } %>
             </div>

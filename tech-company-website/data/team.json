@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Alexander Chen",
+        "role": "CEO & Founder",
+        "bio": "Visionary leader with 20+ years in enterprise technology. Former CTO of Fortune 500 company.",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+        "social": { "linkedin": "#", "twitter": "#" }
+    },
+    {
+        "name": "Sarah Mitchell",
+        "role": "CTO",
+        "bio": "Distributed systems architect who built infrastructure serving 100M+ users at top tech firms.",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+        "social": { "linkedin": "#", "twitter": "#" }
+    },
+    {
+        "name": "Marcus Johnson",
+        "role": "Head of AI",
+        "bio": "PhD in Machine Learning with 50+ published papers and 15 years of applied AI experience.",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+        "social": { "linkedin": "#", "twitter": "#" }
+    },
+    {
+        "name": "Elena Rodriguez",
+        "role": "Design Director",
+        "bio": "Award-winning designer crafting intuitive digital experiences for global brands since 2010.",
+        "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
+        "social": { "linkedin": "#", "twitter": "#" }
+    }
+]

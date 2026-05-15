@@ -2,23 +2,27 @@
 
 <main style="padding-top: 8rem;">
     <section>
-        <h1 class="section-title" style="text-align: left; font-size: 3.5rem;">OUR SERVICES</h1>
-        <p style="color: var(--text-muted); max-width: 800px; font-size: 1.1rem; margin-bottom: 4rem;">We provide a comprehensive suite of digital services designed to scale your business into the future. Our approach combines architectural precision with innovative thinking.</p>
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-cubes"></i> Expertise</span>
+            <h1 class="section-title" style="text-align: left;">Our Services</h1>
+            <p class="section-subtitle" style="text-align: left; margin: 0; max-width: 700px;">Comprehensive enterprise solutions engineered for performance, security, and scale. Each service is delivered with architectural precision.</p>
+        </div>
 
-        <div style="display: flex; flex-direction: column; gap: 4rem;">
-            <% services.forEach((service, index) => { %>
-                <div class="card glass <%= index % 2 === 0 ? 'glass-glow-cyan' : 'glass-glow-violet' %>" style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <% services.forEach(function(service, index) { %>
+                <div class="service-detail-card reveal <%= 'reveal-delay-' + (index + 1) %>">
                     <div>
-                        <span style="font-size: 3rem; color: var(--primary); font-family: var(--font-display); opacity: 0.3;">0<%= index + 1 %></span>
-                        <h2 style="font-size: 2rem; margin-top: 1rem;"><%= service.title %></h2>
+                        <div class="number">0<%= index + 1 %></div>
+                        <div class="card-icon" style="background: rgba(<%= service.color === '#22d3ee' ? '34,211,238' : service.color === '#8b5cf6' ? '139,92,246' : service.color === '#ef4444' ? '239,68,68' : service.color === '#10b981' ? '16,185,129' : service.color === '#f59e0b' ? '245,158,11' : service.color === '#ec4899' ? '236,72,153' : service.color === '#6366f1' ? '99,102,241' : '20,184,166' %>, 0.1); color: <%= service.color %>;">
+                            <i class="fa-solid fa-<%= service.icon %>"></i>
+                        </div>
+                        <h2><%= service.title %></h2>
                     </div>
                     <div>
-                        <p style="font-size: 1.1rem; margin-bottom: 2rem;"><%= service.description %></p>
-                        <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <% service.features.forEach(feature => { %>
-                                <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-main);">
-                                    <span style="color: var(--primary);">▹</span> <%= feature %>
-                                </li>
+                        <p><%= service.description %></p>
+                        <ul class="features">
+                            <% service.features.forEach(function(feature) { %>
+                                <li><i class="fa-solid fa-circle-check"></i> <%= feature %></li>
                             <% }) %>
                         </ul>
                     </div>
@@ -27,9 +31,12 @@
         </div>
     </section>
 
-    <section style="text-align: center;">
-        <h2 style="font-size: 2rem; margin-bottom: 2rem;">Ready to transform your infrastructure?</h2>
-        <a href="/about" class="btn btn-primary">Let's Talk Strategy</a>
+    <section style="text-align: center; padding: 6rem 2rem;">
+        <div class="reveal">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Need a Custom Solution?</h2>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2rem;">Every business is unique. Let's build something tailored to your specific needs.</p>
+            <a href="/about#contact" class="btn btn-primary"><i class="fa-solid fa-comments"></i> Let's Talk</a>
+        </div>
     </section>
 </main>
 

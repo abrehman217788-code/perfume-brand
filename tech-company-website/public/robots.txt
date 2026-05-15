@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /services
+Allow: /portfolio
+Allow: /about
+Allow: /careers
+Allow: /privacy
+Allow: /terms
+Disallow: /projects/
+
+Sitemap: https://technova-solutions.com/sitemap.xml

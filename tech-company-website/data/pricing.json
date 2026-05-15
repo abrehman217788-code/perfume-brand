@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Starter",
+        "description": "Perfect for startups and small teams looking to scale their digital infrastructure.",
+        "price": "$2,999",
+        "period": "/month",
+        "features": ["Up to 5 Cloud Services", "Basic Security Audit", "Email Support (12/7)", "Monthly Analytics Report", "1 Dedicated Engineer", "99.5% Uptime SLA"],
+        "cta": "Get Started",
+        "highlighted": false
+    },
+    {
+        "name": "Professional",
+        "description": "For growing companies that need robust infrastructure and dedicated support.",
+        "price": "$7,999",
+        "period": "/month",
+        "features": ["Unlimited Cloud Services", "Advanced Security Suite", "Priority Support (24/7)", "Real-time Analytics Dashboard", "3 Dedicated Engineers", "99.9% Uptime SLA", "Weekly Strategy Calls", "Custom Integrations"],
+        "cta": "Most Popular",
+        "highlighted": true
+    },
+    {
+        "name": "Enterprise",
+        "description": "Comprehensive solution for large organizations with complex requirements.",
+        "price": "Custom",
+        "period": "",
+        "features": ["Full Infrastructure Management", "Enterprise Security & Compliance", "Dedicated Account Team", "Custom Analytics & BI", "Unlimited Engineers", "99.99% Uptime SLA", "24/7 On-call Support", "SLA Guarantees", "Digital Transformation Consulting"],
+        "cta": "Contact Us",
+        "highlighted": false
+    }
+]

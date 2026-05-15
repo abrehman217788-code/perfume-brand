@@ -1,44 +1,287 @@
 <%- include('partials/header') %>
 
 <main>
-    <section class="hero">
-        <h1 class="hero-title">PRECISION<br>MEETS INNOVATION</h1>
-        <p class="hero-subtitle">High-tier enterprise solutions for the next generation of digital leaders. We build what others only imagine.</p>
-        <div style="display: flex; gap: 1.5rem;">
-            <a href="/services" class="btn btn-primary">Our Expertise</a>
-            <a href="/about" class="btn btn-outline">Connect Now</a>
-        </div>
-    </section>
-
-    <section id="featured-services">
-        <h2 class="section-title">Core Competencies</h2>
-        <div class="grid-3">
-            <% services.forEach(service => { %>
-                <div class="card glass glass-glow-cyan">
-                    <h3><%= service.title %></h3>
-                    <p><%= service.description %></p>
-                    <a href="/services" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600;">View Details →</a>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-canvas" id="hero-canvas"></div>
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Enterprise Innovation</span>
+            <h1 class="hero-title">BUILD THE<br><span class="gradient-text">FUTURE TODAY</span></h1>
+            <p class="hero-subtitle">We architect high-performance digital solutions that transform enterprises. From cloud infrastructure to AI, we deliver what others only imagine.</p>
+            <div class="hero-actions">
+                <a href="/services" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Our Expertise</a>
+                <a href="/about#contact" class="btn btn-outline"><i class="fa-solid fa-comments"></i> Start a Project</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">350+</div>
+                    <div class="label">Projects Delivered</div>
                 </div>
-            <% }) %>
+                <div class="hero-stat">
+                    <div class="number">180+</div>
+                    <div class="label">Enterprise Clients</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">99.9%</div>
+                    <div class="label">Uptime Guarantee</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="featured-portfolio" style="background: var(--bg-surface);">
-        <h2 class="section-title">Case Studies</h2>
-        <div class="grid-2">
-            <% projects.forEach(project => { %>
-                <div class="portfolio-item">
-                    <a href="<%= project.link %>">
-                        <img src="<%= project.image %>" alt="<%= project.name %>" class="portfolio-img" />
-                    </a>
-                    <div style="padding: 2.5rem;">
-                        <h2 style="font-size: 1.75rem; margin: 1rem 0;"> <%= project.name %> </h2>
+    <!-- ==================== CLIENT LOGOS ==================== -->
+    <div class="stats-section full-width" style="padding: 3rem 2rem;">
+        <div class="section-header reveal" style="margin-bottom: 2rem;">
+            <span class="section-tag"><i class="fa-solid fa-handshake"></i> Trusted By</span>
+        </div>
+        <div class="grid-6" style="max-width: 1280px; margin: 0 auto;">
+            <% clients.forEach(function(client) { %>
+                <div class="client-item reveal" data-search="<%= client.name %> <%= client.industry %>" data-search-title="<%= client.name %>" data-search-link="/">
+                    <div style="text-align: center;">
+                        <img src="<%= client.logo %>" alt="<%= client.name %>" loading="lazy">
+                        <div class="client-name"><%= client.name %></div>
                     </div>
                 </div>
             <% }) %>
         </div>
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="/portfolio" class="btn btn-outline">Explore Full Gallery</a>
+    </div>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-cubes"></i> What We Do</span>
+            <h2 class="section-title">Core Competencies</h2>
+            <p class="section-subtitle">We deliver enterprise-grade solutions across the full technology spectrum, from cloud to AI.</p>
+        </div>
+        <div class="grid-3">
+            <% services.forEach(function(service, index) { %>
+                <div class="card service-card tilt reveal" style="transition-delay: <%= 0.08 * (index + 1) %>s;" data-search="<%= service.title %> <%= service.description %>" data-search-title="<%= service.title %>" data-search-link="/services">
+                    <div class="card-icon" style="background: rgba(<%= service.color === '#22d3ee' ? '34,211,238' : service.color === '#8b5cf6' ? '139,92,246' : service.color === '#ef4444' ? '239,68,68' : service.color === '#10b981' ? '16,185,129' : service.color === '#f59e0b' ? '245,158,11' : service.color === '#ec4899' ? '236,72,153' : service.color === '#6366f1' ? '99,102,241' : '20,184,166' %>, 0.1); color: <%= service.color %>;">
+                        <i class="fa-solid fa-<%= service.icon %>"></i>
+                    </div>
+                    <h3><%= service.title %></h3>
+                    <p><%= service.description %></p>
+                    <div class="feature-list">
+                        <% service.features.slice(0, 3).forEach(function(feature) { %>
+                            <span class="feature-item"><i class="fa-solid fa-chevron-right"></i> <%= feature %></span>
+                        <% }) %>
+                    </div>
+                    <a href="/services" class="card-link">Explore Service <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== STATS ==================== -->
+    <div class="stats-section full-width">
+        <div class="stats-grid reveal" style="max-width: 1280px; margin: 0 auto;">
+            <div class="stat-item">
+                <div class="stat-number">350</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">180</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">85</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9</div>
+                <div class="stat-label">Uptime %</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FEATURED PORTFOLIO ==================== -->
+    <section id="portfolio">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Our Work</span>
+            <h2 class="section-title">Case Studies</h2>
+            <p class="section-subtitle">Real projects that delivered measurable impact for our clients.</p>
+        </div>
+        <div class="grid-2">
+            <% projects.forEach(function(project, index) { %>
+                <div class="portfolio-card reveal" data-search="<%= project.title %> <%= project.description %> <%= project.category %>" data-search-title="<%= project.title %>" data-search-link="/portfolio">
+                    <div class="thumb">
+                        <img src="<%= project.image %>" alt="<%= project.title %>" loading="lazy">
+                        <div class="overlay">
+                            <a href="<%= project.link %>" class="btn btn-white" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;"><i class="fa-solid fa-up-right-from-square"></i> View Project</a>
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <% project.tech.slice(0, 3).forEach(function(t) { %>
+                            <span><%= t %></span>
+                        <% }) %>
+                    </div>
+                    <div class="info">
+                        <span class="category"><%= project.category %></span>
+                        <h3><%= project.title %></h3>
+                        <p><%= project.description %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;" class="reveal">
+            <a href="/portfolio" class="btn btn-outline">View All Projects <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-quote-left"></i> Testimonials</span>
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Trusted by industry leaders worldwide.</p>
+        </div>
+        <div class="grid-3">
+            <% testimonials.forEach(function(t, index) { %>
+                <div class="testimonial-card reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;">
+                    <div class="quote">"</div>
+                    <div class="stars">
+                        <% for(var s = 0; s < t.rating; s++) { %><i class="fa-solid fa-star"></i><% } %>
+                    </div>
+                    <p><%= t.content %></p>
+                    <div class="author">
+                        <img src="<%= t.image %>" alt="<%= t.name %>">
+                        <div>
+                            <div class="name"><%= t.name %></div>
+                            <div class="role"><%= t.role %></div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== PRICING ==================== -->
+    <section id="pricing">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-tags"></i> Pricing</span>
+            <h2 class="section-title">Transparent Pricing</h2>
+            <p class="section-subtitle">Choose the plan that fits your needs. All plans include enterprise-grade support.</p>
+        </div>
+        <div class="grid-3" style="align-items: start;">
+            <% pricing.forEach(function(plan, index) { %>
+                <div class="pricing-card <%= plan.highlighted ? 'highlighted' : '' %> reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;">
+                    <% if (plan.highlighted) { %><div class="pricing-badge">Most Popular</div><% } %>
+                    <h3><%= plan.name %></h3>
+                    <p class="desc"><%= plan.description %></p>
+                    <div>
+                        <span class="price"><%= plan.price %></span>
+                        <span class="period"><%= plan.period %></span>
+                    </div>
+                    <ul class="features">
+                        <% plan.features.forEach(function(f) { %>
+                            <li><i class="fa-solid fa-check"></i> <%= f %></li>
+                        <% }) %>
+                    </ul>
+                    <a href="/about#contact" class="btn <%= plan.highlighted ? 'btn-primary' : 'btn-outline' %>" style="width:100%;justify-content:center;"><%= plan.cta %></a>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG ==================== -->
+    <section id="blog">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-newspaper"></i> Insights</span>
+            <h2 class="section-title">Latest from Our Blog</h2>
+            <p class="section-subtitle">Thought leadership and technical deep dives from our engineering team.</p>
+        </div>
+        <div class="grid-3">
+            <% blog.forEach(function(post, index) { %>
+                <div class="blog-card reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;" data-search="<%= post.title %> <%= post.excerpt %>" data-search-title="<%= post.title %>" data-search-link="#">
+                    <div class="thumb">
+                        <img src="<%= post.image %>" alt="<%= post.title %>" loading="lazy">
+                    </div>
+                    <div class="body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-calendar"></i> <%= post.date %></span>
+                            <span><i class="fa-regular fa-clock"></i> <%= post.readTime %></span>
+                        </div>
+                        <h3><a href="#"><%= post.title %></a></h3>
+                        <p><%= post.excerpt %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section id="faq">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Quick answers to common questions about our services and process.</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <% faq.forEach(function(item, index) { %>
+                <div class="faq-item reveal" style="transition-delay: <%= 0.05 * (index + 1) %>s;">
+                    <button class="faq-question">
+                        <%= item.question %>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><%= item.answer %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== COMPANY MILESTONES ==================== -->
+    <section id="milestones">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-timeline"></i> Our Journey</span>
+            <h2 class="section-title">Company Milestones</h2>
+            <p class="section-subtitle">From a small team of engineers to a global technology consultancy.</p>
+        </div>
+        <div class="timeline">
+            <% milestones.forEach(function(m, index) { %>
+                <div class="timeline-item reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;">
+                    <div class="dot"></div>
+                    <div class="content">
+                        <div class="year"><%= m.year %></div>
+                        <h4><%= m.title %></h4>
+                        <p><%= m.description %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== TEAM ==================== -->
+    <section id="team">
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-users"></i> Leadership</span>
+            <h2 class="section-title">Meet the Team</h2>
+            <p class="section-subtitle">Visionary leaders driving technological excellence.</p>
+        </div>
+        <div class="grid-4">
+            <% team.forEach(function(member, index) { %>
+                <div class="team-card tilt reveal" style="transition-delay: <%= 0.1 * (index + 1) %>s;">
+                    <img src="<%= member.image %>" alt="<%= member.name %>" class="avatar" loading="lazy">
+                    <h3><%= member.name %></h3>
+                    <div class="role"><%= member.role %></div>
+                    <p><%= member.bio %></p>
+                    <div class="team-socials">
+                        <a href="<%= member.social.linkedin %>" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="<%= member.social.twitter %>" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section style="text-align: center; padding-bottom: 8rem;">
+        <div class="reveal">
+            <span class="section-tag"><i class="fa-solid fa-rocket"></i> Get Started</span>
+            <h2 class="section-title" style="margin-bottom: 1rem;">Ready to Transform Your Business?</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Let's discuss how we can help you achieve your technology goals.</p>
+            <a href="/about#contact" class="btn btn-primary" style="font-size: 1rem; padding: 1.2rem 3rem;"><i class="fa-solid fa-paper-plane"></i> Start Your Journey</a>
         </div>
     </section>
 </main>

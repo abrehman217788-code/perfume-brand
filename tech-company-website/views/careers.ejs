@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+
+<main style="padding-top: 8rem;">
+    <section>
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-users"></i> Careers</span>
+            <h1 class="section-title">Join Our Team</h1>
+            <p class="section-subtitle">Help us architect the future. We're looking for brilliant minds to join our global team.</p>
+        </div>
+
+        <div class="reveal" style="display: grid; gap: 1rem; max-width: 800px; margin: 0 auto;">
+            <% careers.forEach(function(job) { %>
+                <div class="career-card" data-search="<%= job.title %> <%= job.department %> <%= job.description %>" data-search-title="<%= job.title %>" data-search-link="/careers">
+                    <div class="info">
+                        <h3><%= job.title %></h3>
+                        <div class="tags">
+                            <span><%= job.department %></span>
+                            <span><%= job.location %></span>
+                            <span><%= job.type %></span>
+                        </div>
+                        <p><%= job.description %></p>
+                    </div>
+                    <a href="<%= job.applyLink %>" class="btn btn-primary" style="white-space: nowrap;"><i class="fa-solid fa-arrow-right"></i> Apply</a>
+                </div>
+            <% }) %>
+        </div>
+
+        <div class="reveal" style="text-align: center; margin-top: 4rem; padding: 3rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md);">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Don't See the Right Role?</h2>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem;">We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.</p>
+            <a href="mailto:ab.rehman217788@gmail.com?subject=Job%20Inquiry" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> Send Resume</a>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding-bottom: 8rem;">
+        <div class="reveal">
+            <span class="section-tag"><i class="fa-solid fa-heart"></i> Culture</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Why Work at TechNova?</h2>
+            <div class="grid-3" style="text-align: left;">
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(34,211,238,0.1); color: var(--primary);"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Innovation First</h3>
+                    <p>Work on cutting-edge technologies and solve challenging problems that impact millions of users.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(139,92,246,0.1); color: var(--secondary);"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Global Impact</h3>
+                    <p>Join a diverse team serving clients across 20+ countries with solutions that make a real difference.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(16,185,129,0.1); color: #10b981;"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Growth & Learning</h3>
+                    <p>Continuous learning budget, conference attendance, and opportunities to publish and speak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

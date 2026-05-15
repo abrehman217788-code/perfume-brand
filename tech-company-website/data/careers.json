@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Senior Cloud Architect",
+        "department": "Engineering",
+        "location": "San Francisco, CA",
+        "type": "Full-time",
+        "description": "Design and implement scalable cloud architectures for enterprise clients. 5+ years experience with AWS/Azure/GCP required.",
+        "applyLink": "#"
+    },
+    {
+        "title": "Machine Learning Engineer",
+        "department": "AI",
+        "location": "Remote",
+        "type": "Full-time",
+        "description": "Build and deploy production ML models. Experience with PyTorch, TensorFlow, and MLOps pipelines required.",
+        "applyLink": "#"
+    },
+    {
+        "title": "Cybersecurity Analyst",
+        "department": "Security",
+        "location": "San Francisco, CA",
+        "type": "Full-time",
+        "description": "Protect enterprise clients from advanced threats. CISSP or equivalent certification required.",
+        "applyLink": "#"
+    },
+    {
+        "title": "Full Stack Developer",
+        "department": "Engineering",
+        "location": "Remote",
+        "type": "Contract",
+        "description": "Build modern web applications using React, Node.js, and cloud-native technologies.",
+        "applyLink": "#"
+    }
+]

@@ -1,0 +1,8 @@
+[
+    { "name": "GlobalPay Systems", "logo": "https://img.icons8.com/fluency/96/visa.png", "industry": "FinTech" },
+    { "name": "MediCore Health", "logo": "https://img.icons8.com/fluency/96/heart-with-pulse.png", "industry": "Healthcare" },
+    { "name": "RetailMax Inc.", "logo": "https://img.icons8.com/fluency/96/shop.png", "industry": "Retail" },
+    { "name": "AeroSpace Dynamics", "logo": "https://img.icons8.com/fluency/96/airplane-take-off.png", "industry": "Aerospace" },
+    { "name": "EduPrime Global", "logo": "https://img.icons8.com/fluency/96/book.png", "industry": "Education" },
+    { "name": "GreenEnergy Corp", "logo": "https://img.icons8.com/fluency/96/solar-panel.png", "industry": "Energy" }
+]

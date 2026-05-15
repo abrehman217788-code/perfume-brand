@@ -2,27 +2,50 @@
 
 <main style="padding-top: 8rem;">
     <section>
-        <h1 class="section-title" style="text-align: left; font-size: 3.5rem;">SELECTED WORKS</h1>
-        <p style="color: var(--text-muted); max-width: 800px; font-size: 1.1rem; margin-bottom: 4rem;">A showcase of our architectural precision and technical expertise. We take pride in delivering robust solutions for complex challenges.</p>
+        <div class="section-header reveal">
+            <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Gallery</span>
+            <h1 class="section-title" style="text-align: left;">Selected Works</h1>
+            <p class="section-subtitle" style="text-align: left; margin: 0; max-width: 700px;">A showcase of our technical expertise and architectural precision. Each project represents a unique challenge solved with elegance.</p>
+        </div>
+
+        <div class="filter-bar reveal">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <% var categories = []; %>
+            <% projects.forEach(function(p) { if (categories.indexOf(p.category) === -1) categories.push(p.category); }); %>
+            <% categories.forEach(function(cat) { %>
+                <button class="filter-btn" data-filter="<%= cat.toLowerCase() %>"><%= cat %></button>
+            <% }) %>
+        </div>
 
         <div class="grid-2">
-            <% projects.forEach(project => { %>
-                <div class="glass card glass-glow-cyan" style="padding: 0; overflow: hidden;">
-                    <div class="portfolio-item" style="aspect-ratio: 16/9; border-radius: 0;">
-                        <img src="<%= project.image %>" alt="<%= project.title %>" class="portfolio-img">
-                    </div>
-                    <div style="padding: 2.5rem;">
-                        <span style="color: var(--secondary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;"><%= project.category %></span>
-                        <h2 style="font-size: 1.75rem; margin: 1rem 0;"><%= project.title %></h2>
-                        <p style="margin-bottom: 2rem;"><%= project.description %></p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                            <% project.tech.forEach(t => { %>
-                                <span class="glass" style="padding: 0.4rem 1rem; border-radius: var(--radius-sm); font-size: 0.75rem; color: var(--text-muted); border: 1px solid var(--outline);"><%= t %></span>
-                            <% }) %>
+            <% projects.forEach(function(project, index) { %>
+                <div class="portfolio-card filter-item reveal <%= 'reveal-delay-' + (index + 1) %>" data-category="<%= project.category.toLowerCase() %>">
+                    <div class="thumb">
+                        <img src="<%= project.image %>" alt="<%= project.title %>" loading="lazy">
+                        <div class="overlay">
+                            <a href="<%= project.link %>" class="btn btn-white" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;"><i class="fa-solid fa-up-right-from-square"></i> View Project</a>
                         </div>
+                    </div>
+                    <div class="tags">
+                        <% project.tech.forEach(function(t) { %>
+                            <span><%= t %></span>
+                        <% }) %>
+                    </div>
+                    <div class="info">
+                        <span class="category"><%= project.category %></span>
+                        <h3><%= project.title %></h3>
+                        <p><%= project.description %></p>
                     </div>
                 </div>
             <% }) %>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding: 4rem 2rem 8rem;">
+        <div class="reveal">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Have a Project in Mind?</h2>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2rem;">Let's create something remarkable together.</p>
+            <a href="/about#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
         </div>
     </section>
 </main>

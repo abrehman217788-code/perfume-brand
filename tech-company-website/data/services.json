@@ -2,29 +2,65 @@
     {
         "id": "cloud-infrastructure",
         "title": "Cloud Infrastructure",
-        "description": "Architecting resilient, scalable cloud environments using AWS, Azure, and Google Cloud. We optimize for performance and cost-efficiency.",
+        "description": "Architecting resilient, scalable cloud environments using AWS, Azure, and Google Cloud. We optimize for performance, security, and cost-efficiency at enterprise scale.",
         "icon": "cloud",
-        "features": ["Multi-cloud Strategy", "Serverless Computing", "Cloud Migration", "Auto-scaling Ops"]
+        "color": "#22d3ee",
+        "features": ["Multi-cloud Strategy & Architecture", "Serverless Computing at Scale", "Cloud Migration & Modernization", "Auto-scaling & Cost Optimization", "Kubernetes & Container Orchestration", "Disaster Recovery Planning"]
     },
     {
-        "id": "ai-integration",
+        "id": "ai-machine-learning",
         "title": "AI & Machine Learning",
-        "description": "Integrating cutting-edge AI models into your business workflow. From predictive analytics to custom LLM deployments.",
+        "description": "Integrating cutting-edge AI models into your business workflow. From predictive analytics to custom LLM deployments that drive real business outcomes.",
         "icon": "brain",
-        "features": ["Predictive Analytics", "NLP Integration", "Computer Vision", "Custom LLM Fine-tuning"]
+        "color": "#8b5cf6",
+        "features": ["Predictive Analytics & Forecasting", "Natural Language Processing", "Computer Vision Solutions", "Custom LLM Fine-tuning", "Recommendation Engines", "Automated Decision Systems"]
     },
     {
         "id": "cybersecurity",
         "title": "Cybersecurity Elite",
-        "description": "Uncompromising security protocols to protect your digital assets. We provide continuous monitoring and threat intelligence.",
+        "description": "Uncompromising security protocols to protect your digital assets. We provide continuous monitoring, threat intelligence, and zero-trust architecture.",
         "icon": "shield",
-        "features": ["Penetration Testing", "Zero Trust Architecture", "Security Audits", "Incident Response"]
+        "color": "#ef4444",
+        "features": ["Penetration Testing & Assessment", "Zero Trust Architecture", "24/7 Security Operations Center", "Incident Response & Forensics", "Compliance & Regulatory Audits", "Employee Security Training"]
     },
     {
         "id": "custom-software",
-        "title": "Custom Software",
-        "description": "Tailor-made software solutions designed to solve your unique business challenges with precision and elegance.",
+        "title": "Custom Software Engineering",
+        "description": "Tailor-made software solutions designed to solve your unique business challenges with precision, scalability, and elegant architecture.",
         "icon": "code",
-        "features": ["Full-stack Development", "API Ecosystems", "Microservices", "Legacy Modernization"]
+        "color": "#10b981",
+        "features": ["Full-stack Web Development", "API Ecosystem Design", "Microservices Architecture", "Legacy System Modernization", "Mobile App Development", "DevOps & CI/CD Pipeline"]
+    },
+    {
+        "id": "data-analytics",
+        "title": "Data Analytics & BI",
+        "description": "Transform raw data into actionable intelligence. Our analytics solutions empower data-driven decision making across your entire organization.",
+        "icon": "chart-line",
+        "color": "#f59e0b",
+        "features": ["Real-time Data Processing", "Business Intelligence Dashboards", "Data Warehousing & Lakes", "Stream Analytics", "Data Visualization", "Predictive Modeling"]
+    },
+    {
+        "id": "digital-transformation",
+        "title": "Digital Transformation",
+        "description": "Comprehensive digital transformation strategy that modernizes your legacy systems and processes for the digital-first era.",
+        "icon": "rocket",
+        "color": "#ec4899",
+        "features": ["Digital Strategy Consulting", "Process Automation", "Cloud-native Development", "Enterprise Architecture", "Change Management", "Innovation Lab Setup"]
+    },
+    {
+        "id": "blockchain",
+        "title": "Blockchain & Web3",
+        "description": "Building decentralized solutions that leverage blockchain technology for transparency, security, and new business models.",
+        "icon": "link",
+        "color": "#6366f1",
+        "features": ["Smart Contract Development", "DeFi Solutions", "NFT Marketplaces", "Supply Chain Blockchain", "Decentralized Identity", "Tokenomics Design"]
+    },
+    {
+        "id": "iot-solutions",
+        "title": "IoT & Edge Computing",
+        "description": "Connecting the physical and digital worlds with intelligent IoT ecosystems and edge computing infrastructure.",
+        "icon": "microchip",
+        "color": "#14b8a6",
+        "features": ["IoT Sensor Networks", "Edge Computing Architecture", "Real-time Monitoring", "Predictive Maintenance", "Smart City Solutions", "Industrial IoT"]
     }
 ]
