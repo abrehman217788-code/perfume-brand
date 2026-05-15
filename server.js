@@ -26,12 +26,12 @@ function prefixMiddleware(prefix) {
   };
 }
 
-async function main() {
+function main() {
   const app = express();
 
-  // Root - ShopVerse portfolio SPA
+  // Root - redirect to functional e-commerce portfolio
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.redirect('/ecommerce');
   });
 
   // Cafe
@@ -57,23 +57,10 @@ async function main() {
   // E-commerce (static)
   app.use('/ecommerce', express.static(path.join(__dirname, 'ecommerce-website')));
 
-  // Perfume Brand (Next.js)
+  // Perfume Brand (static fallback - Next.js requires separate deployment)
   const perfumeDir = path.join(__dirname, 'perfume-brand');
-  try {
-    const next = require(path.join(perfumeDir, 'node_modules/next'));
-    const perfumeNext = next({ dev: false, dir: perfumeDir });
-    const perfumeHandle = perfumeNext.getRequestHandler();
-    await perfumeNext.prepare();
-    app.all('/perfume*', (req, res) => {
-      const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-      req.url = req.originalUrl.replace(/^\/perfume/, '') || '/';
-      return perfumeHandle(req, res, parsedUrl);
-    });
-  } catch (e) {
-    console.log('Perfume brand Next.js not available, serving static fallback');
-    app.use('/perfume', express.static(path.join(perfumeDir, 'public')));
-    app.use('/perfume', express.static(perfumeDir));
-  }
+  app.use('/perfume', express.static(path.join(perfumeDir, 'public')));
+  app.use('/perfume', express.static(perfumeDir));
 
   app.listen(PORT, () => {
     console.log(`Portfolio server running on http://localhost:${PORT}`);
@@ -88,7 +75,4 @@ async function main() {
   });
 }
 
-main().catch(err => {
-  console.error('Failed to start server:', err);
-  process.exit(1);
-});
+main();
