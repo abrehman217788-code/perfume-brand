@@ -29,9 +29,9 @@ function prefixMiddleware(prefix) {
 function main() {
   const app = express();
 
-  // Root - redirect to functional e-commerce portfolio
+  // Root - TechNova portfolio hub
   app.get('/', (req, res) => {
-    res.redirect('/ecommerce');
+    res.sendFile(path.join(__dirname, 'tech-company-website', 'index.html'));
   });
 
   // Cafe
@@ -64,7 +64,7 @@ function main() {
 
   app.listen(PORT, () => {
     console.log(`Portfolio server running on http://localhost:${PORT}`);
-    console.log(`  /      - ShopVerse Portfolio`);
+    console.log(`  /      - TechNova Portfolio Hub`);
     console.log(`  /cafe  - Cafe Serenity`);
     console.log(`  /clothing - Street Archive`);
     console.log(`  /cv-studio - CV Studio`);
