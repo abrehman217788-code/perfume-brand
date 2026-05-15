@@ -1,10 +1,10 @@
 node_modules/
-package-lock.json
 server.log
 server.err
 *.pdf
 .DS_Store
-{ } html
-cv buider
 ssl/
 ai-code-reviewer/
+.next/
+dist/
+*.tsbuildinfo

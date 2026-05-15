@@ -6,7 +6,7 @@ const https = require('https');
 const helmet = require('helmet');
 
 const app = express();
-const HTTP_PORT = 4080;
+const HTTP_PORT = process.env.PORT || 4080;
 const HTTPS_PORT = 4443;
 
 app.set('view engine', 'ejs');
@@ -226,12 +226,15 @@ app.use((req, res) => {
   res.status(404).render('shop', { title: '404 | STREET_ARCHIVE', products, categories: [] });
 });
 
-const sslPath = path.join(__dirname, 'ssl');
-const hasSSL = fs.existsSync(path.join(sslPath, 'server.key')) && fs.existsSync(path.join(sslPath, 'server.crt'));
-if (hasSSL) {
-  https.createServer({
-    key: fs.readFileSync(path.join(sslPath, 'server.key')),
-    cert: fs.readFileSync(path.join(sslPath, 'server.crt'))
-  }, app).listen(HTTPS_PORT, () => console.log(`SA secured: https://localhost:${HTTPS_PORT}`));
+if (require.main === module) {
+  const sslPath = path.join(__dirname, 'ssl');
+  const hasSSL = fs.existsSync(path.join(sslPath, 'server.key')) && fs.existsSync(path.join(sslPath, 'server.crt'));
+  if (hasSSL) {
+    https.createServer({
+      key: fs.readFileSync(path.join(sslPath, 'server.key')),
+      cert: fs.readFileSync(path.join(sslPath, 'server.crt'))
+    }, app).listen(HTTPS_PORT, () => console.log(`SA secured: https://localhost:${HTTPS_PORT}`));
+  }
+  app.listen(HTTP_PORT, () => console.log(`SA: http://localhost:${HTTP_PORT} → https://localhost:${HTTPS_PORT}`));
 }
-app.listen(HTTP_PORT, () => console.log(`SA: http://localhost:${HTTP_PORT} → https://localhost:${HTTPS_PORT}`));
+module.exports = app;

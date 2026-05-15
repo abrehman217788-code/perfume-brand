@@ -211,17 +211,20 @@ app.use((req, res) => {
 
 
 
-if (process.env.PORT) {
-    app.listen(PORT, () => {
-        console.log(`TechNova server running on port ${PORT}`);
-    });
-} else {
-    if (sslOptions) {
-        https.createServer(sslOptions, app).listen(HTTPS_PORT, () => {
-            console.log(`TechNova secured server running at https://localhost:${HTTPS_PORT}`);
-        });
-    }
-    app.listen(PORT, () => {
-        console.log(`TechNova server running on http://localhost:${PORT}`);
-    });
+if (require.main === module) {
+  if (process.env.PORT) {
+      app.listen(PORT, () => {
+          console.log(`TechNova server running on port ${PORT}`);
+      });
+  } else {
+      if (sslOptions) {
+          https.createServer(sslOptions, app).listen(HTTPS_PORT, () => {
+              console.log(`TechNova secured server running at https://localhost:${HTTPS_PORT}`);
+          });
+      }
+      app.listen(PORT, () => {
+          console.log(`TechNova server running on http://localhost:${PORT}`);
+      });
+  }
 }
+module.exports = app;

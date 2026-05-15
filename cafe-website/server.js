@@ -202,6 +202,9 @@ app.post('/chat', (req, res) => {
   res.json({ reply });
 });
 
-app.listen(PORT, () => {
-  console.log(`Cafe Serenity running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Cafe Serenity running on http://localhost:${PORT}`);
+  });
+}
+module.exports = app;

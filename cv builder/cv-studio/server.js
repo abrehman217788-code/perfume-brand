@@ -358,25 +358,28 @@ function startSecureServer() {
 }
 
 // ── Start Server ──
-app.listen(PORT, () => {
-  console.log(`CV Studio Server running on http://localhost:${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  
-  // Auto-generate SSL cert for production
-  if (process.env.NODE_ENV === 'production') {
-    startSecureServer();
-  }
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`CV Studio Server running on http://localhost:${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    
+    // Auto-generate SSL cert for production
+    if (process.env.NODE_ENV === 'production') {
+      startSecureServer();
+    }
+  });
+}
 
-// ── Graceful Shutdown ──
-process.on('SIGTERM', () => {
-  console.log('SIGTERM received. Shutting down gracefully...');
-  process.exit(0);
-});
+if (require.main === module) {
+  process.on('SIGTERM', () => {
+    console.log('SIGTERM received. Shutting down gracefully...');
+    process.exit(0);
+  });
 
-process.on('SIGINT', () => {
-  console.log('SIGINT received. Shutting down gracefully...');
-  process.exit(0);
-});
+  process.on('SIGINT', () => {
+    console.log('SIGINT received. Shutting down gracefully...');
+    process.exit(0);
+  });
+}
 
 module.exports = app;

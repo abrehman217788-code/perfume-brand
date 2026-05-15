@@ -81,6 +81,9 @@ app.post('/api/reservations', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Lumina Cafe server running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Lumina Cafe server running on port ${PORT}`);
+  });
+}
+module.exports = app;
