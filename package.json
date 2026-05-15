@@ -1,0 +1,13 @@
+{
+  "name": "tech-company-website",
+  "version": "1.0.0",
+  "description": "TechNova Solutions - Enterprise Technology Website",
+  "main": "tech-company-website/server.js",
+  "scripts": {
+    "start": "node tech-company-website/server.js",
+    "postinstall": "cd tech-company-website && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -9,6 +9,7 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const HTTP_PORT = process.env.HTTP_PORT || 3080;
 const HTTPS_PORT = process.env.HTTPS_PORT || 3443;
+const PORT = process.env.PORT || HTTP_PORT;
 
 const sslPath = path.join(__dirname, 'ssl');
 let sslOptions = null;
@@ -210,17 +211,17 @@ app.use((req, res) => {
 
 
 
-if (sslOptions) {
-    https.createServer(sslOptions, app).listen(HTTPS_PORT, () => {
-        console.log(`TechNova secured server running at https://localhost:${HTTPS_PORT}`);
+if (process.env.PORT) {
+    app.listen(PORT, () => {
+        console.log(`TechNova server running on port ${PORT}`);
+    });
+} else {
+    if (sslOptions) {
+        https.createServer(sslOptions, app).listen(HTTPS_PORT, () => {
+            console.log(`TechNova secured server running at https://localhost:${HTTPS_PORT}`);
+        });
+    }
+    app.listen(PORT, () => {
+        console.log(`TechNova server running on http://localhost:${PORT}`);
     });
 }
-
-const httpApp = express();
-httpApp.use((req, res) => {
-    const host = req.headers.host?.replace(/:\d+$/, '') || 'localhost';
-    res.redirect(301, `https://${host}:${HTTPS_PORT}${req.url}`);
-});
-httpApp.listen(HTTP_PORT, () => {
-    console.log(`HTTP→HTTPS redirect on http://localhost:${HTTP_PORT}`);
-});
