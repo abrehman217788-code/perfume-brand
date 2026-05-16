@@ -26,7 +26,7 @@ function prefixMiddleware(prefix) {
   };
 }
 
-function main() {
+async function main() {
   const app = express();
 
   // Root - TechNova portfolio hub
@@ -54,8 +54,15 @@ function main() {
   const techApp = require('./tech-company-website/server');
   app.use('/tech', prefixMiddleware('tech'), techApp);
 
-  // E-commerce (static)
-  app.use('/ecommerce', express.static(path.join(__dirname, 'ecommerce-website')));
+  // E-commerce — full Express sub-app with API routes
+  try {
+    const { connectDB } = require('./ecommerce-website/config/db');
+    await connectDB();
+  } catch (err) {
+    console.warn('MongoDB not available — ecommerce API disabled');
+  }
+  const ecommerceApp = require('./ecommerce-website/server');
+  app.use('/ecommerce', ecommerceApp);
 
   // Perfume Brand (static fallback - Next.js requires separate deployment)
   const perfumeDir = path.join(__dirname, 'perfume-brand');
@@ -70,7 +77,7 @@ function main() {
     console.log(`  /cv-studio - CV Studio`);
     console.log(`  /lumina - Lumina Cafe`);
     console.log(`  /tech  - TechNova Solutions`);
-    console.log(`  /ecommerce - E-commerce site`);
+    console.log(`  /ecommerce - E-commerce site (Express API)`);
     console.log(`  /perfume - Auree Perfume`);
   });
 }
