@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB Rehman | Full Stack Web Developer</title>
+    <meta name="description" content="Portfolio of AB Rehman — Full Stack Web Developer specializing in modern web applications, e-commerce, and responsive design.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236366f1'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23fff' font-family='Arial' font-size='16' font-weight='bold'%3EAR%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<div id="loader">
+    <div class="loader-ring"></div>
+</div>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo"><span class="logo-mark">AR</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <div class="hero-badge">Full Stack Web Developer</div>
+        <h1 class="hero-title">Hi, I'm <span class="gradient-text">AB Rehman</span></h1>
+        <p class="hero-sub">I build modern, responsive web applications — from e-commerce platforms to enterprise solutions.</p>
+        <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> View My Work</a>
+            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
+        </div>
+        <div class="hero-contact-row">
+            <a href="tel:+923331940971"><i class="fa-solid fa-phone"></i> +92 3331940971</a>
+            <a href="mailto:ab.rehman217788@gmail.com"><i class="fa-solid fa-envelope"></i> ab.rehman217788@gmail.com</a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-tag">Portfolio</div>
+            <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+            <p class="section-desc">A selection of my best work — each project built with attention to performance, design, and user experience.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-up">
+                <div class="project-img" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+                    <div class="project-img-content">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>TechNova</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <h3 class="project-name">Tech Company Website</h3>
+                    <p class="project-desc">Enterprise technology company website with dark/light theme, interactive UI, and full services showcase.</p>
+                    <div class="project-links">
+                        <a href="../tech-company-website/index.html" class="project-link" target="_blank">View Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade-up">
+                <div class="project-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                    <div class="project-img-content">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>VELORA</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span>
+                    </div>
+                    <h3 class="project-name">E-Commerce Website</h3>
+                    <p class="project-desc">Full-featured e-commerce platform with cart, wishlist, checkout, admin panel, and product search.</p>
+                    <div class="project-links">
+                        <a href="../ecommerce-website/public/index.html" class="project-link" target="_blank">View Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade-up">
+                <div class="project-img" style="background: linear-gradient(135deg, #1a0a2e, #2d1b4e);">
+                    <div class="project-img-content">
+                        <i class="fa-solid fa-spray-can"></i>
+                        <span>Aurée</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-tags">
+                        <span>Next.js</span><span>TypeScript</span><span>Tailwind</span>
+                    </div>
+                    <h3 class="project-name">Perfume Brand Website</h3>
+                    <p class="project-desc">Luxury perfume brand site built with Next.js featuring fragrance finder, product catalog, and elegant UI.</p>
+                    <div class="project-links">
+                        <a href="../perfume-brand" class="project-link" target="_blank">View Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-content fade-up">
+                <div class="section-tag">About Me</div>
+                <h2 class="section-title">Crafting Digital <span class="accent">Experiences</span></h2>
+                <p>I'm a passionate full stack web developer with expertise in building modern, responsive websites and web applications. I specialize in creating digital solutions that combine clean design with robust functionality.</p>
+                <p>From e-commerce platforms and corporate websites to brand experiences — I bring ideas to life with clean, efficient code and a focus on user experience.</p>
+                <div class="skills-list">
+                    <span>HTML5 & CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>MongoDB</span>
+                    <span>Next.js</span>
+                    <span>React</span>
+                    <span>Responsive Design</span>
+                    <span>UI/UX</span>
+                    <span>REST APIs</span>
+                </div>
+            </div>
+            <div class="about-stats fade-up">
+                <div class="stat-card">
+                    <i class="fa-solid fa-code"></i>
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Years Exp.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info fade-up">
+                <div class="section-tag">Contact</div>
+                <h2 class="section-title">Let's Work <span class="accent">Together</span></h2>
+                <p>Have a project in mind? I'd love to hear about it. Reach out and let's create something great.</p>
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+923331940971">+92 3331940971</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:ab.rehman217788@gmail.com">ab.rehman217788@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <span class="contact-label">Location</span>
+                            <span>Pakistan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <form class="contact-form fade-up" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="formName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="formEmail" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="formMessage" rows="5" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2026 AB Rehman. All rights reserved.</p>
+            <p>Built with <i class="fa-solid fa-heart" style="color: #6366f1"></i> using HTML, CSS & JavaScript</p>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
